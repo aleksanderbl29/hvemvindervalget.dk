@@ -1,0 +1,35 @@
+[
+  {
+    "slug": "koebenhavn",
+    "name": "København",
+    "region": "Hovedstaden",
+    "leadingParty": "A",
+    "voteShare": 27.5,
+    "turnout": 69.2
+  },
+  {
+    "slug": "aarhus",
+    "name": "Aarhus",
+    "region": "Midtjylland",
+    "leadingParty": "B",
+    "voteShare": 21.1,
+    "turnout": 71.8
+  },
+  {
+    "slug": "odense",
+    "name": "Odense",
+    "region": "Syddanmark",
+    "leadingParty": "F",
+    "voteShare": 18.9,
+    "turnout": 67.4
+  },
+  {
+    "slug": "aalborg",
+    "name": "Aalborg",
+    "region": "Nordjylland",
+    "leadingParty": "V",
+    "voteShare": 23.2,
+    "turnout": 70.1
+  }
+]
+
