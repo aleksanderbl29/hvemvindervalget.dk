@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Høj valgdelta i storbyerne",
+    "description": "Turnout shock (+4pp) i København/Aarhus løfter A/F og ændrer magistratsfordelingen.",
+    "probability": 0.32,
+    "impactedParties": ["A", "F", "Ø"],
+    "chartSummary": {
+      "id": "scenario-urban-turnout",
+      "title": "Følsomhed: Turnout +4pp i storbyer",
+      "description": "Monte Carlo-distribution af mandater når storby-turnout accelererer.",
+      "updatedAt": "2025-02-04T14:00:00Z",
+      "dataSource": "Scenario engine v0.1",
+      "unit": "Mandater",
+      "tags": ["scenarier", "turnout"],
+      "plotlySpec": {
+        "version": "2.27.0",
+        "data": [
+          {
+            "type": "scatter",
+            "mode": "lines",
+            "x": [0, 10, 20, 30, 40, 50],
+            "y": [0, 5, 15, 30, 45, 60],
+            "line": {"color": "#ef4444", "width": 3}
+          }
+        ],
+        "layout": {
+          "paper_bgcolor": "rgba(0,0,0,0)",
+          "plot_bgcolor": "rgba(0,0,0,0)",
+          "title": {"text": "Mandat-følsomhed"}
+        },
+        "config": {"displayModeBar": false}
+      }
+    }
+  },
+  {
+    "name": "Blå blok mobiliserer forstæderne",
+    "description": "Pendlerkommuner skifter 2pp mod V/K, hvilket tipper regionsråd.",
+    "probability": 0.24,
+    "impactedParties": ["V", "K", "O"]
+  }
+]
+

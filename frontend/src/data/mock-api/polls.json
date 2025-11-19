@@ -1,0 +1,84 @@
+[
+  {
+    "pollster": "Epinion",
+    "conductedAt": "2025-02-03T09:30:00Z",
+    "sampleSize": 1478,
+    "methodology": "CATI + online panel",
+    "parties": [
+      { "party": "A", "value": 26.1 },
+      { "party": "B", "value": 22.6 },
+      { "party": "V", "value": 17.9 },
+      { "party": "O", "value": 11.4 },
+      { "party": "F", "value": 7.9 },
+      { "party": "K", "value": 6.3 }
+    ],
+    "chartSummary": {
+      "id": "polls-epinion-distribution",
+      "title": "Epinion partiandel",
+      "description": "Direkte eksport fra R-Plotly viser partifordelingen i seneste måling.",
+      "updatedAt": "2025-02-03T09:30:00Z",
+      "dataSource": "epinion/ritzau",
+      "unit": "Procent",
+      "tags": ["polls", "epinion"],
+      "plotlySpec": {
+        "version": "2.27.0",
+        "data": [
+          {
+            "type": "bar",
+            "x": ["A", "B", "V", "O", "F", "K"],
+            "y": [26.1, 22.6, 17.9, 11.4, 7.9, 6.3],
+            "marker": { "color": "#6366f1" }
+          }
+        ],
+        "layout": {
+          "title": {"text": "Epinion (uge 5)"},
+          "paper_bgcolor": "rgba(0,0,0,0)",
+          "plot_bgcolor": "rgba(0,0,0,0)"
+        },
+        "config": { "displayModeBar": false }
+      }
+    }
+  },
+  {
+    "pollster": "Verian",
+    "conductedAt": "2025-01-27T09:30:00Z",
+    "sampleSize": 1320,
+    "methodology": "Webpanel (CAWI)",
+    "parties": [
+      { "party": "A", "value": 25.1 },
+      { "party": "B", "value": 22.4 },
+      { "party": "V", "value": 18.7 },
+      { "party": "O", "value": 10.5 },
+      { "party": "F", "value": 8.2 },
+      { "party": "K", "value": 6.8 }
+    ],
+    "chartSummary": {
+      "id": "polls-verian-distribution",
+      "title": "Verian partiandel",
+      "description": "Standardiseret eksport fra R viser partifordelingen i seneste Verian-måling.",
+      "updatedAt": "2025-01-27T09:30:00Z",
+      "dataSource": "verian",
+      "unit": "Procent",
+      "tags": ["polls", "verian"],
+      "plotlySpec": {
+        "version": "2.27.0",
+        "data": [
+          {
+            "type": "scatter",
+            "mode": "lines+markers",
+            "x": ["A", "B", "V", "O", "F", "K"],
+            "y": [25.1, 22.4, 18.7, 10.5, 8.2, 6.8],
+            "line": {"shape": "spline", "color": "#0ea5e9"}
+          }
+        ],
+        "layout": {
+          "title": {"text": "Verian (uge 4)"},
+          "paper_bgcolor": "rgba(0,0,0,0)",
+          "plot_bgcolor": "rgba(0,0,0,0)"
+        },
+        "config": {"displayModeBar": false}
+      }
+    }
+  }
+]
+

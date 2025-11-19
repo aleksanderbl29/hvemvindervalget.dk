@@ -24,17 +24,17 @@ tar_option_set(
   controller = crew::crew_controller_local(
     workers = parallel::detectCores(),
     seconds_idle = 60
-  )
-  repository = "aws",
-  repository_meta = "aws",
-  resources = tar_resources(
-    aws = tar_resources_aws(
-      bucket = "kommunalvalg-2025-tyjhq",
-      prefix = "targets",
-      region = "weur",
-      endpoint = "https://f6d1d15e6f0b37b4b8fcad3c41a7922d.r2.cloudflarestorage.com"
-    )
-  )
+  ),
+  # repository = "aws",
+  # repository_meta = "aws",
+  # resources = tar_resources(
+  #   aws = tar_resources_aws(
+  #     bucket = "kommunalvalg-2025-tyjhq",
+  #     prefix = "targets",
+  #     region = "weur",
+  #     endpoint = "https://f6d1d15e6f0b37b4b8fcad3c41a7922d.r2.cloudflarestorage.com"
+  #   )
+  # )
 )
 tar_source()
 

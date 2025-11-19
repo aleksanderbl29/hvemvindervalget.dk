@@ -2,6 +2,19 @@
 .Rhistory
 .RData
 .Ruserdata
+node_modules/
+.next/
+.turbo/
+.vercel/
+frontend/.next/
+frontend/node_modules/
+frontend/.turbo/
+frontend/.vercel/
+
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
 
 *.md
 !README.md
