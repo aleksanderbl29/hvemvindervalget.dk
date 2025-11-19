@@ -64,8 +64,8 @@ export default function RootLayout({
             panelBackground="solid"
             radius="large"
           >
-            <div className="bg-amber-50 border-b border-amber-200 px-4 py-1.5 text-center text-xs text-amber-800">
-              <span className="font-semibold">Disclaimer:</span> Dette projekt er work in progress. Data på siden er falske og blot til brug i udvikling af websiden. Kom tilbage senere!
+            <div className="bg-amber-50 border-b-2 border-amber-300 px-6 py-5 text-center text-lg font-medium text-amber-900">
+              <span className="font-bold text-xl">Disclaimer:</span> Dette projekt er work in progress. Data på siden er falske og blot til brug i udvikling af websiden. Kom tilbage senere!
             </div>
             {children}
           </Theme>
