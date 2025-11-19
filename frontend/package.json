@@ -1,9 +1,8 @@
 {
-  "name": "frontend",
+  "name": "hvemvindervalget.dk - frontend",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "prebuild": "node -e \"console.log('[build-info] Node version:', process.version); console.log('[build-info] Platform:', process.platform + '/' + process.arch);\"",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
