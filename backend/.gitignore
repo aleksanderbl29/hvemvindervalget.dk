@@ -1,0 +1,14 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+*.md
+!README.md
+
+mails
+.obsidian
+
+x
+model
+prior
