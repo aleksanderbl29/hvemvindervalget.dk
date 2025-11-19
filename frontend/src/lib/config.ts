@@ -3,6 +3,7 @@ import { z } from "zod";
 const chartLibraryOptions = ["plotly", "echarts", "chartjs", "vega-lite"] as const;
 
 const envSchema = z.object({
+  // Client-side (exposed to browser)
   NEXT_PUBLIC_API_BASE_URL: z
     .string()
     .trim()
@@ -18,8 +19,7 @@ const envSchema = z.object({
 });
 
 const parsed = envSchema.safeParse({
-  NEXT_PUBLIC_API_BASE_URL:
-    process.env.NEXT_PUBLIC_API_BASE_URL ?? process.env.API_BASE_URL,
+  NEXT_PUBLIC_API_BASE_URL: process.env.NEXT_PUBLIC_API_BASE_URL,
   NEXT_PUBLIC_USE_STUB_DATA:
     (process.env.NEXT_PUBLIC_USE_STUB_DATA ??
       process.env.USE_STUB_DATA ??
@@ -38,8 +38,16 @@ const fallback = envSchema.parse({});
 
 const env = parsed.success ? parsed.data : fallback;
 
+// Use server-side URL if available (server-side only), otherwise fall back to public URL
+// This allows server-side code to use internal URLs while client-side uses public URLs
+const getApiBaseUrl = () => {
+  // On server-side, prefer API_BASE_URL if set, otherwise use NEXT_PUBLIC_API_BASE_URL
+  // On client-side, only NEXT_PUBLIC_API_BASE_URL is available
+  return process.env.API_BASE_URL ?? env.NEXT_PUBLIC_API_BASE_URL;
+};
+
 export const runtimeConfig = {
-  apiBaseUrl: env.NEXT_PUBLIC_API_BASE_URL,
+  apiBaseUrl: getApiBaseUrl(),
   useStubData: env.NEXT_PUBLIC_USE_STUB_DATA,
   telemetryEnabled: false as const,
   chartLibrary: env.NEXT_PUBLIC_CHART_LIBRARY,
