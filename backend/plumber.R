@@ -17,7 +17,7 @@
 #* @serializer html
 #*
 function() {
-  "<html><h1>Velkommen til Aleksanders kommunalvalg 2025 analyse API</h1></html>"
+  "<html><h1 style='color: green;'>Velkommen til Aleksanders kommunalvalg 2025 analyse API</h1></html>"
 }
 
 #* Run the pipeline
