@@ -7,6 +7,7 @@ const links = [
   { href: "/", label: "Overblik", match: /^\/$/ },
   { href: "/polls", label: "Meningsmålinger", match: /^\/polls/ },
   { href: "/scenarier", label: "Scenarier", match: /^\/scenarier/ },
+  { href: "/metoder", label: "Metoder", match: /^\/metoder/ },
   { href: "/kommuner/koebenhavn", label: "Kommuner", match: /^\/kommuner/ },
 ];
 
