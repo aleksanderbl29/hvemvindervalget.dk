@@ -72,7 +72,7 @@ export default function RootLayout({
             {children}
           </Theme>
         </Providers>
-        <Analytics />
+        <Analytics endpoint="https://hvemvindervalget.dk/_backend/insights" />
         <SpeedInsights />
       </body>
     </html>
