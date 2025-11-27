@@ -108,7 +108,7 @@ export const partyLeaders: PartyLeader[] = [
     partyName: "Dansk Folkeparti",
     leaderName: "Morten Messerschmidt",
     imageUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Morten_Messerschmidt_in_2025.jpg/500px-Morten_Messerschmidt_in_2025.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Morten_Messerschmidt%2C_portr%C3%A6t_2023.jpg/640px-Morten_Messerschmidt%2C_portr%C3%A6t_2023.jpg",
     percentage: 2.6,
   },
 ];
