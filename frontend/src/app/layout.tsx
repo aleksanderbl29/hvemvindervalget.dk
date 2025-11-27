@@ -5,6 +5,8 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { Providers } from "./providers";
+import { WaitingPage } from "@/components/WaitingPage";
+import { runtimeConfig } from "@/lib/config";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -54,24 +56,30 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const isWaitingMode = runtimeConfig.waitingMode;
+
   return (
     <html lang="da">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-50 text-slate-900`}
       >
-        <Providers>
-          <Theme
-            accentColor="iris"
-            grayColor="slate"
-            panelBackground="solid"
-            radius="large"
-          >
-            <div className="bg-amber-50 border-b-2 border-amber-300 px-8 py-6 text-center text-xl font-medium text-amber-900">
-              <span className="font-bold text-2xl">Disclaimer:</span> Dette projekt er work in progress. Data på siden er falske og blot til brug i udvikling af websiden. Kom tilbage senere!
-            </div>
-            {children}
-          </Theme>
-        </Providers>
+        {isWaitingMode ? (
+          <WaitingPage />
+        ) : (
+          <Providers>
+            <Theme
+              accentColor="iris"
+              grayColor="slate"
+              panelBackground="solid"
+              radius="large"
+            >
+              <div className="bg-amber-50 border-b-2 border-amber-300 px-8 py-6 text-center text-xl font-medium text-amber-900">
+                <span className="font-bold text-2xl">Disclaimer:</span> Dette projekt er work in progress. Data på siden er falske og blot til brug i udvikling af websiden. Kom tilbage senere!
+              </div>
+              {children}
+            </Theme>
+          </Providers>
+        )}
         <Analytics endpoint="https://hvemvindervalget.dk/_backend/insights" />
         <SpeedInsights />
       </body>

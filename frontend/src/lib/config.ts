@@ -16,6 +16,10 @@ const envSchema = z.object({
   NEXT_PUBLIC_CHART_LIBRARY: z
     .enum(chartLibraryOptions)
     .default("plotly"),
+  NEXT_PUBLIC_WAITING_MODE: z
+    .enum(["true", "false"])
+    .default("false")
+    .transform((value) => value === "true"),
 });
 
 const parsed = envSchema.safeParse({
@@ -25,6 +29,8 @@ const parsed = envSchema.safeParse({
       process.env.USE_STUB_DATA ??
       "true") as "true" | "false",
   NEXT_PUBLIC_CHART_LIBRARY: process.env.NEXT_PUBLIC_CHART_LIBRARY as (typeof chartLibraryOptions)[number] | undefined,
+  NEXT_PUBLIC_WAITING_MODE:
+    (process.env.NEXT_PUBLIC_WAITING_MODE ?? "true") as "true" | "false",
 });
 
 if (!parsed.success) {
@@ -51,5 +57,6 @@ export const runtimeConfig = {
   useStubData: env.NEXT_PUBLIC_USE_STUB_DATA,
   telemetryEnabled: false as const,
   chartLibrary: env.NEXT_PUBLIC_CHART_LIBRARY,
+  waitingMode: env.NEXT_PUBLIC_WAITING_MODE,
 } as const;
 
