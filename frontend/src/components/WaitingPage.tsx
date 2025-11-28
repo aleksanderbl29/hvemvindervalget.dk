@@ -14,7 +14,11 @@ export function WaitingPage() {
     setLeader(selected);
     console.log(
       "[waiting-page] Showing holding screen for",
-      `${selected.leaderName} (${selected.partyLetter})`,
+      `${selected.partyName} (${selected.partyLetter})`,
+      "led by",
+      selected.leaderName,
+      "- share:",
+      `${selected.percentage.toFixed(1)}%`,
     );
     // Trigger entrance animation
     const timer = setTimeout(() => setIsVisible(true), 50);
@@ -33,6 +37,14 @@ export function WaitingPage() {
   return (
     <div className="waiting-page">
       <main className={`waiting-content ${isVisible ? "waiting-content--visible" : ""}`}>
+        <header className="waiting-hero">
+          <h1 className="waiting-hero-title">Hvem vinder valget?</h1>
+          {/* <p className="waiting-hero-subtitle">
+            Vi finjusterer prognosemodellen lige nu. Kom tilbage snart for at se de
+            første resultater og følg, hvem der står stærkest på valgaftenen.
+          </p> */}
+        </header>
+
         <div className="waiting-image-container">
           <div className="waiting-image-glow" />
           {!imageError ? (
@@ -65,7 +77,7 @@ export function WaitingPage() {
 
         <footer className="waiting-footer">
           <p className="waiting-footer-text">
-            Hvem vinder valget? Kommer snart...
+            Prognosemodellen er under udvikling og vil blive offentliggjort snart...
           </p>
           <div className="waiting-footer-dots">
             <span className="waiting-dot" style={{ animationDelay: "0ms" }} />
@@ -107,13 +119,42 @@ export function WaitingPage() {
           flex-direction: column;
           align-items: center;
           text-align: center;
-          gap: 1rem;
+          gap: 1.25rem;
           padding: 1.5rem;
           width: 100%;
           max-width: 100vw;
           opacity: 0;
           transform: translateY(20px);
           transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .waiting-hero {
+          max-width: 640px;
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          font-family: var(--font-geist-sans), system-ui;
+        }
+
+        .waiting-hero-tagline {
+          text-transform: uppercase;
+          letter-spacing: 0.3em;
+          font-size: 0.75rem;
+          color: rgba(255, 255, 255, 0.35);
+        }
+
+        .waiting-hero-title {
+          font-size: clamp(2.5rem, 8vw, 3.8rem);
+          font-weight: 700;
+          color: #f8fafc;
+          margin: 0;
+        }
+
+        .waiting-hero-subtitle {
+          font-size: 1rem;
+          line-height: 1.6;
+          color: rgba(255, 255, 255, 0.65);
+          margin: 0;
         }
 
         .waiting-content--visible {
@@ -235,6 +276,18 @@ export function WaitingPage() {
         @media (max-width: 640px) {
           .waiting-content {
             padding: 1rem;
+          }
+
+          .waiting-hero {
+            gap: 0.4rem;
+          }
+
+          .waiting-hero-title {
+            font-size: clamp(2rem, 10vw, 2.8rem);
+          }
+
+          .waiting-hero-subtitle {
+            font-size: 0.95rem;
           }
 
           .waiting-image-container {
