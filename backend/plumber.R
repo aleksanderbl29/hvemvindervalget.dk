@@ -32,7 +32,7 @@ function() {
 
 #* Get polls
 #*
-#* @get /pipeline/polls
+#* @get /polls
 #*
 function() {
   tar_read(polls)
