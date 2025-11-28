@@ -25,16 +25,16 @@ tar_option_set(
     workers = parallel::detectCores(),
     seconds_idle = 60
   ),
-  # repository = "aws",
-  # repository_meta = "aws",
-  # resources = tar_resources(
-  #   aws = tar_resources_aws(
-  #     bucket = "kommunalvalg-2025-tyjhq",
-  #     prefix = "targets",
-  #     region = "weur",
-  #     endpoint = "https://f6d1d15e6f0b37b4b8fcad3c41a7922d.r2.cloudflarestorage.com"
-  #   )
-  # )
+  repository = "aws", # It is actually not on AWS, but just uses S3.
+  repository_meta = "aws", # It is actually not on AWS, but just uses S3.
+  resources = tar_resources(
+    aws = tar_resources_aws(
+      bucket = Sys.getenv("backend_s3_bucket_name"),
+      prefix = Sys.getenv("backend_s3_bucket_prefix"),
+      region = Sys.getenv("backend_s3_bucket_region"),
+      endpoint = Sys.getenv("backend_s3_bucket_endpoint")
+    )
+  )
 )
 tar_source()
 
