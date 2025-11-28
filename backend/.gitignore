@@ -12,3 +12,6 @@ mails
 x
 model
 prior
+
+# Environment variables
+.env
