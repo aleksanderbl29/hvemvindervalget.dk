@@ -104,7 +104,15 @@ list(
     read_gallup_excel(!!.x)
   ),
   ## Epinion
-  tar_group_by(epinion_poll_list, get_epinion_poll_list(), id),
+  tar_url(
+    epinion_poll_list_url,
+    "https://www.dr.dk/nyheder/politik/meningsmaalinger/api/opinionPollData"
+  ),
+  tar_group_by(
+    epinion_poll_list,
+    get_epinion_poll_list(epinion_poll_list_url),
+    id
+  ),
   tar_target(
     epinion_polls,
     get_epinion_polls(epinion_poll_list, parties),
