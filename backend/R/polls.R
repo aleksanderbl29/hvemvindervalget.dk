@@ -58,5 +58,6 @@ bind_polls <- function(
       by = "poll_date"
     ) |>
     mutate(days_out = as.difftime(days_out, units = "days")) |>
-    select(-starts_with(c("ttl", "kv")))
+    select(-starts_with(c("ttl", "kv"))) |>
+    arrange(desc(poll_date))
 }
