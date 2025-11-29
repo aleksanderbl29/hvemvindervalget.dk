@@ -35,7 +35,7 @@ function() {
 #* @get /polls
 #*
 function() {
-  tar_read(polls)
+  targets::tar_read(polls)
 }
 
 #* Echo back the input
