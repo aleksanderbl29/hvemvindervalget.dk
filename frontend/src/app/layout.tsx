@@ -1,12 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Theme } from "@radix-ui/themes";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { Providers } from "./providers";
 import { WaitingPage } from "@/components/WaitingPage";
 import { runtimeConfig } from "@/lib/config";
+import { VercelAnalytics } from "@/lib/analytics";
+import { VercelSpeedInsights } from "@/lib/speed-insights";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -57,7 +57,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const isWaitingMode = runtimeConfig.waitingMode;
-  const analyticsProxyPath = runtimeConfig.analyticsProxyPath;
 
   return (
     <html lang="da">
@@ -81,14 +80,8 @@ export default function RootLayout({
             </Theme>
           </Providers>
         )}
-        <Analytics
-          endpoint={`/${analyticsProxyPath}/analytics`}
-          scriptSrc={`/${analyticsProxyPath}/analytics/script.js`}
-        />
-        <SpeedInsights
-          endpoint={`/${analyticsProxyPath}/speed`}
-          scriptSrc={`/${analyticsProxyPath}/speed/script.js`}
-        />
+        <VercelAnalytics />
+        <VercelSpeedInsights />
       </body>
     </html>
   );

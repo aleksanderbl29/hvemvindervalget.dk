@@ -23,18 +23,16 @@ const nextConfig: NextConfig = {
     ],
   },
   async rewrites() {
-    return {
-      beforeFiles: [
-        {
-          source: `/${analyticsProxyPath}/analytics/:path*`,
-          destination: "/_vercel/insights/:path*",
-        },
-        {
-          source: `/${analyticsProxyPath}/speed/:path*`,
-          destination: "/_vercel/speed-insights/:path*",
-        },
-      ],
-    };
+    return [
+      {
+        source: `/${analyticsProxyPath}/analytics/:path*`,
+        destination: "https://hvemvindervalget.dk/_vercel/insights/:path*",
+      },
+      {
+        source: `/${analyticsProxyPath}/speed/:path*`,
+        destination: "https://hvemvindervalget.dk/_vercel/speed-insights/:path*",
+      },
+    ];
   },
 };
 
