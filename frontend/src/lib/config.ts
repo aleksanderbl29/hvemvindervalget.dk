@@ -20,6 +20,10 @@ const envSchema = z.object({
     .enum(["true", "false"])
     .default("false")
     .transform((value) => value === "true"),
+  NEXT_PUBLIC_ANALYTICS_PROXY_PATH: z
+    .string()
+    .trim()
+    .default("_backend"),
 });
 
 const parsed = envSchema.safeParse({
@@ -31,6 +35,7 @@ const parsed = envSchema.safeParse({
   NEXT_PUBLIC_CHART_LIBRARY: process.env.NEXT_PUBLIC_CHART_LIBRARY as (typeof chartLibraryOptions)[number] | undefined,
   NEXT_PUBLIC_WAITING_MODE:
     (process.env.NEXT_PUBLIC_WAITING_MODE ?? "true") as "true" | "false",
+  NEXT_PUBLIC_ANALYTICS_PROXY_PATH: process.env.NEXT_PUBLIC_ANALYTICS_PROXY_PATH,
 });
 
 if (!parsed.success) {
@@ -58,5 +63,6 @@ export const runtimeConfig = {
   telemetryEnabled: false as const,
   chartLibrary: env.NEXT_PUBLIC_CHART_LIBRARY,
   waitingMode: env.NEXT_PUBLIC_WAITING_MODE,
+  analyticsProxyPath: env.NEXT_PUBLIC_ANALYTICS_PROXY_PATH,
 } as const;
 

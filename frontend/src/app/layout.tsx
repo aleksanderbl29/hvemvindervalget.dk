@@ -57,6 +57,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const isWaitingMode = runtimeConfig.waitingMode;
+  const analyticsProxyPath = runtimeConfig.analyticsProxyPath;
 
   return (
     <html lang="da">
@@ -80,8 +81,14 @@ export default function RootLayout({
             </Theme>
           </Providers>
         )}
-        <Analytics endpoint="https://hvemvindervalget.dk/_backend/insights" />
-        <SpeedInsights />
+        <Analytics
+          endpoint={`https://hvemvindervalget.dk/${analyticsProxyPath}/analytics`}
+          scriptSrc={`https://hvemvindervalget.dk/${analyticsProxyPath}/analytics/script.js`}
+        />
+        <SpeedInsights
+          endpoint={`https://hvemvindervalget.dk/${analyticsProxyPath}/speed`}
+          scriptSrc={`https://hvemvindervalget.dk/${analyticsProxyPath}/speed/script.js`}
+        />
       </body>
     </html>
   );
