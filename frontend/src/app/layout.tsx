@@ -82,12 +82,12 @@ export default function RootLayout({
           </Providers>
         )}
         <Analytics
-          endpoint={`https://hvemvindervalget.dk/${analyticsProxyPath}/analytics`}
-          scriptSrc={`https://hvemvindervalget.dk/${analyticsProxyPath}/analytics/script.js`}
+          endpoint={`/${analyticsProxyPath}/analytics`}
+          scriptSrc={`/${analyticsProxyPath}/analytics/script.js`}
         />
         <SpeedInsights
-          endpoint={`https://hvemvindervalget.dk/${analyticsProxyPath}/speed`}
-          scriptSrc={`https://hvemvindervalget.dk/${analyticsProxyPath}/speed/script.js`}
+          endpoint={`/${analyticsProxyPath}/speed`}
+          scriptSrc={`/${analyticsProxyPath}/speed/script.js`}
         />
       </body>
     </html>
