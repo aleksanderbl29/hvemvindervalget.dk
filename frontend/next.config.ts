@@ -23,16 +23,18 @@ const nextConfig: NextConfig = {
     ],
   },
   async rewrites() {
-    return [
-      {
-        source: `/${analyticsProxyPath}/analytics/:path*`,
-        destination: "/_vercel/insights/:path*",
-      },
-      {
-        source: `/${analyticsProxyPath}/speed/:path*`,
-        destination: "/_vercel/insights/:path*",
-      },
-    ];
+    return {
+      beforeFiles: [
+        {
+          source: `/${analyticsProxyPath}/analytics/:path*`,
+          destination: "/_vercel/insights/:path*",
+        },
+        {
+          source: `/${analyticsProxyPath}/speed/:path*`,
+          destination: "/_vercel/speed-insights/:path*",
+        },
+      ],
+    };
   },
 };
 
