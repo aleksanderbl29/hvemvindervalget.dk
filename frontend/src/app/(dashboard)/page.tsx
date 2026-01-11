@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery } from "convex/react";
-import { api } from "../convex/_generated/api";
+import { api } from "@convex/_generated/api";
 import { NationalOverviewSection } from "@/components/sections/NationalOverview";
 import { MunicipalityTable } from "@/components/sections/MunicipalityTable";
 import { PollsSpotlight } from "@/components/sections/PollsSpotlight";

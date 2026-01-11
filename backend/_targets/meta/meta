@@ -1655,7 +1655,7 @@ dst_areas_filter|object|3ca180c6b7318285
 get_mcp_daycare_pricing|function|f742134da2cb521f
 api_sleep_time|object|4c24ace52f56fa79
 tar_view|function|b54f270ef20e7ddf
-.Random.seed|object|81e26f7bbb803fe4
+.Random.seed|object|23af165aaf1272f2
 read_election_dates|function|91270855790e5e6e
 get_epinion_poll_list|function|78cce78de493ad82
 get_parties|function|755c494b8d67004a
