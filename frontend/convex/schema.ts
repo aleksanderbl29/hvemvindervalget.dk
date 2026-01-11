@@ -123,4 +123,16 @@ export default defineSchema({
       }),
     ),
   }).index("by_probability", ["probability"]),
+
+  current_election_results: defineTable({
+    afstemningsomrade: v.string(),
+    bogstavbetegnelse: v.string(),
+    listenavn: v.string(),
+    navn: v.string(),
+    stemmetal: v.number(),
+    municipality: v.string(),
+    last_pull: v.string(),
+  })
+    .index("by_municipality", ["municipality"])
+    .index("by_last_pull", ["last_pull"]),
 });
