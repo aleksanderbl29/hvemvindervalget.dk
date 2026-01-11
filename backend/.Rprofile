@@ -2,6 +2,7 @@ if (requireNamespace("rprofile", quietly = TRUE)) {
   rprofile::load()
 }
 source("renv/activate.R")
+options(renv.config.pak.enabled = FALSE)
 
 if (interactive()) {
   source("~/.Rprofile")
