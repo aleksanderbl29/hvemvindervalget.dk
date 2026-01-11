@@ -9,6 +9,11 @@ const envSchema = z.object({
     .trim()
     .url()
     .default("https://api.hvemvindervalget.dk"),
+  NEXT_PUBLIC_CONVEX_URL: z
+    .string()
+    .trim()
+    .url()
+    .optional(),
   NEXT_PUBLIC_USE_STUB_DATA: z
     .enum(["true", "false"])
     .default("true")
@@ -28,6 +33,7 @@ const envSchema = z.object({
 
 const parsed = envSchema.safeParse({
   NEXT_PUBLIC_API_BASE_URL: process.env.NEXT_PUBLIC_API_BASE_URL,
+  NEXT_PUBLIC_CONVEX_URL: process.env.NEXT_PUBLIC_CONVEX_URL,
   NEXT_PUBLIC_USE_STUB_DATA:
     (process.env.NEXT_PUBLIC_USE_STUB_DATA ??
       process.env.USE_STUB_DATA ??
@@ -59,6 +65,7 @@ const getApiBaseUrl = () => {
 
 export const runtimeConfig = {
   apiBaseUrl: getApiBaseUrl(),
+  convexUrl: env.NEXT_PUBLIC_CONVEX_URL,
   useStubData: env.NEXT_PUBLIC_USE_STUB_DATA,
   telemetryEnabled: false as const,
   chartLibrary: env.NEXT_PUBLIC_CHART_LIBRARY,
