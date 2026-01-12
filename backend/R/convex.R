@@ -43,22 +43,26 @@ convex_upload <- function(
   # Prepare request body
   body <- list(
     table = table,
-    data = csv_string,
-    secretToken = secret_token
+    data = csv_string
   )
 
   # Make HTTP POST request to Convex
   response <- httr2::request(convex_url) |>
     httr2::req_method("POST") |>
-    httr2::req_headers("Content-Type" = "application/json") |>
+    httr2::req_headers(
+      "Content-Type" = "application/json",
+      "Authorization" = paste("Convex", secret_token)
+    ) |>
     httr2::req_body_json(body) |>
+    httr2::req_retry(max_tries = 3, backoff = ~ 2 ^ .x) |>
+    httr2::req_timeout(seconds = 300) |>
     httr2::req_perform()
 
   # Check response status
   status <- httr2::resp_status(response)
   if (status >= 400) {
     body_text <- httr2::resp_body_string(response)
-    warning(
+    stop(
       paste0(
         "Convex upload failed with status ", status, ": ", body_text
       )

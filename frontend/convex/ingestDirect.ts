@@ -1,7 +1,8 @@
 import { httpAction } from "./_generated/server";
-import { v } from "convex/values";
 import Papa from "papaparse";
 import { api } from "./_generated/api";
+import { mapCsvToSchema } from "./utils/schemaMapper";
+import { timingSafeEqual } from "crypto";
 
 export const ingestDirect = httpAction(async (ctx, request) => {
   // Only allow POST requests
@@ -10,26 +11,7 @@ export const ingestDirect = httpAction(async (ctx, request) => {
   }
 
   try {
-    const body = await request.json();
-    const {
-      table,
-      data,
-      secretToken,
-    }: {
-      table: string;
-      data: string | Record<string, unknown>[];
-      secretToken?: string;
-    } = body;
-
-    // Validate required fields
-    if (!table || !data) {
-      return new Response(
-        JSON.stringify({ error: "Missing required fields: table, data" }),
-        { status: 400, headers: { "Content-Type": "application/json" } },
-      );
-    }
-
-    // Authenticate using secret token
+    // Authenticate using secret token from Authorization header
     const expectedToken = process.env.CONVEX_INGEST_SECRET_TOKEN;
     if (!expectedToken) {
       return new Response(
@@ -38,11 +20,58 @@ export const ingestDirect = httpAction(async (ctx, request) => {
       );
     }
 
-    if (secretToken !== expectedToken) {
+    // Extract token from Authorization header (format: "Convex <token>")
+    const authHeader = request.headers.get("Authorization");
+    if (!authHeader) {
+      return new Response(JSON.stringify({ error: "Missing Authorization header" }), {
+        status: 401,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
+    const authParts = authHeader.split(" ");
+    if (authParts.length !== 2 || authParts[0] !== "Convex") {
       return new Response(JSON.stringify({ error: "Unauthorized" }), {
         status: 401,
         headers: { "Content-Type": "application/json" },
       });
+    }
+
+    // Use timing-safe comparison for token
+    const providedToken = authParts[1];
+    const expectedBuffer = Buffer.from(expectedToken, "utf8");
+    const providedBuffer = Buffer.from(providedToken, "utf8");
+
+    // Ensure buffers are the same length for timing-safe comparison
+    if (expectedBuffer.length !== providedBuffer.length) {
+      return new Response(JSON.stringify({ error: "Unauthorized" }), {
+        status: 401,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
+    if (!timingSafeEqual(expectedBuffer, providedBuffer)) {
+      return new Response(JSON.stringify({ error: "Unauthorized" }), {
+        status: 401,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
+    const body = await request.json();
+    const {
+      table,
+      data,
+    }: {
+      table: string;
+      data: string | Record<string, unknown>[];
+    } = body;
+
+    // Validate required fields
+    if (!table || !data) {
+      return new Response(
+        JSON.stringify({ error: "Missing required fields: table, data" }),
+        { status: 400, headers: { "Content-Type": "application/json" } },
+      );
     }
 
     // Parse data - can be CSV string or JSON array
@@ -121,66 +150,3 @@ export const ingestDirect = httpAction(async (ctx, request) => {
   }
 });
 
-// Helper function to map records to Convex schema
-function mapCsvToSchema(
-  table: string,
-  record: Record<string, unknown>,
-): Record<string, unknown> | null {
-  switch (table) {
-    case "national_overview":
-      return {
-        lastUpdated: String(record.lastUpdated || record.last_updated || new Date().toISOString()),
-        turnoutEstimate: Number(record.turnoutEstimate || record.turnout_estimate || 0),
-        uncertainty: Number(record.uncertainty || 0),
-        partyProjections: Array.isArray(record.partyProjections)
-          ? record.partyProjections
-          : JSON.parse(String(record.partyProjections || record.party_projections || "[]")),
-        scenarioNotes: Array.isArray(record.scenarioNotes)
-          ? record.scenarioNotes
-          : JSON.parse(String(record.scenarioNotes || record.scenario_notes || "[]")),
-        primaryChart: record.primaryChart
-          ? JSON.parse(String(record.primaryChart || record.primary_chart))
-          : undefined,
-      };
-
-    case "municipality_snapshots":
-      return {
-        slug: String(record.slug || ""),
-        name: String(record.name || ""),
-        region: String(record.region || ""),
-        leadingParty: String(record.leadingParty || record.leading_party || ""),
-        voteShare: Number(record.voteShare || record.vote_share || 0),
-        turnout: Number(record.turnout || 0),
-      };
-
-    case "polls":
-      return {
-        pollster: String(record.pollster || ""),
-        conductedAt: String(record.conductedAt || record.conducted_at || ""),
-        sampleSize: Number(record.sampleSize || record.sample_size || 0),
-        methodology: String(record.methodology || ""),
-        parties: Array.isArray(record.parties)
-          ? record.parties
-          : JSON.parse(String(record.parties || "[]")),
-        chartSummary: record.chartSummary
-          ? JSON.parse(String(record.chartSummary || record.chart_summary))
-          : undefined,
-      };
-
-    case "scenarios":
-      return {
-        name: String(record.name || ""),
-        description: String(record.description || ""),
-        probability: Number(record.probability || 0),
-        impactedParties: Array.isArray(record.impactedParties)
-          ? record.impactedParties
-          : JSON.parse(String(record.impactedParties || record.impacted_parties || "[]")),
-        chartSummary: record.chartSummary
-          ? JSON.parse(String(record.chartSummary || record.chart_summary))
-          : undefined,
-      };
-
-    default:
-      return null;
-  }
-}
