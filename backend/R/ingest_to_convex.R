@@ -19,28 +19,12 @@ ingest_to_convex <- function(
     endpoint = NULL,
     convex_url = NULL,
     secret_token = NULL) {
-  # Validate required parameters
-  if (is.null(bucket) || bucket == "") {
-    stop("bucket must be a non-empty string")
-  }
-  if (is.null(key) || key == "") {
-    stop("key must be a non-empty string")
-  }
-  if (is.null(table) || table == "") {
-    stop("table must be a non-empty string")
-  }
-
   # Get defaults from environment if not provided
   if (is.null(convex_url)) {
     convex_url <- Sys.getenv("CONVEX_INGEST_URL")
     if (convex_url == "") {
       stop("CONVEX_INGEST_URL environment variable not set")
     }
-  }
-
-  # Validate HTTPS protocol for security
-  if (!grepl("^https://", convex_url, ignore.case = TRUE)) {
-    stop("convex_url must use HTTPS protocol")
   }
 
   if (is.null(secret_token)) {
@@ -58,7 +42,8 @@ ingest_to_convex <- function(
   body <- list(
     bucket = bucket,
     key = key,
-    table = table
+    table = table,
+    secretToken = secret_token
   )
 
   if (!is.null(endpoint) && endpoint != "") {
@@ -68,29 +53,17 @@ ingest_to_convex <- function(
   # Make HTTP POST request to Convex
   response <- httr2::request(convex_url) |>
     httr2::req_method("POST") |>
-    httr2::req_headers(
-      "Content-Type" = "application/json",
-      "Authorization" = paste("Convex", secret_token)
-    ) |>
+    httr2::req_headers("Content-Type" = "application/json") |>
     httr2::req_body_json(body) |>
-    httr2::req_timeout(seconds = 60) |>
-    httr2::req_error(is_error = \\(resp) FALSE) |>
     httr2::req_perform()
 
   # Check response status
   status <- httr2::resp_status(response)
   if (status >= 400) {
     body_text <- httr2::resp_body_string(response)
-    stop(
+    warning(
       paste0(
         "Convex ingestion failed with status ", status, ": ", body_text
-      )
-    )
-  } else {
-    message(
-      paste0(
-        "Successfully ingested ", key, " from bucket ", bucket,
-        " into Convex table ", table
       )
     )
   }

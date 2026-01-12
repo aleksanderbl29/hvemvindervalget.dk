@@ -47,7 +47,7 @@ const parsed = envSchema.safeParse({
 if (!parsed.success) {
   console.warn(
     "[config] Falling back to defaults. Issues:",
-    z.flattenError(parsed.error).fieldErrors,
+    parsed.error.flatten().fieldErrors,
   );
 }
 

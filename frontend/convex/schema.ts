@@ -1,27 +1,6 @@
 import { defineSchema, defineTable } from "convex/server";
 import { v } from "convex/values";
 
-// Shared chart schema validators
-const plotlySpecSchema = v.object({
-  version: v.string(),
-  data: v.array(v.any()),
-  layout: v.optional(v.any()),
-  config: v.optional(v.any()),
-});
-
-const plotlyChartSchema = v.object({
-  id: v.string(),
-  title: v.string(),
-  description: v.string(),
-  library: v.optional(v.literal("plotly")),
-  updatedAt: v.string(),
-  dataSource: v.string(),
-  unit: v.string(),
-  tags: v.array(v.string()),
-  notes: v.optional(v.array(v.string())),
-  plotlySpec: plotlySpecSchema,
-});
-
 export default defineSchema({
   national_overview: defineTable({
     lastUpdated: v.string(),
@@ -36,7 +15,32 @@ export default defineSchema({
       }),
     ),
     scenarioNotes: v.array(v.string()),
-    primaryChart: v.optional(plotlyChartSchema),
+    primaryChart: v.optional(
+      v.object({
+        id: v.string(),
+        title: v.string(),
+        description: v.string(),
+        library: v.optional(
+          v.union(
+            v.literal("plotly"),
+            v.literal("echarts"),
+            v.literal("chartjs"),
+            v.literal("vega-lite"),
+          ),
+        ),
+        updatedAt: v.string(),
+        dataSource: v.string(),
+        unit: v.string(),
+        tags: v.array(v.string()),
+        notes: v.optional(v.array(v.string())),
+        plotlySpec: v.object({
+          version: v.string(),
+          data: v.array(v.any()),
+          layout: v.optional(v.any()),
+          config: v.optional(v.any()),
+        }),
+      }),
+    ),
   }),
 
   municipality_snapshots: defineTable({
@@ -59,7 +63,32 @@ export default defineSchema({
         value: v.number(),
       }),
     ),
-    chartSummary: v.optional(plotlyChartSchema),
+    chartSummary: v.optional(
+      v.object({
+        id: v.string(),
+        title: v.string(),
+        description: v.string(),
+        library: v.optional(
+          v.union(
+            v.literal("plotly"),
+            v.literal("echarts"),
+            v.literal("chartjs"),
+            v.literal("vega-lite"),
+          ),
+        ),
+        updatedAt: v.string(),
+        dataSource: v.string(),
+        unit: v.string(),
+        tags: v.array(v.string()),
+        notes: v.optional(v.array(v.string())),
+        plotlySpec: v.object({
+          version: v.string(),
+          data: v.array(v.any()),
+          layout: v.optional(v.any()),
+          config: v.optional(v.any()),
+        }),
+      }),
+    ),
   }).index("by_conducted_at", ["conductedAt"]),
 
   scenarios: defineTable({
@@ -67,7 +96,32 @@ export default defineSchema({
     description: v.string(),
     probability: v.number(),
     impactedParties: v.array(v.string()),
-    chartSummary: v.optional(plotlyChartSchema),
+    chartSummary: v.optional(
+      v.object({
+        id: v.string(),
+        title: v.string(),
+        description: v.string(),
+        library: v.optional(
+          v.union(
+            v.literal("plotly"),
+            v.literal("echarts"),
+            v.literal("chartjs"),
+            v.literal("vega-lite"),
+          ),
+        ),
+        updatedAt: v.string(),
+        dataSource: v.string(),
+        unit: v.string(),
+        tags: v.array(v.string()),
+        notes: v.optional(v.array(v.string())),
+        plotlySpec: v.object({
+          version: v.string(),
+          data: v.array(v.any()),
+          layout: v.optional(v.any()),
+          config: v.optional(v.any()),
+        }),
+      }),
+    ),
   }).index("by_probability", ["probability"]),
 
   current_election_results: defineTable({
@@ -77,8 +131,8 @@ export default defineSchema({
     navn: v.string(),
     stemmetal: v.number(),
     municipality: v.string(),
-    lastPull: v.string(),
+    last_pull: v.string(),
   })
     .index("by_municipality", ["municipality"])
-    .index("by_lastPull", ["lastPull"]),
+    .index("by_last_pull", ["last_pull"]),
 });

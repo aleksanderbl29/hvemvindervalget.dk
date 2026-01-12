@@ -166,16 +166,12 @@ list(
   tar_target(
     hierarchical_model,
     run_hierarchical_model(polls, election_day, election_results)
-  ),
+  )
   # tar_target(another_model, run_another_model(polls, election_day))
 
   # tar_target(mu_b_prior, get_mu_b_prior(house_effects))
 
-  # Convex ingestion targets
-  tar_target(
-    convex_national_overview,
-    convex_upload(current_election_results, "current_election_results")
-  )
+  # Convex ingestion targets (example - uncomment and customize as needed)
   # After targets upload to S3, trigger Convex ingestion
   # tar_target(
   #   ingest_national_overview,
@@ -183,7 +179,8 @@ list(
   #     bucket <- Sys.getenv("backend_s3_bucket_name")
   #     key <- paste0(Sys.getenv("backend_s3_bucket_prefix"), "/national_overview.csv")
   #     ingest_to_convex(bucket = bucket, key = key, table = "national_overview")
-  #   }
+  #   },
+  #   format = "file"
   # )
   # tar_target(
   #   ingest_municipalities,
@@ -191,6 +188,7 @@ list(
   #     bucket <- Sys.getenv("backend_s3_bucket_name")
   #     key <- paste0(Sys.getenv("backend_s3_bucket_prefix"), "/municipalities.csv")
   #     ingest_to_convex(bucket = bucket, key = key, table = "municipality_snapshots")
-  #   }
+  #   },
+  #   format = "file"
   # )
 )
