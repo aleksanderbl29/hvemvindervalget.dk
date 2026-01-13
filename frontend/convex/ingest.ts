@@ -1,8 +1,8 @@
 import { httpAction } from "./_generated/server";
-import { v } from "convex/values";
 import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3";
 import Papa from "papaparse";
 import { api } from "./_generated/api";
+import { mapCsvToSchema } from "./schemaMapping";
 
 export const ingest = httpAction(async (ctx, request) => {
   // Only allow POST requests
@@ -43,7 +43,48 @@ export const ingest = httpAction(async (ctx, request) => {
       );
     }
 
-    if (secretToken !== expectedToken) {
+    // Constant-time comparison using Web Crypto API to prevent timing attacks
+    async function constantTimeEqual(a: string, b: string): Promise<boolean> {
+      if (a.length !== b.length) {
+        return false;
+      }
+
+      // Generate a random HMAC key for comparison
+      const key = await crypto.subtle.generateKey(
+        {
+          name: "HMAC",
+          hash: "SHA-256",
+        },
+        true,
+        ["sign"],
+      );
+
+      // Import the key for signing
+      const encoder = new TextEncoder();
+      const aData = encoder.encode(a);
+      const bData = encoder.encode(b);
+
+      // Compute HMACs
+      const aHmac = await crypto.subtle.sign("HMAC", key, aData);
+      const bHmac = await crypto.subtle.sign("HMAC", key, bData);
+
+      // Constant-time byte-wise comparison
+      const aArray = new Uint8Array(aHmac);
+      const bArray = new Uint8Array(bHmac);
+
+      let result = 0;
+      for (let i = 0; i < aArray.length; i++) {
+        result |= aArray[i] ^ bArray[i];
+      }
+
+      return result === 0;
+    }
+
+    const tokensMatch = await constantTimeEqual(
+      secretToken || "",
+      expectedToken,
+    );
+    if (!tokensMatch) {
       return new Response(JSON.stringify({ error: "Unauthorized" }), {
         status: 401,
         headers: { "Content-Type": "application/json" },
@@ -151,68 +192,4 @@ export const ingest = httpAction(async (ctx, request) => {
     );
   }
 });
-
-// Helper function to map CSV records to Convex schema
-function mapCsvToSchema(
-  table: string,
-  record: Record<string, unknown>,
-): Record<string, unknown> | null {
-  switch (table) {
-    case "national_overview":
-      return {
-        lastUpdated: String(record.lastUpdated || record.last_updated || new Date().toISOString()),
-        turnoutEstimate: Number(record.turnoutEstimate || record.turnout_estimate || 0),
-        uncertainty: Number(record.uncertainty || 0),
-        partyProjections: Array.isArray(record.partyProjections)
-          ? record.partyProjections
-          : JSON.parse(String(record.partyProjections || record.party_projections || "[]")),
-        scenarioNotes: Array.isArray(record.scenarioNotes)
-          ? record.scenarioNotes
-          : JSON.parse(String(record.scenarioNotes || record.scenario_notes || "[]")),
-        primaryChart: record.primaryChart
-          ? JSON.parse(String(record.primaryChart || record.primary_chart))
-          : undefined,
-      };
-
-    case "municipality_snapshots":
-      return {
-        slug: String(record.slug || ""),
-        name: String(record.name || ""),
-        region: String(record.region || ""),
-        leadingParty: String(record.leadingParty || record.leading_party || ""),
-        voteShare: Number(record.voteShare || record.vote_share || 0),
-        turnout: Number(record.turnout || 0),
-      };
-
-    case "polls":
-      return {
-        pollster: String(record.pollster || ""),
-        conductedAt: String(record.conductedAt || record.conducted_at || ""),
-        sampleSize: Number(record.sampleSize || record.sample_size || 0),
-        methodology: String(record.methodology || ""),
-        parties: Array.isArray(record.parties)
-          ? record.parties
-          : JSON.parse(String(record.parties || "[]")),
-        chartSummary: record.chartSummary
-          ? JSON.parse(String(record.chartSummary || record.chart_summary))
-          : undefined,
-      };
-
-    case "scenarios":
-      return {
-        name: String(record.name || ""),
-        description: String(record.description || ""),
-        probability: Number(record.probability || 0),
-        impactedParties: Array.isArray(record.impactedParties)
-          ? record.impactedParties
-          : JSON.parse(String(record.impactedParties || record.impacted_parties || "[]")),
-        chartSummary: record.chartSummary
-          ? JSON.parse(String(record.chartSummary || record.chart_summary))
-          : undefined,
-      };
-
-    default:
-      return null;
-  }
-}
 
