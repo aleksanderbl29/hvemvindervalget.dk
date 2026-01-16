@@ -1,0 +1,836 @@
+party_code,party_name,poll_date,value,segment,pollster,n,election,days_out
+A,Socialdemokratiet,2025-12-15,16.5,all,Epinion,1736,NA,NA
+A,Socialdemokratiet,2025-12-15,14.7,men,Epinion,1736,NA,NA
+A,Socialdemokratiet,2025-12-15,18.3,women,Epinion,1736,NA,NA
+A,Socialdemokratiet,2025-12-15,9.6,young,Epinion,1736,NA,NA
+A,Socialdemokratiet,2025-12-15,17,doubts,Epinion,1736,NA,NA
+B,Radikale Venstre,2025-12-15,5.1,all,Epinion,1736,NA,NA
+B,Radikale Venstre,2025-12-15,4.5,men,Epinion,1736,NA,NA
+B,Radikale Venstre,2025-12-15,5.5,women,Epinion,1736,NA,NA
+B,Radikale Venstre,2025-12-15,7.3,young,Epinion,1736,NA,NA
+B,Radikale Venstre,2025-12-15,5.6,doubts,Epinion,1736,NA,NA
+C,Det Konservative Folkeparti,2025-12-15,8.5,all,Epinion,1736,NA,NA
+C,Det Konservative Folkeparti,2025-12-15,9.3,men,Epinion,1736,NA,NA
+C,Det Konservative Folkeparti,2025-12-15,7.6,women,Epinion,1736,NA,NA
+C,Det Konservative Folkeparti,2025-12-15,7.9,young,Epinion,1736,NA,NA
+C,Det Konservative Folkeparti,2025-12-15,12,doubts,Epinion,1736,NA,NA
+F,Socialistisk Folkeparti,2025-12-15,16,all,Epinion,1736,NA,NA
+F,Socialistisk Folkeparti,2025-12-15,10.9,men,Epinion,1736,NA,NA
+F,Socialistisk Folkeparti,2025-12-15,20.9,women,Epinion,1736,NA,NA
+F,Socialistisk Folkeparti,2025-12-15,14,young,Epinion,1736,NA,NA
+F,Socialistisk Folkeparti,2025-12-15,14.3,doubts,Epinion,1736,NA,NA
+H,Borgernes Parti - Lars Boje Mathiesen,2025-12-15,2.2,all,Epinion,1736,NA,NA
+H,Borgernes Parti - Lars Boje Mathiesen,2025-12-15,3.4,men,Epinion,1736,NA,NA
+H,Borgernes Parti - Lars Boje Mathiesen,2025-12-15,1.1,women,Epinion,1736,NA,NA
+H,Borgernes Parti - Lars Boje Mathiesen,2025-12-15,1.2,young,Epinion,1736,NA,NA
+H,Borgernes Parti - Lars Boje Mathiesen,2025-12-15,0.5,doubts,Epinion,1736,NA,NA
+I,Liberal Alliance,2025-12-15,10.4,all,Epinion,1736,NA,NA
+I,Liberal Alliance,2025-12-15,13.7,men,Epinion,1736,NA,NA
+I,Liberal Alliance,2025-12-15,7.3,women,Epinion,1736,NA,NA
+I,Liberal Alliance,2025-12-15,18.9,young,Epinion,1736,NA,NA
+I,Liberal Alliance,2025-12-15,7.5,doubts,Epinion,1736,NA,NA
+M,Moderaterne,2025-12-15,1.5,all,Epinion,1736,NA,NA
+M,Moderaterne,2025-12-15,2.6,men,Epinion,1736,NA,NA
+M,Moderaterne,2025-12-15,0.4,women,Epinion,1736,NA,NA
+M,Moderaterne,2025-12-15,2.2,young,Epinion,1736,NA,NA
+M,Moderaterne,2025-12-15,3.3,doubts,Epinion,1736,NA,NA
+O,Dansk Folkeparti,2025-12-15,9.3,all,Epinion,1736,NA,NA
+O,Dansk Folkeparti,2025-12-15,10.1,men,Epinion,1736,NA,NA
+O,Dansk Folkeparti,2025-12-15,8.6,women,Epinion,1736,NA,NA
+O,Dansk Folkeparti,2025-12-15,7.2,young,Epinion,1736,NA,NA
+O,Dansk Folkeparti,2025-12-15,7.5,doubts,Epinion,1736,NA,NA
+V,"Venstre, Danmarks Liberale Parti",2025-12-15,11.6,all,Epinion,1736,NA,NA
+V,"Venstre, Danmarks Liberale Parti",2025-12-15,11.7,men,Epinion,1736,NA,NA
+V,"Venstre, Danmarks Liberale Parti",2025-12-15,11.5,women,Epinion,1736,NA,NA
+V,"Venstre, Danmarks Liberale Parti",2025-12-15,9.3,young,Epinion,1736,NA,NA
+V,"Venstre, Danmarks Liberale Parti",2025-12-15,14.7,doubts,Epinion,1736,NA,NA
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-12-15,9.9,all,Epinion,1736,NA,NA
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-12-15,9.9,men,Epinion,1736,NA,NA
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-12-15,9.9,women,Epinion,1736,NA,NA
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-12-15,4.7,young,Epinion,1736,NA,NA
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-12-15,7.7,doubts,Epinion,1736,NA,NA
+Ø,Enhedslisten - De Rød-Grønne,2025-12-15,6.8,all,Epinion,1736,NA,NA
+Ø,Enhedslisten - De Rød-Grønne,2025-12-15,6.8,men,Epinion,1736,NA,NA
+Ø,Enhedslisten - De Rød-Grønne,2025-12-15,6.9,women,Epinion,1736,NA,NA
+Ø,Enhedslisten - De Rød-Grønne,2025-12-15,11.8,young,Epinion,1736,NA,NA
+Ø,Enhedslisten - De Rød-Grønne,2025-12-15,4.2,doubts,Epinion,1736,NA,NA
+Å,Alternativet,2025-12-15,1.7,all,Epinion,1736,NA,NA
+Å,Alternativet,2025-12-15,1.8,men,Epinion,1736,NA,NA
+Å,Alternativet,2025-12-15,1.5,women,Epinion,1736,NA,NA
+Å,Alternativet,2025-12-15,4.2,young,Epinion,1736,NA,NA
+Å,Alternativet,2025-12-15,4.5,doubts,Epinion,1736,NA,NA
+A,Socialdemokratiet,2025-11-28,17.5,all,Epinion,1716,NA,NA
+A,Socialdemokratiet,2025-11-28,14.5,men,Epinion,1716,NA,NA
+A,Socialdemokratiet,2025-11-28,20.5,women,Epinion,1716,NA,NA
+A,Socialdemokratiet,2025-11-28,10.2,young,Epinion,1716,NA,NA
+A,Socialdemokratiet,2025-11-28,19.2,doubts,Epinion,1716,NA,NA
+B,Radikale Venstre,2025-11-28,3.7,all,Epinion,1716,NA,NA
+B,Radikale Venstre,2025-11-28,3.5,men,Epinion,1716,NA,NA
+B,Radikale Venstre,2025-11-28,4,women,Epinion,1716,NA,NA
+B,Radikale Venstre,2025-11-28,6.3,young,Epinion,1716,NA,NA
+B,Radikale Venstre,2025-11-28,5.8,doubts,Epinion,1716,NA,NA
+C,Det Konservative Folkeparti,2025-11-28,8.8,all,Epinion,1716,NA,NA
+C,Det Konservative Folkeparti,2025-11-28,9.2,men,Epinion,1716,NA,NA
+C,Det Konservative Folkeparti,2025-11-28,8.4,women,Epinion,1716,NA,NA
+C,Det Konservative Folkeparti,2025-11-28,6.1,young,Epinion,1716,NA,NA
+C,Det Konservative Folkeparti,2025-11-28,9.1,doubts,Epinion,1716,NA,NA
+F,Socialistisk Folkeparti,2025-11-28,14.1,all,Epinion,1716,NA,NA
+F,Socialistisk Folkeparti,2025-11-28,11.2,men,Epinion,1716,NA,NA
+F,Socialistisk Folkeparti,2025-11-28,17.1,women,Epinion,1716,NA,NA
+F,Socialistisk Folkeparti,2025-11-28,13.3,young,Epinion,1716,NA,NA
+F,Socialistisk Folkeparti,2025-11-28,14.5,doubts,Epinion,1716,NA,NA
+H,Borgernes Parti - Lars Boje Mathiesen,2025-11-28,1.4,all,Epinion,1716,NA,NA
+H,Borgernes Parti - Lars Boje Mathiesen,2025-11-28,1.8,men,Epinion,1716,NA,NA
+H,Borgernes Parti - Lars Boje Mathiesen,2025-11-28,1.1,women,Epinion,1716,NA,NA
+H,Borgernes Parti - Lars Boje Mathiesen,2025-11-28,0.7,young,Epinion,1716,NA,NA
+H,Borgernes Parti - Lars Boje Mathiesen,2025-11-28,0.5,doubts,Epinion,1716,NA,NA
+I,Liberal Alliance,2025-11-28,11.8,all,Epinion,1716,NA,NA
+I,Liberal Alliance,2025-11-28,15.7,men,Epinion,1716,NA,NA
+I,Liberal Alliance,2025-11-28,8,women,Epinion,1716,NA,NA
+I,Liberal Alliance,2025-11-28,20.6,young,Epinion,1716,NA,NA
+I,Liberal Alliance,2025-11-28,8.1,doubts,Epinion,1716,NA,NA
+M,Moderaterne,2025-11-28,1.8,all,Epinion,1716,NA,NA
+M,Moderaterne,2025-11-28,2.8,men,Epinion,1716,NA,NA
+M,Moderaterne,2025-11-28,0.8,women,Epinion,1716,NA,NA
+M,Moderaterne,2025-11-28,2.9,young,Epinion,1716,NA,NA
+M,Moderaterne,2025-11-28,4.1,doubts,Epinion,1716,NA,NA
+O,Dansk Folkeparti,2025-11-28,8.7,all,Epinion,1716,NA,NA
+O,Dansk Folkeparti,2025-11-28,9.5,men,Epinion,1716,NA,NA
+O,Dansk Folkeparti,2025-11-28,7.8,women,Epinion,1716,NA,NA
+O,Dansk Folkeparti,2025-11-28,6.6,young,Epinion,1716,NA,NA
+O,Dansk Folkeparti,2025-11-28,8,doubts,Epinion,1716,NA,NA
+V,"Venstre, Danmarks Liberale Parti",2025-11-28,11.5,all,Epinion,1716,NA,NA
+V,"Venstre, Danmarks Liberale Parti",2025-11-28,11.9,men,Epinion,1716,NA,NA
+V,"Venstre, Danmarks Liberale Parti",2025-11-28,11,women,Epinion,1716,NA,NA
+V,"Venstre, Danmarks Liberale Parti",2025-11-28,9.4,young,Epinion,1716,NA,NA
+V,"Venstre, Danmarks Liberale Parti",2025-11-28,12.7,doubts,Epinion,1716,NA,NA
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-11-28,10.5,all,Epinion,1716,NA,NA
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-11-28,10.9,men,Epinion,1716,NA,NA
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-11-28,10,women,Epinion,1716,NA,NA
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-11-28,3.9,young,Epinion,1716,NA,NA
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-11-28,6.5,doubts,Epinion,1716,NA,NA
+Ø,Enhedslisten - De Rød-Grønne,2025-11-28,6.5,all,Epinion,1716,NA,NA
+Ø,Enhedslisten - De Rød-Grønne,2025-11-28,5.6,men,Epinion,1716,NA,NA
+Ø,Enhedslisten - De Rød-Grønne,2025-11-28,7.3,women,Epinion,1716,NA,NA
+Ø,Enhedslisten - De Rød-Grønne,2025-11-28,12.6,young,Epinion,1716,NA,NA
+Ø,Enhedslisten - De Rød-Grønne,2025-11-28,5.2,doubts,Epinion,1716,NA,NA
+Å,Alternativet,2025-11-28,3,all,Epinion,1716,NA,NA
+Å,Alternativet,2025-11-28,2.6,men,Epinion,1716,NA,NA
+Å,Alternativet,2025-11-28,3.4,women,Epinion,1716,NA,NA
+Å,Alternativet,2025-11-28,4.2,young,Epinion,1716,NA,NA
+Å,Alternativet,2025-11-28,4.3,doubts,Epinion,1716,NA,NA
+A,Socialdemokratiet,2025-10-06,20.9,all,Epinion,1614,2025-11-18,43
+A,Socialdemokratiet,2025-10-06,18.3,men,Epinion,1614,2025-11-18,43
+A,Socialdemokratiet,2025-10-06,23.7,women,Epinion,1614,2025-11-18,43
+A,Socialdemokratiet,2025-10-06,11.6,young,Epinion,1614,2025-11-18,43
+A,Socialdemokratiet,2025-10-06,21.8,doubts,Epinion,1614,2025-11-18,43
+B,Radikale Venstre,2025-10-06,4.8,all,Epinion,1614,2025-11-18,43
+B,Radikale Venstre,2025-10-06,4.8,men,Epinion,1614,2025-11-18,43
+B,Radikale Venstre,2025-10-06,4.8,women,Epinion,1614,2025-11-18,43
+B,Radikale Venstre,2025-10-06,7.2,young,Epinion,1614,2025-11-18,43
+B,Radikale Venstre,2025-10-06,5.9,doubts,Epinion,1614,2025-11-18,43
+C,Det Konservative Folkeparti,2025-10-06,6.2,all,Epinion,1614,2025-11-18,43
+C,Det Konservative Folkeparti,2025-10-06,6.8,men,Epinion,1614,2025-11-18,43
+C,Det Konservative Folkeparti,2025-10-06,5.6,women,Epinion,1614,2025-11-18,43
+C,Det Konservative Folkeparti,2025-10-06,4.1,young,Epinion,1614,2025-11-18,43
+C,Det Konservative Folkeparti,2025-10-06,5.9,doubts,Epinion,1614,2025-11-18,43
+F,Socialistisk Folkeparti,2025-10-06,12.5,all,Epinion,1614,2025-11-18,43
+F,Socialistisk Folkeparti,2025-10-06,9.2,men,Epinion,1614,2025-11-18,43
+F,Socialistisk Folkeparti,2025-10-06,16.1,women,Epinion,1614,2025-11-18,43
+F,Socialistisk Folkeparti,2025-10-06,12.3,young,Epinion,1614,2025-11-18,43
+F,Socialistisk Folkeparti,2025-10-06,13.4,doubts,Epinion,1614,2025-11-18,43
+H,Borgernes Parti - Lars Boje Mathiesen,2025-10-06,1.4,all,Epinion,1614,2025-11-18,43
+H,Borgernes Parti - Lars Boje Mathiesen,2025-10-06,2.2,men,Epinion,1614,2025-11-18,43
+H,Borgernes Parti - Lars Boje Mathiesen,2025-10-06,0.6,women,Epinion,1614,2025-11-18,43
+H,Borgernes Parti - Lars Boje Mathiesen,2025-10-06,0.9,young,Epinion,1614,2025-11-18,43
+H,Borgernes Parti - Lars Boje Mathiesen,2025-10-06,0.6,doubts,Epinion,1614,2025-11-18,43
+I,Liberal Alliance,2025-10-06,11.4,all,Epinion,1614,2025-11-18,43
+I,Liberal Alliance,2025-10-06,15.7,men,Epinion,1614,2025-11-18,43
+I,Liberal Alliance,2025-10-06,6.9,women,Epinion,1614,2025-11-18,43
+I,Liberal Alliance,2025-10-06,21.3,young,Epinion,1614,2025-11-18,43
+I,Liberal Alliance,2025-10-06,8.6,doubts,Epinion,1614,2025-11-18,43
+M,Moderaterne,2025-10-06,2.7,all,Epinion,1614,2025-11-18,43
+M,Moderaterne,2025-10-06,2.7,men,Epinion,1614,2025-11-18,43
+M,Moderaterne,2025-10-06,2.6,women,Epinion,1614,2025-11-18,43
+M,Moderaterne,2025-10-06,3.6,young,Epinion,1614,2025-11-18,43
+M,Moderaterne,2025-10-06,4.7,doubts,Epinion,1614,2025-11-18,43
+O,Dansk Folkeparti,2025-10-06,12,all,Epinion,1614,2025-11-18,43
+O,Dansk Folkeparti,2025-10-06,12.9,men,Epinion,1614,2025-11-18,43
+O,Dansk Folkeparti,2025-10-06,11,women,Epinion,1614,2025-11-18,43
+O,Dansk Folkeparti,2025-10-06,6.8,young,Epinion,1614,2025-11-18,43
+O,Dansk Folkeparti,2025-10-06,7.1,doubts,Epinion,1614,2025-11-18,43
+V,"Venstre, Danmarks Liberale Parti",2025-10-06,9.1,all,Epinion,1614,2025-11-18,43
+V,"Venstre, Danmarks Liberale Parti",2025-10-06,9.7,men,Epinion,1614,2025-11-18,43
+V,"Venstre, Danmarks Liberale Parti",2025-10-06,8.4,women,Epinion,1614,2025-11-18,43
+V,"Venstre, Danmarks Liberale Parti",2025-10-06,9.1,young,Epinion,1614,2025-11-18,43
+V,"Venstre, Danmarks Liberale Parti",2025-10-06,12.8,doubts,Epinion,1614,2025-11-18,43
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-10-06,7.9,all,Epinion,1614,2025-11-18,43
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-10-06,8.8,men,Epinion,1614,2025-11-18,43
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-10-06,6.9,women,Epinion,1614,2025-11-18,43
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-10-06,3.4,young,Epinion,1614,2025-11-18,43
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-10-06,6.5,doubts,Epinion,1614,2025-11-18,43
+Ø,Enhedslisten - De Rød-Grønne,2025-10-06,7.6,all,Epinion,1614,2025-11-18,43
+Ø,Enhedslisten - De Rød-Grønne,2025-10-06,5.7,men,Epinion,1614,2025-11-18,43
+Ø,Enhedslisten - De Rød-Grønne,2025-10-06,9.6,women,Epinion,1614,2025-11-18,43
+Ø,Enhedslisten - De Rød-Grønne,2025-10-06,12.6,young,Epinion,1614,2025-11-18,43
+Ø,Enhedslisten - De Rød-Grønne,2025-10-06,6,doubts,Epinion,1614,2025-11-18,43
+Å,Alternativet,2025-10-06,2.4,all,Epinion,1614,2025-11-18,43
+Å,Alternativet,2025-10-06,2.2,men,Epinion,1614,2025-11-18,43
+Å,Alternativet,2025-10-06,2.6,women,Epinion,1614,2025-11-18,43
+Å,Alternativet,2025-10-06,4.8,young,Epinion,1614,2025-11-18,43
+Å,Alternativet,2025-10-06,4,doubts,Epinion,1614,2025-11-18,43
+A,Socialdemokratiet,2025-08-22,19.5,all,Epinion,1537,2025-11-18,88
+A,Socialdemokratiet,2025-08-22,16.3,men,Epinion,1537,2025-11-18,88
+A,Socialdemokratiet,2025-08-22,22.6,women,Epinion,1537,2025-11-18,88
+A,Socialdemokratiet,2025-08-22,12.1,young,Epinion,1537,2025-11-18,88
+A,Socialdemokratiet,2025-08-22,20.2,doubts,Epinion,1537,2025-11-18,88
+B,Radikale Venstre,2025-08-22,4.3,all,Epinion,1537,2025-11-18,88
+B,Radikale Venstre,2025-08-22,4.5,men,Epinion,1537,2025-11-18,88
+B,Radikale Venstre,2025-08-22,4.1,women,Epinion,1537,2025-11-18,88
+B,Radikale Venstre,2025-08-22,7.1,young,Epinion,1537,2025-11-18,88
+B,Radikale Venstre,2025-08-22,6.3,doubts,Epinion,1537,2025-11-18,88
+C,Det Konservative Folkeparti,2025-08-22,6,all,Epinion,1537,2025-11-18,88
+C,Det Konservative Folkeparti,2025-08-22,7.7,men,Epinion,1537,2025-11-18,88
+C,Det Konservative Folkeparti,2025-08-22,4.4,women,Epinion,1537,2025-11-18,88
+C,Det Konservative Folkeparti,2025-08-22,4,young,Epinion,1537,2025-11-18,88
+C,Det Konservative Folkeparti,2025-08-22,4.9,doubts,Epinion,1537,2025-11-18,88
+F,Socialistisk Folkeparti,2025-08-22,15.2,all,Epinion,1537,2025-11-18,88
+F,Socialistisk Folkeparti,2025-08-22,11.7,men,Epinion,1537,2025-11-18,88
+F,Socialistisk Folkeparti,2025-08-22,18.7,women,Epinion,1537,2025-11-18,88
+F,Socialistisk Folkeparti,2025-08-22,13.2,young,Epinion,1537,2025-11-18,88
+F,Socialistisk Folkeparti,2025-08-22,15.2,doubts,Epinion,1537,2025-11-18,88
+H,Borgernes Parti - Lars Boje Mathiesen,2025-08-22,1,all,Epinion,1537,2025-11-18,88
+H,Borgernes Parti - Lars Boje Mathiesen,2025-08-22,1.2,men,Epinion,1537,2025-11-18,88
+H,Borgernes Parti - Lars Boje Mathiesen,2025-08-22,0.8,women,Epinion,1537,2025-11-18,88
+H,Borgernes Parti - Lars Boje Mathiesen,2025-08-22,1.1,young,Epinion,1537,2025-11-18,88
+H,Borgernes Parti - Lars Boje Mathiesen,2025-08-22,0.6,doubts,Epinion,1537,2025-11-18,88
+I,Liberal Alliance,2025-08-22,12.5,all,Epinion,1537,2025-11-18,88
+I,Liberal Alliance,2025-08-22,16.6,men,Epinion,1537,2025-11-18,88
+I,Liberal Alliance,2025-08-22,8.4,women,Epinion,1537,2025-11-18,88
+I,Liberal Alliance,2025-08-22,21.7,young,Epinion,1537,2025-11-18,88
+I,Liberal Alliance,2025-08-22,10.8,doubts,Epinion,1537,2025-11-18,88
+M,Moderaterne,2025-08-22,3.9,all,Epinion,1537,2025-11-18,88
+M,Moderaterne,2025-08-22,4.7,men,Epinion,1537,2025-11-18,88
+M,Moderaterne,2025-08-22,3.1,women,Epinion,1537,2025-11-18,88
+M,Moderaterne,2025-08-22,4.4,young,Epinion,1537,2025-11-18,88
+M,Moderaterne,2025-08-22,3.8,doubts,Epinion,1537,2025-11-18,88
+O,Dansk Folkeparti,2025-08-22,8.1,all,Epinion,1537,2025-11-18,88
+O,Dansk Folkeparti,2025-08-22,9.2,men,Epinion,1537,2025-11-18,88
+O,Dansk Folkeparti,2025-08-22,7,women,Epinion,1537,2025-11-18,88
+O,Dansk Folkeparti,2025-08-22,5.3,young,Epinion,1537,2025-11-18,88
+O,Dansk Folkeparti,2025-08-22,6.5,doubts,Epinion,1537,2025-11-18,88
+V,"Venstre, Danmarks Liberale Parti",2025-08-22,10,all,Epinion,1537,2025-11-18,88
+V,"Venstre, Danmarks Liberale Parti",2025-08-22,11.1,men,Epinion,1537,2025-11-18,88
+V,"Venstre, Danmarks Liberale Parti",2025-08-22,9,women,Epinion,1537,2025-11-18,88
+V,"Venstre, Danmarks Liberale Parti",2025-08-22,8.8,young,Epinion,1537,2025-11-18,88
+V,"Venstre, Danmarks Liberale Parti",2025-08-22,13.4,doubts,Epinion,1537,2025-11-18,88
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-08-22,8.9,all,Epinion,1537,2025-11-18,88
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-08-22,9.8,men,Epinion,1537,2025-11-18,88
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-08-22,8,women,Epinion,1537,2025-11-18,88
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-08-22,3.5,young,Epinion,1537,2025-11-18,88
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-08-22,7.4,doubts,Epinion,1537,2025-11-18,88
+Ø,Enhedslisten - De Rød-Grønne,2025-08-22,7.3,all,Epinion,1537,2025-11-18,88
+Ø,Enhedslisten - De Rød-Grønne,2025-08-22,4.8,men,Epinion,1537,2025-11-18,88
+Ø,Enhedslisten - De Rød-Grønne,2025-08-22,9.7,women,Epinion,1537,2025-11-18,88
+Ø,Enhedslisten - De Rød-Grønne,2025-08-22,12.3,young,Epinion,1537,2025-11-18,88
+Ø,Enhedslisten - De Rød-Grønne,2025-08-22,4.9,doubts,Epinion,1537,2025-11-18,88
+Å,Alternativet,2025-08-22,2.1,all,Epinion,1537,2025-11-18,88
+Å,Alternativet,2025-08-22,1,men,Epinion,1537,2025-11-18,88
+Å,Alternativet,2025-08-22,3.2,women,Epinion,1537,2025-11-18,88
+Å,Alternativet,2025-08-22,5.2,young,Epinion,1537,2025-11-18,88
+Å,Alternativet,2025-08-22,3.6,doubts,Epinion,1537,2025-11-18,88
+A,Socialdemokratiet,2025-06-04,20.5,all,Verian,1500,2025-11-18,167
+B,Radikale Venstre,2025-06-04,4.2,all,Verian,1500,2025-11-18,167
+C,Det Konservative Folkeparti,2025-06-04,6.7,all,Verian,1500,2025-11-18,167
+D,Nye Borgerlige,2025-06-04,0.6,all,Verian,1500,2025-11-18,167
+F,SF - Socialistisk Folkeparti,2025-06-04,14.8,all,Verian,1500,2025-11-18,167
+H,Borgernes Parti - Lars Boje Mathiesen,2025-06-04,1.3,all,Verian,1500,2025-11-18,167
+I, Liberal Alliance,2025-06-04,11.6,all,Verian,1500,2025-11-18,167
+K,Kristendemokraterne,2025-06-04,0.6,all,Verian,1500,2025-11-18,167
+M,Moderaterne,2025-06-04,3,all,Verian,1500,2025-11-18,167
+O,Dansk Folkeparti,2025-06-04,6.4,all,Verian,1500,2025-11-18,167
+Q,"Frie Grønne, Danmarks Nye Venstrefløjsparti",2025-06-04,0.4,all,Verian,1500,2025-11-18,167
+V,"Venstre, Danmarks Liberale Parti",2025-06-04,10.5,all,Verian,1500,2025-11-18,167
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-06-04,8.7,all,Verian,1500,2025-11-18,167
+Ø,Enhedslisten - De Rød-Grønne,2025-06-04,8.2,all,Verian,1500,2025-11-18,167
+Å,Alternativet,2025-06-04,2.3,all,Verian,1500,2025-11-18,167
+A,Socialdemokratiet,2025-06-03,21.1,all,Epinion,1582,2025-11-18,168
+A,Socialdemokratiet,2025-06-03,19.1,men,Epinion,1582,2025-11-18,168
+A,Socialdemokratiet,2025-06-03,23.4,women,Epinion,1582,2025-11-18,168
+A,Socialdemokratiet,2025-06-03,13.7,young,Epinion,1582,2025-11-18,168
+A,Socialdemokratiet,2025-06-03,20.1,doubts,Epinion,1582,2025-11-18,168
+B,Radikale Venstre,2025-06-03,4.1,all,Epinion,1582,2025-11-18,168
+B,Radikale Venstre,2025-06-03,4.2,men,Epinion,1582,2025-11-18,168
+B,Radikale Venstre,2025-06-03,3.9,women,Epinion,1582,2025-11-18,168
+B,Radikale Venstre,2025-06-03,7.6,young,Epinion,1582,2025-11-18,168
+B,Radikale Venstre,2025-06-03,5.9,doubts,Epinion,1582,2025-11-18,168
+C,Det Konservative Folkeparti,2025-06-03,5.4,all,Epinion,1582,2025-11-18,168
+C,Det Konservative Folkeparti,2025-06-03,6.8,men,Epinion,1582,2025-11-18,168
+C,Det Konservative Folkeparti,2025-06-03,3.9,women,Epinion,1582,2025-11-18,168
+C,Det Konservative Folkeparti,2025-06-03,4.3,young,Epinion,1582,2025-11-18,168
+C,Det Konservative Folkeparti,2025-06-03,5.7,doubts,Epinion,1582,2025-11-18,168
+F,Socialistisk Folkeparti,2025-06-03,14.3,all,Epinion,1582,2025-11-18,168
+F,Socialistisk Folkeparti,2025-06-03,10.5,men,Epinion,1582,2025-11-18,168
+F,Socialistisk Folkeparti,2025-06-03,18.3,women,Epinion,1582,2025-11-18,168
+F,Socialistisk Folkeparti,2025-06-03,13.5,young,Epinion,1582,2025-11-18,168
+F,Socialistisk Folkeparti,2025-06-03,15.6,doubts,Epinion,1582,2025-11-18,168
+H,Borgernes Parti - Lars Boje Mathiesen,2025-06-03,1.8,all,Epinion,1582,2025-11-18,168
+H,Borgernes Parti - Lars Boje Mathiesen,2025-06-03,2.1,men,Epinion,1582,2025-11-18,168
+H,Borgernes Parti - Lars Boje Mathiesen,2025-06-03,1.4,women,Epinion,1582,2025-11-18,168
+H,Borgernes Parti - Lars Boje Mathiesen,2025-06-03,1.4,young,Epinion,1582,2025-11-18,168
+H,Borgernes Parti - Lars Boje Mathiesen,2025-06-03,1.5,doubts,Epinion,1582,2025-11-18,168
+I,Liberal Alliance,2025-06-03,11.7,all,Epinion,1582,2025-11-18,168
+I,Liberal Alliance,2025-06-03,15.8,men,Epinion,1582,2025-11-18,168
+I,Liberal Alliance,2025-06-03,7.3,women,Epinion,1582,2025-11-18,168
+I,Liberal Alliance,2025-06-03,20.6,young,Epinion,1582,2025-11-18,168
+I,Liberal Alliance,2025-06-03,11.3,doubts,Epinion,1582,2025-11-18,168
+M,Moderaterne,2025-06-03,4.1,all,Epinion,1582,2025-11-18,168
+M,Moderaterne,2025-06-03,4.6,men,Epinion,1582,2025-11-18,168
+M,Moderaterne,2025-06-03,3.6,women,Epinion,1582,2025-11-18,168
+M,Moderaterne,2025-06-03,4.8,young,Epinion,1582,2025-11-18,168
+M,Moderaterne,2025-06-03,2.9,doubts,Epinion,1582,2025-11-18,168
+O,Dansk Folkeparti,2025-06-03,7.6,all,Epinion,1582,2025-11-18,168
+O,Dansk Folkeparti,2025-06-03,5.9,men,Epinion,1582,2025-11-18,168
+O,Dansk Folkeparti,2025-06-03,9.3,women,Epinion,1582,2025-11-18,168
+O,Dansk Folkeparti,2025-06-03,4.2,young,Epinion,1582,2025-11-18,168
+O,Dansk Folkeparti,2025-06-03,5.4,doubts,Epinion,1582,2025-11-18,168
+V,"Venstre, Danmarks Liberale Parti",2025-06-03,9.4,all,Epinion,1582,2025-11-18,168
+V,"Venstre, Danmarks Liberale Parti",2025-06-03,9.5,men,Epinion,1582,2025-11-18,168
+V,"Venstre, Danmarks Liberale Parti",2025-06-03,9.2,women,Epinion,1582,2025-11-18,168
+V,"Venstre, Danmarks Liberale Parti",2025-06-03,7.2,young,Epinion,1582,2025-11-18,168
+V,"Venstre, Danmarks Liberale Parti",2025-06-03,13.1,doubts,Epinion,1582,2025-11-18,168
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-06-03,9.5,all,Epinion,1582,2025-11-18,168
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-06-03,10.8,men,Epinion,1582,2025-11-18,168
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-06-03,8.1,women,Epinion,1582,2025-11-18,168
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-06-03,4.2,young,Epinion,1582,2025-11-18,168
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-06-03,9.4,doubts,Epinion,1582,2025-11-18,168
+Ø,Enhedslisten - De Rød-Grønne,2025-06-03,7.5,all,Epinion,1582,2025-11-18,168
+Ø,Enhedslisten - De Rød-Grønne,2025-06-03,6.9,men,Epinion,1582,2025-11-18,168
+Ø,Enhedslisten - De Rød-Grønne,2025-06-03,8.3,women,Epinion,1582,2025-11-18,168
+Ø,Enhedslisten - De Rød-Grønne,2025-06-03,11.7,young,Epinion,1582,2025-11-18,168
+Ø,Enhedslisten - De Rød-Grønne,2025-06-03,3.6,doubts,Epinion,1582,2025-11-18,168
+Å,Alternativet,2025-06-03,2.8,all,Epinion,1582,2025-11-18,168
+Å,Alternativet,2025-06-03,3.1,men,Epinion,1582,2025-11-18,168
+Å,Alternativet,2025-06-03,2.5,women,Epinion,1582,2025-11-18,168
+Å,Alternativet,2025-06-03,6.1,young,Epinion,1582,2025-11-18,168
+Å,Alternativet,2025-06-03,3.6,doubts,Epinion,1582,2025-11-18,168
+A,Socialdemokratiet,2025-05-07,22.9,all,Verian,1500,2025-11-18,195
+B,Radikale Venstre,2025-05-07,5,all,Verian,1500,2025-11-18,195
+C,Det Konservative Folkeparti,2025-05-07,5.7,all,Verian,1500,2025-11-18,195
+D,Nye Borgerlige,2025-05-07,0.3,all,Verian,1500,2025-11-18,195
+F,SF - Socialistisk Folkeparti,2025-05-07,14.9,all,Verian,1500,2025-11-18,195
+H,Borgernes Parti - Lars Boje Mathiesen,2025-05-07,1.8,all,Verian,1500,2025-11-18,195
+I, Liberal Alliance,2025-05-07,10.1,all,Verian,1500,2025-11-18,195
+K,Kristendemokraterne,2025-05-07,0.8,all,Verian,1500,2025-11-18,195
+M,Moderaterne,2025-05-07,3.6,all,Verian,1500,2025-11-18,195
+O,Dansk Folkeparti,2025-05-07,6.4,all,Verian,1500,2025-11-18,195
+Q,"Frie Grønne, Danmarks Nye Venstrefløjsparti",2025-05-07,0.3,all,Verian,1500,2025-11-18,195
+V,"Venstre, Danmarks Liberale Parti",2025-05-07,11.7,all,Verian,1500,2025-11-18,195
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-05-07,7.7,all,Verian,1500,2025-11-18,195
+Ø,Enhedslisten - De Rød-Grønne,2025-05-07,7.1,all,Verian,1500,2025-11-18,195
+Å,Alternativet,2025-05-07,1.5,all,Verian,1500,2025-11-18,195
+A,Socialdemokratiet,2025-04-30,22.9,all,Epinion,1483,2025-11-18,202
+A,Socialdemokratiet,2025-04-30,20.3,men,Epinion,1483,2025-11-18,202
+A,Socialdemokratiet,2025-04-30,25.4,women,Epinion,1483,2025-11-18,202
+A,Socialdemokratiet,2025-04-30,13.5,young,Epinion,1483,2025-11-18,202
+A,Socialdemokratiet,2025-04-30,16.1,doubts,Epinion,1483,2025-11-18,202
+B,Radikale Venstre,2025-04-30,4.2,all,Epinion,1483,2025-11-18,202
+B,Radikale Venstre,2025-04-30,3.4,men,Epinion,1483,2025-11-18,202
+B,Radikale Venstre,2025-04-30,5,women,Epinion,1483,2025-11-18,202
+B,Radikale Venstre,2025-04-30,7.3,young,Epinion,1483,2025-11-18,202
+B,Radikale Venstre,2025-04-30,5.6,doubts,Epinion,1483,2025-11-18,202
+C,Det Konservative Folkeparti,2025-04-30,5.7,all,Epinion,1483,2025-11-18,202
+C,Det Konservative Folkeparti,2025-04-30,6,men,Epinion,1483,2025-11-18,202
+C,Det Konservative Folkeparti,2025-04-30,5.4,women,Epinion,1483,2025-11-18,202
+C,Det Konservative Folkeparti,2025-04-30,4.4,young,Epinion,1483,2025-11-18,202
+C,Det Konservative Folkeparti,2025-04-30,6.6,doubts,Epinion,1483,2025-11-18,202
+F,Socialistisk Folkeparti,2025-04-30,13.6,all,Epinion,1483,2025-11-18,202
+F,Socialistisk Folkeparti,2025-04-30,10.3,men,Epinion,1483,2025-11-18,202
+F,Socialistisk Folkeparti,2025-04-30,16.9,women,Epinion,1483,2025-11-18,202
+F,Socialistisk Folkeparti,2025-04-30,13.1,young,Epinion,1483,2025-11-18,202
+F,Socialistisk Folkeparti,2025-04-30,16.5,doubts,Epinion,1483,2025-11-18,202
+H,Borgernes Parti - Lars Boje Mathiesen,2025-04-30,1.1,all,Epinion,1483,2025-11-18,202
+H,Borgernes Parti - Lars Boje Mathiesen,2025-04-30,0.8,men,Epinion,1483,2025-11-18,202
+H,Borgernes Parti - Lars Boje Mathiesen,2025-04-30,1.5,women,Epinion,1483,2025-11-18,202
+H,Borgernes Parti - Lars Boje Mathiesen,2025-04-30,1.3,young,Epinion,1483,2025-11-18,202
+H,Borgernes Parti - Lars Boje Mathiesen,2025-04-30,1.6,doubts,Epinion,1483,2025-11-18,202
+I,Liberal Alliance,2025-04-30,13.1,all,Epinion,1483,2025-11-18,202
+I,Liberal Alliance,2025-04-30,17.1,men,Epinion,1483,2025-11-18,202
+I,Liberal Alliance,2025-04-30,9.1,women,Epinion,1483,2025-11-18,202
+I,Liberal Alliance,2025-04-30,21.3,young,Epinion,1483,2025-11-18,202
+I,Liberal Alliance,2025-04-30,12.9,doubts,Epinion,1483,2025-11-18,202
+M,Moderaterne,2025-04-30,3.9,all,Epinion,1483,2025-11-18,202
+M,Moderaterne,2025-04-30,4.8,men,Epinion,1483,2025-11-18,202
+M,Moderaterne,2025-04-30,3.1,women,Epinion,1483,2025-11-18,202
+M,Moderaterne,2025-04-30,4.7,young,Epinion,1483,2025-11-18,202
+M,Moderaterne,2025-04-30,4.3,doubts,Epinion,1483,2025-11-18,202
+O,Dansk Folkeparti,2025-04-30,4.4,all,Epinion,1483,2025-11-18,202
+O,Dansk Folkeparti,2025-04-30,5.5,men,Epinion,1483,2025-11-18,202
+O,Dansk Folkeparti,2025-04-30,3.3,women,Epinion,1483,2025-11-18,202
+O,Dansk Folkeparti,2025-04-30,2.7,young,Epinion,1483,2025-11-18,202
+O,Dansk Folkeparti,2025-04-30,5.3,doubts,Epinion,1483,2025-11-18,202
+V,"Venstre, Danmarks Liberale Parti",2025-04-30,10.3,all,Epinion,1483,2025-11-18,202
+V,"Venstre, Danmarks Liberale Parti",2025-04-30,12.4,men,Epinion,1483,2025-11-18,202
+V,"Venstre, Danmarks Liberale Parti",2025-04-30,8.1,women,Epinion,1483,2025-11-18,202
+V,"Venstre, Danmarks Liberale Parti",2025-04-30,6.5,young,Epinion,1483,2025-11-18,202
+V,"Venstre, Danmarks Liberale Parti",2025-04-30,11.9,doubts,Epinion,1483,2025-11-18,202
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-04-30,10.4,all,Epinion,1483,2025-11-18,202
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-04-30,11.5,men,Epinion,1483,2025-11-18,202
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-04-30,9.2,women,Epinion,1483,2025-11-18,202
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-04-30,5.2,young,Epinion,1483,2025-11-18,202
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-04-30,10.1,doubts,Epinion,1483,2025-11-18,202
+Ø,Enhedslisten - De Rød-Grønne,2025-04-30,7.1,all,Epinion,1483,2025-11-18,202
+Ø,Enhedslisten - De Rød-Grønne,2025-04-30,5.3,men,Epinion,1483,2025-11-18,202
+Ø,Enhedslisten - De Rød-Grønne,2025-04-30,8.9,women,Epinion,1483,2025-11-18,202
+Ø,Enhedslisten - De Rød-Grønne,2025-04-30,12.1,young,Epinion,1483,2025-11-18,202
+Ø,Enhedslisten - De Rød-Grønne,2025-04-30,3.8,doubts,Epinion,1483,2025-11-18,202
+Å,Alternativet,2025-04-30,2.6,all,Epinion,1483,2025-11-18,202
+Å,Alternativet,2025-04-30,1.5,men,Epinion,1483,2025-11-18,202
+Å,Alternativet,2025-04-30,3.7,women,Epinion,1483,2025-11-18,202
+Å,Alternativet,2025-04-30,5.8,young,Epinion,1483,2025-11-18,202
+Å,Alternativet,2025-04-30,3.1,doubts,Epinion,1483,2025-11-18,202
+A,Socialdemokratiet,2025-04-02,22.5,all,Verian,1500,2025-11-18,230
+B,Radikale Venstre,2025-04-02,4,all,Verian,1500,2025-11-18,230
+C,Det Konservative Folkeparti,2025-04-02,5.8,all,Verian,1500,2025-11-18,230
+D,Nye Borgerlige,2025-04-02,0.6,all,Verian,1500,2025-11-18,230
+F,SF - Socialistisk Folkeparti,2025-04-02,15,all,Verian,1500,2025-11-18,230
+H,Borgernes Parti - Lars Boje Mathiesen,2025-04-02,1.8,all,Verian,1500,2025-11-18,230
+I, Liberal Alliance,2025-04-02,12.9,all,Verian,1500,2025-11-18,230
+K,Kristendemokraterne,2025-04-02,0.4,all,Verian,1500,2025-11-18,230
+M,Moderaterne,2025-04-02,3.8,all,Verian,1500,2025-11-18,230
+O,Dansk Folkeparti,2025-04-02,5.3,all,Verian,1500,2025-11-18,230
+Q,"Frie Grønne, Danmarks Nye Venstrefløjsparti",2025-04-02,0.3,all,Verian,1500,2025-11-18,230
+V,"Venstre, Danmarks Liberale Parti",2025-04-02,10.8,all,Verian,1500,2025-11-18,230
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-04-02,8.3,all,Verian,1500,2025-11-18,230
+Ø,Enhedslisten - De Rød-Grønne,2025-04-02,6.9,all,Verian,1500,2025-11-18,230
+Å,Alternativet,2025-04-02,1.6,all,Verian,1500,2025-11-18,230
+A,Socialdemokratiet,2025-03-28,23.2,all,Epinion,1640,2025-11-18,235
+A,Socialdemokratiet,2025-03-28,20.7,men,Epinion,1640,2025-11-18,235
+A,Socialdemokratiet,2025-03-28,25.8,women,Epinion,1640,2025-11-18,235
+A,Socialdemokratiet,2025-03-28,13,young,Epinion,1640,2025-11-18,235
+A,Socialdemokratiet,2025-03-28,15.1,doubts,Epinion,1640,2025-11-18,235
+Å,Alternativet,2025-03-28,2,all,Epinion,1640,2025-11-18,235
+Å,Alternativet,2025-03-28,2.3,men,Epinion,1640,2025-11-18,235
+Å,Alternativet,2025-03-28,1.6,women,Epinion,1640,2025-11-18,235
+Å,Alternativet,2025-03-28,5.5,young,Epinion,1640,2025-11-18,235
+Å,Alternativet,2025-03-28,2.7,doubts,Epinion,1640,2025-11-18,235
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-03-28,10.8,all,Epinion,1640,2025-11-18,235
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-03-28,11.1,men,Epinion,1640,2025-11-18,235
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-03-28,10.5,women,Epinion,1640,2025-11-18,235
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-03-28,4.9,young,Epinion,1640,2025-11-18,235
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-03-28,10.9,doubts,Epinion,1640,2025-11-18,235
+B,Radikale Venstre,2025-03-28,4.7,all,Epinion,1640,2025-11-18,235
+B,Radikale Venstre,2025-03-28,5.3,men,Epinion,1640,2025-11-18,235
+B,Radikale Venstre,2025-03-28,4.1,women,Epinion,1640,2025-11-18,235
+B,Radikale Venstre,2025-03-28,7.9,young,Epinion,1640,2025-11-18,235
+B,Radikale Venstre,2025-03-28,4.9,doubts,Epinion,1640,2025-11-18,235
+C,Det Konservative Folkeparti,2025-03-28,5.5,all,Epinion,1640,2025-11-18,235
+C,Det Konservative Folkeparti,2025-03-28,6,men,Epinion,1640,2025-11-18,235
+C,Det Konservative Folkeparti,2025-03-28,5.1,women,Epinion,1640,2025-11-18,235
+C,Det Konservative Folkeparti,2025-03-28,4.4,young,Epinion,1640,2025-11-18,235
+C,Det Konservative Folkeparti,2025-03-28,6.7,doubts,Epinion,1640,2025-11-18,235
+F,Socialistisk Folkeparti,2025-03-28,14.9,all,Epinion,1640,2025-11-18,235
+F,Socialistisk Folkeparti,2025-03-28,11.3,men,Epinion,1640,2025-11-18,235
+F,Socialistisk Folkeparti,2025-03-28,18.7,women,Epinion,1640,2025-11-18,235
+F,Socialistisk Folkeparti,2025-03-28,12.5,young,Epinion,1640,2025-11-18,235
+F,Socialistisk Folkeparti,2025-03-28,14.6,doubts,Epinion,1640,2025-11-18,235
+H,Borgernes Parti - Lars Boje Mathiesen,2025-03-28,1.2,all,Epinion,1640,2025-11-18,235
+H,Borgernes Parti - Lars Boje Mathiesen,2025-03-28,1.7,men,Epinion,1640,2025-11-18,235
+H,Borgernes Parti - Lars Boje Mathiesen,2025-03-28,0.7,women,Epinion,1640,2025-11-18,235
+H,Borgernes Parti - Lars Boje Mathiesen,2025-03-28,1.3,young,Epinion,1640,2025-11-18,235
+H,Borgernes Parti - Lars Boje Mathiesen,2025-03-28,1.6,doubts,Epinion,1640,2025-11-18,235
+I,Liberal Alliance,2025-03-28,12.8,all,Epinion,1640,2025-11-18,235
+I,Liberal Alliance,2025-03-28,15.1,men,Epinion,1640,2025-11-18,235
+I,Liberal Alliance,2025-03-28,10.4,women,Epinion,1640,2025-11-18,235
+I,Liberal Alliance,2025-03-28,21.6,young,Epinion,1640,2025-11-18,235
+I,Liberal Alliance,2025-03-28,12.6,doubts,Epinion,1640,2025-11-18,235
+M,Moderaterne,2025-03-28,3.6,all,Epinion,1640,2025-11-18,235
+M,Moderaterne,2025-03-28,3.9,men,Epinion,1640,2025-11-18,235
+M,Moderaterne,2025-03-28,3.3,women,Epinion,1640,2025-11-18,235
+M,Moderaterne,2025-03-28,3.6,young,Epinion,1640,2025-11-18,235
+M,Moderaterne,2025-03-28,6.1,doubts,Epinion,1640,2025-11-18,235
+O,Dansk Folkeparti,2025-03-28,4.5,all,Epinion,1640,2025-11-18,235
+O,Dansk Folkeparti,2025-03-28,5.5,men,Epinion,1640,2025-11-18,235
+O,Dansk Folkeparti,2025-03-28,3.4,women,Epinion,1640,2025-11-18,235
+O,Dansk Folkeparti,2025-03-28,2.9,young,Epinion,1640,2025-11-18,235
+O,Dansk Folkeparti,2025-03-28,5,doubts,Epinion,1640,2025-11-18,235
+Ø,Enhedslisten - De Rød-Grønne,2025-03-28,6.6,all,Epinion,1640,2025-11-18,235
+Ø,Enhedslisten - De Rød-Grønne,2025-03-28,5,men,Epinion,1640,2025-11-18,235
+Ø,Enhedslisten - De Rød-Grønne,2025-03-28,8.2,women,Epinion,1640,2025-11-18,235
+Ø,Enhedslisten - De Rød-Grønne,2025-03-28,12.1,young,Epinion,1640,2025-11-18,235
+Ø,Enhedslisten - De Rød-Grønne,2025-03-28,3.9,doubts,Epinion,1640,2025-11-18,235
+V,"Venstre, Danmarks Liberale Parti",2025-03-28,9.3,all,Epinion,1640,2025-11-18,235
+V,"Venstre, Danmarks Liberale Parti",2025-03-28,11.2,men,Epinion,1640,2025-11-18,235
+V,"Venstre, Danmarks Liberale Parti",2025-03-28,7.4,women,Epinion,1640,2025-11-18,235
+V,"Venstre, Danmarks Liberale Parti",2025-03-28,6.9,young,Epinion,1640,2025-11-18,235
+V,"Venstre, Danmarks Liberale Parti",2025-03-28,12.8,doubts,Epinion,1640,2025-11-18,235
+A,Socialdemokratiet,2025-03-05,21.9,all,Verian,1500,2025-11-18,258
+B,Radikale Venstre,2025-03-05,4.4,all,Verian,1500,2025-11-18,258
+C,Det Konservative Folkeparti,2025-03-05,7.6,all,Verian,1500,2025-11-18,258
+D,Nye Borgerlige,2025-03-05,0.4,all,Verian,1500,2025-11-18,258
+F,SF - Socialistisk Folkeparti,2025-03-05,14.5,all,Verian,1500,2025-11-18,258
+H,Borgernes Parti - Lars Boje Mathiesen,2025-03-05,1.6,all,Verian,1500,2025-11-18,258
+I, Liberal Alliance,2025-03-05,10.5,all,Verian,1500,2025-11-18,258
+K,Kristendemokraterne,2025-03-05,0.3,all,Verian,1500,2025-11-18,258
+M,Moderaterne,2025-03-05,4.3,all,Verian,1500,2025-11-18,258
+O,Dansk Folkeparti,2025-03-05,5.3,all,Verian,1500,2025-11-18,258
+Q,"Frie Grønne, Danmarks Nye Venstrefløjsparti",2025-03-05,0.1,all,Verian,1500,2025-11-18,258
+V,"Venstre, Danmarks Liberale Parti",2025-03-05,11.1,all,Verian,1500,2025-11-18,258
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-03-05,9.2,all,Verian,1500,2025-11-18,258
+Ø,Enhedslisten - De Rød-Grønne,2025-03-05,6.5,all,Verian,1500,2025-11-18,258
+Å,Alternativet,2025-03-05,2.2,all,Verian,1500,2025-11-18,258
+A,Socialdemokratiet,2025-02-05,23,all,Verian,1500,2025-11-18,286
+B,Radikale Venstre,2025-02-05,4.4,all,Verian,1500,2025-11-18,286
+C,Det Konservative Folkeparti,2025-02-05,7.2,all,Verian,1500,2025-11-18,286
+D,Nye Borgerlige,2025-02-05,0.4,all,Verian,1500,2025-11-18,286
+F,SF - Socialistisk Folkeparti,2025-02-05,14.4,all,Verian,1500,2025-11-18,286
+H,Borgernes Parti - Lars Boje Mathiesen,2025-02-05,1.8,all,Verian,1500,2025-11-18,286
+I, Liberal Alliance,2025-02-05,9.2,all,Verian,1500,2025-11-18,286
+K,Kristendemokraterne,2025-02-05,0.6,all,Verian,1500,2025-11-18,286
+M,Moderaterne,2025-02-05,4,all,Verian,1500,2025-11-18,286
+O,Dansk Folkeparti,2025-02-05,5.4,all,Verian,1500,2025-11-18,286
+Q,"Frie Grønne, Danmarks Nye Venstrefløjsparti",2025-02-05,0.2,all,Verian,1500,2025-11-18,286
+V,"Venstre, Danmarks Liberale Parti",2025-02-05,11.4,all,Verian,1500,2025-11-18,286
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-02-05,9.6,all,Verian,1500,2025-11-18,286
+Ø,Enhedslisten - De Rød-Grønne,2025-02-05,6.6,all,Verian,1500,2025-11-18,286
+Å,Alternativet,2025-02-05,1.8,all,Verian,1500,2025-11-18,286
+A,Socialdemokratiet,2025-01-24,19.7,all,Epinion,1635,2025-11-18,298
+A,Socialdemokratiet,2025-01-24,18.4,men,Epinion,1635,2025-11-18,298
+A,Socialdemokratiet,2025-01-24,21.1,women,Epinion,1635,2025-11-18,298
+A,Socialdemokratiet,2025-01-24,11.9,young,Epinion,1635,2025-11-18,298
+A,Socialdemokratiet,2025-01-24,13.7,doubts,Epinion,1635,2025-11-18,298
+B,Radikale Venstre,2025-01-24,4.1,all,Epinion,1635,2025-11-18,298
+B,Radikale Venstre,2025-01-24,3.7,men,Epinion,1635,2025-11-18,298
+B,Radikale Venstre,2025-01-24,4.6,women,Epinion,1635,2025-11-18,298
+B,Radikale Venstre,2025-01-24,8.2,young,Epinion,1635,2025-11-18,298
+B,Radikale Venstre,2025-01-24,6.2,doubts,Epinion,1635,2025-11-18,298
+C,Det Konservative Folkeparti,2025-01-24,6.8,all,Epinion,1635,2025-11-18,298
+C,Det Konservative Folkeparti,2025-01-24,7.1,men,Epinion,1635,2025-11-18,298
+C,Det Konservative Folkeparti,2025-01-24,6.4,women,Epinion,1635,2025-11-18,298
+C,Det Konservative Folkeparti,2025-01-24,4.9,young,Epinion,1635,2025-11-18,298
+C,Det Konservative Folkeparti,2025-01-24,8.5,doubts,Epinion,1635,2025-11-18,298
+F,Socialistisk Folkeparti,2025-01-24,15.8,all,Epinion,1635,2025-11-18,298
+F,Socialistisk Folkeparti,2025-01-24,14,men,Epinion,1635,2025-11-18,298
+F,Socialistisk Folkeparti,2025-01-24,17.7,women,Epinion,1635,2025-11-18,298
+F,Socialistisk Folkeparti,2025-01-24,11.9,young,Epinion,1635,2025-11-18,298
+F,Socialistisk Folkeparti,2025-01-24,12.3,doubts,Epinion,1635,2025-11-18,298
+H,Borgernes Parti - Lars Boje Mathiesen,2025-01-24,1.8,all,Epinion,1635,2025-11-18,298
+H,Borgernes Parti - Lars Boje Mathiesen,2025-01-24,2.8,men,Epinion,1635,2025-11-18,298
+H,Borgernes Parti - Lars Boje Mathiesen,2025-01-24,0.8,women,Epinion,1635,2025-11-18,298
+H,Borgernes Parti - Lars Boje Mathiesen,2025-01-24,1,young,Epinion,1635,2025-11-18,298
+H,Borgernes Parti - Lars Boje Mathiesen,2025-01-24,0.7,doubts,Epinion,1635,2025-11-18,298
+I,Liberal Alliance,2025-01-24,11.6,all,Epinion,1635,2025-11-18,298
+I,Liberal Alliance,2025-01-24,16.2,men,Epinion,1635,2025-11-18,298
+I,Liberal Alliance,2025-01-24,6.8,women,Epinion,1635,2025-11-18,298
+I,Liberal Alliance,2025-01-24,23,young,Epinion,1635,2025-11-18,298
+I,Liberal Alliance,2025-01-24,12.7,doubts,Epinion,1635,2025-11-18,298
+M,Moderaterne,2025-01-24,4.4,all,Epinion,1635,2025-11-18,298
+M,Moderaterne,2025-01-24,5.3,men,Epinion,1635,2025-11-18,298
+M,Moderaterne,2025-01-24,3.5,women,Epinion,1635,2025-11-18,298
+M,Moderaterne,2025-01-24,3.4,young,Epinion,1635,2025-11-18,298
+M,Moderaterne,2025-01-24,6.2,doubts,Epinion,1635,2025-11-18,298
+O,Dansk Folkeparti,2025-01-24,4.9,all,Epinion,1635,2025-11-18,298
+O,Dansk Folkeparti,2025-01-24,4.2,men,Epinion,1635,2025-11-18,298
+O,Dansk Folkeparti,2025-01-24,5.7,women,Epinion,1635,2025-11-18,298
+O,Dansk Folkeparti,2025-01-24,3.1,young,Epinion,1635,2025-11-18,298
+O,Dansk Folkeparti,2025-01-24,5.7,doubts,Epinion,1635,2025-11-18,298
+V,"Venstre, Danmarks Liberale Parti",2025-01-24,8.6,all,Epinion,1635,2025-11-18,298
+V,"Venstre, Danmarks Liberale Parti",2025-01-24,7.6,men,Epinion,1635,2025-11-18,298
+V,"Venstre, Danmarks Liberale Parti",2025-01-24,9.5,women,Epinion,1635,2025-11-18,298
+V,"Venstre, Danmarks Liberale Parti",2025-01-24,6.9,young,Epinion,1635,2025-11-18,298
+V,"Venstre, Danmarks Liberale Parti",2025-01-24,14.9,doubts,Epinion,1635,2025-11-18,298
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-01-24,11.5,all,Epinion,1635,2025-11-18,298
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-01-24,10.7,men,Epinion,1635,2025-11-18,298
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-01-24,12.3,women,Epinion,1635,2025-11-18,298
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-01-24,4.9,young,Epinion,1635,2025-11-18,298
+Æ,Danmarksdemokraterne - Inger Støjberg,2025-01-24,10.3,doubts,Epinion,1635,2025-11-18,298
+Ø,Enhedslisten - De Rød-Grønne,2025-01-24,6.8,all,Epinion,1635,2025-11-18,298
+Ø,Enhedslisten - De Rød-Grønne,2025-01-24,6,men,Epinion,1635,2025-11-18,298
+Ø,Enhedslisten - De Rød-Grønne,2025-01-24,7.6,women,Epinion,1635,2025-11-18,298
+Ø,Enhedslisten - De Rød-Grønne,2025-01-24,12.3,young,Epinion,1635,2025-11-18,298
+Ø,Enhedslisten - De Rød-Grønne,2025-01-24,3.6,doubts,Epinion,1635,2025-11-18,298
+Å,Alternativet,2025-01-24,2.4,all,Epinion,1635,2025-11-18,298
+Å,Alternativet,2025-01-24,2.5,men,Epinion,1635,2025-11-18,298
+Å,Alternativet,2025-01-24,2.2,women,Epinion,1635,2025-11-18,298
+Å,Alternativet,2025-01-24,5.4,young,Epinion,1635,2025-11-18,298
+Å,Alternativet,2025-01-24,2.2,doubts,Epinion,1635,2025-11-18,298
+A,Socialdemokratiet,2024-12-13,19.6,all,Epinion,1590,2025-11-18,340
+A,Socialdemokratiet,2024-12-13,16.8,men,Epinion,1590,2025-11-18,340
+A,Socialdemokratiet,2024-12-13,22.4,women,Epinion,1590,2025-11-18,340
+A,Socialdemokratiet,2024-12-13,11.4,young,Epinion,1590,2025-11-18,340
+A,Socialdemokratiet,2024-12-13,17.2,doubts,Epinion,1590,2025-11-18,340
+B,Radikale Venstre,2024-12-13,5.3,all,Epinion,1590,2025-11-18,340
+B,Radikale Venstre,2024-12-13,5.7,men,Epinion,1590,2025-11-18,340
+B,Radikale Venstre,2024-12-13,4.9,women,Epinion,1590,2025-11-18,340
+B,Radikale Venstre,2024-12-13,8.7,young,Epinion,1590,2025-11-18,340
+B,Radikale Venstre,2024-12-13,6.8,doubts,Epinion,1590,2025-11-18,340
+C,Det Konservative Folkeparti,2024-12-13,6.1,all,Epinion,1590,2025-11-18,340
+C,Det Konservative Folkeparti,2024-12-13,7.2,men,Epinion,1590,2025-11-18,340
+C,Det Konservative Folkeparti,2024-12-13,5,women,Epinion,1590,2025-11-18,340
+C,Det Konservative Folkeparti,2024-12-13,5.2,young,Epinion,1590,2025-11-18,340
+C,Det Konservative Folkeparti,2024-12-13,7.8,doubts,Epinion,1590,2025-11-18,340
+F,Socialistisk Folkeparti,2024-12-13,14.4,all,Epinion,1590,2025-11-18,340
+F,Socialistisk Folkeparti,2024-12-13,10.8,men,Epinion,1590,2025-11-18,340
+F,Socialistisk Folkeparti,2024-12-13,17.9,women,Epinion,1590,2025-11-18,340
+F,Socialistisk Folkeparti,2024-12-13,12.8,young,Epinion,1590,2025-11-18,340
+F,Socialistisk Folkeparti,2024-12-13,10.6,doubts,Epinion,1590,2025-11-18,340
+I,Liberal Alliance,2024-12-13,13.4,all,Epinion,1590,2025-11-18,340
+I,Liberal Alliance,2024-12-13,18.2,men,Epinion,1590,2025-11-18,340
+I,Liberal Alliance,2024-12-13,8.7,women,Epinion,1590,2025-11-18,340
+I,Liberal Alliance,2024-12-13,22.2,young,Epinion,1590,2025-11-18,340
+I,Liberal Alliance,2024-12-13,14.7,doubts,Epinion,1590,2025-11-18,340
+M,Moderaterne,2024-12-13,3.5,all,Epinion,1590,2025-11-18,340
+M,Moderaterne,2024-12-13,3.8,men,Epinion,1590,2025-11-18,340
+M,Moderaterne,2024-12-13,3.2,women,Epinion,1590,2025-11-18,340
+M,Moderaterne,2024-12-13,3.9,young,Epinion,1590,2025-11-18,340
+M,Moderaterne,2024-12-13,5.3,doubts,Epinion,1590,2025-11-18,340
+O,Dansk Folkeparti,2024-12-13,6.2,all,Epinion,1590,2025-11-18,340
+O,Dansk Folkeparti,2024-12-13,6.1,men,Epinion,1590,2025-11-18,340
+O,Dansk Folkeparti,2024-12-13,6.2,women,Epinion,1590,2025-11-18,340
+O,Dansk Folkeparti,2024-12-13,3.7,young,Epinion,1590,2025-11-18,340
+O,Dansk Folkeparti,2024-12-13,5.1,doubts,Epinion,1590,2025-11-18,340
+V,"Venstre, Danmarks Liberale Parti",2024-12-13,9.6,all,Epinion,1590,2025-11-18,340
+V,"Venstre, Danmarks Liberale Parti",2024-12-13,10.9,men,Epinion,1590,2025-11-18,340
+V,"Venstre, Danmarks Liberale Parti",2024-12-13,8.4,women,Epinion,1590,2025-11-18,340
+V,"Venstre, Danmarks Liberale Parti",2024-12-13,7.9,young,Epinion,1590,2025-11-18,340
+V,"Venstre, Danmarks Liberale Parti",2024-12-13,15.1,doubts,Epinion,1590,2025-11-18,340
+Æ,Danmarksdemokraterne - Inger Støjberg,2024-12-13,10.4,all,Epinion,1590,2025-11-18,340
+Æ,Danmarksdemokraterne - Inger Støjberg,2024-12-13,10.2,men,Epinion,1590,2025-11-18,340
+Æ,Danmarksdemokraterne - Inger Støjberg,2024-12-13,10.6,women,Epinion,1590,2025-11-18,340
+Æ,Danmarksdemokraterne - Inger Støjberg,2024-12-13,4.4,young,Epinion,1590,2025-11-18,340
+Æ,Danmarksdemokraterne - Inger Støjberg,2024-12-13,9.9,doubts,Epinion,1590,2025-11-18,340
+Ø,Enhedslisten - De Rød-Grønne,2024-12-13,7.2,all,Epinion,1590,2025-11-18,340
+Ø,Enhedslisten - De Rød-Grønne,2024-12-13,5.9,men,Epinion,1590,2025-11-18,340
+Ø,Enhedslisten - De Rød-Grønne,2024-12-13,8.5,women,Epinion,1590,2025-11-18,340
+Ø,Enhedslisten - De Rød-Grønne,2024-12-13,12.7,young,Epinion,1590,2025-11-18,340
+Ø,Enhedslisten - De Rød-Grønne,2024-12-13,3.1,doubts,Epinion,1590,2025-11-18,340
+Å,Alternativet,2024-12-13,2.2,all,Epinion,1590,2025-11-18,340
+Å,Alternativet,2024-12-13,2.3,men,Epinion,1590,2025-11-18,340
+Å,Alternativet,2024-12-13,2,women,Epinion,1590,2025-11-18,340
+Å,Alternativet,2024-12-13,4.7,young,Epinion,1590,2025-11-18,340
+Å,Alternativet,2024-12-13,2.2,doubts,Epinion,1590,2025-11-18,340
+A,Socialdemokratiet,2024-12-11,19.6,all,Verian,1500,2025-11-18,342
+B,Radikale Venstre,2024-12-11,3.8,all,Verian,1500,2025-11-18,342
+C,Det Konservative Folkeparti,2024-12-11,5.1,all,Verian,1500,2025-11-18,342
+D,Nye Borgerlige,2024-12-11,0.2,all,Verian,1500,2025-11-18,342
+F,SF - Socialistisk Folkeparti,2024-12-11,16.8,all,Verian,1500,2025-11-18,342
+H,Borgernes Parti - Lars Boje Mathiesen,2024-12-11,NA,all,Verian,1500,2025-11-18,342
+I, Liberal Alliance,2024-12-11,11.9,all,Verian,1500,2025-11-18,342
+K,Kristendemokraterne,2024-12-11,0.6,all,Verian,1500,2025-11-18,342
+M,Moderaterne,2024-12-11,3.7,all,Verian,1500,2025-11-18,342
+O,Dansk Folkeparti,2024-12-11,6.8,all,Verian,1500,2025-11-18,342
+Q,"Frie Grønne, Danmarks Nye Venstrefløjsparti",2024-12-11,0.2,all,Verian,1500,2025-11-18,342
+V,"Venstre, Danmarks Liberale Parti",2024-12-11,11.8,all,Verian,1500,2025-11-18,342
+Æ,Danmarksdemokraterne - Inger Støjberg,2024-12-11,9.7,all,Verian,1500,2025-11-18,342
+Ø,Enhedslisten - De Rød-Grønne,2024-12-11,7.6,all,Verian,1500,2025-11-18,342
+Å,Alternativet,2024-12-11,1.7,all,Verian,1500,2025-11-18,342
+A,Socialdemokratiet,2024-11-13,20.9,all,Verian,1500,2025-11-18,370
+B,Radikale Venstre,2024-11-13,3.6,all,Verian,1500,2025-11-18,370
+C,Det Konservative Folkeparti,2024-11-13,7.2,all,Verian,1500,2025-11-18,370
+D,Nye Borgerlige,2024-11-13,0.7,all,Verian,1500,2025-11-18,370
+F,SF - Socialistisk Folkeparti,2024-11-13,14,all,Verian,1500,2025-11-18,370
+H,Borgernes Parti - Lars Boje Mathiesen,2024-11-13,NA,all,Verian,1500,2025-11-18,370
+I, Liberal Alliance,2024-11-13,11.9,all,Verian,1500,2025-11-18,370
+K,Kristendemokraterne,2024-11-13,0.5,all,Verian,1500,2025-11-18,370
+M,Moderaterne,2024-11-13,4.2,all,Verian,1500,2025-11-18,370
+O,Dansk Folkeparti,2024-11-13,5.1,all,Verian,1500,2025-11-18,370
+Q,"Frie Grønne, Danmarks Nye Venstrefløjsparti",2024-11-13,0.1,all,Verian,1500,2025-11-18,370
+V,"Venstre, Danmarks Liberale Parti",2024-11-13,11.6,all,Verian,1500,2025-11-18,370
+Æ,Danmarksdemokraterne - Inger Støjberg,2024-11-13,9.4,all,Verian,1500,2025-11-18,370
+Ø,Enhedslisten - De Rød-Grønne,2024-11-13,7.9,all,Verian,1500,2025-11-18,370
+Å,Alternativet,2024-11-13,2.2,all,Verian,1500,2025-11-18,370
+A,Socialdemokratiet,2024-11-07,19.3,all,Epinion,1592,2025-11-18,376
+A,Socialdemokratiet,2024-11-07,18.3,men,Epinion,1592,2025-11-18,376
+A,Socialdemokratiet,2024-11-07,20.3,women,Epinion,1592,2025-11-18,376
+A,Socialdemokratiet,2024-11-07,11.4,young,Epinion,1592,2025-11-18,376
+A,Socialdemokratiet,2024-11-07,18.8,doubts,Epinion,1592,2025-11-18,376
+B,Radikale Venstre,2024-11-07,5.2,all,Epinion,1592,2025-11-18,376
+B,Radikale Venstre,2024-11-07,4.8,men,Epinion,1592,2025-11-18,376
+B,Radikale Venstre,2024-11-07,5.6,women,Epinion,1592,2025-11-18,376
+B,Radikale Venstre,2024-11-07,8.5,young,Epinion,1592,2025-11-18,376
+B,Radikale Venstre,2024-11-07,5.1,doubts,Epinion,1592,2025-11-18,376
+C,Det Konservative Folkeparti,2024-11-07,6.7,all,Epinion,1592,2025-11-18,376
+C,Det Konservative Folkeparti,2024-11-07,7.4,men,Epinion,1592,2025-11-18,376
+C,Det Konservative Folkeparti,2024-11-07,6.1,women,Epinion,1592,2025-11-18,376
+C,Det Konservative Folkeparti,2024-11-07,5.5,young,Epinion,1592,2025-11-18,376
+C,Det Konservative Folkeparti,2024-11-07,9.2,doubts,Epinion,1592,2025-11-18,376
+F,Socialistisk Folkeparti,2024-11-07,16,all,Epinion,1592,2025-11-18,376
+F,Socialistisk Folkeparti,2024-11-07,12.6,men,Epinion,1592,2025-11-18,376
+F,Socialistisk Folkeparti,2024-11-07,19.3,women,Epinion,1592,2025-11-18,376
+F,Socialistisk Folkeparti,2024-11-07,13.7,young,Epinion,1592,2025-11-18,376
+F,Socialistisk Folkeparti,2024-11-07,11,doubts,Epinion,1592,2025-11-18,376
+I,Liberal Alliance,2024-11-07,12.8,all,Epinion,1592,2025-11-18,376
+I,Liberal Alliance,2024-11-07,16.5,men,Epinion,1592,2025-11-18,376
+I,Liberal Alliance,2024-11-07,9.1,women,Epinion,1592,2025-11-18,376
+I,Liberal Alliance,2024-11-07,22,young,Epinion,1592,2025-11-18,376
+I,Liberal Alliance,2024-11-07,13.7,doubts,Epinion,1592,2025-11-18,376
+M,Moderaterne,2024-11-07,3.4,all,Epinion,1592,2025-11-18,376
+M,Moderaterne,2024-11-07,4.7,men,Epinion,1592,2025-11-18,376
+M,Moderaterne,2024-11-07,2.2,women,Epinion,1592,2025-11-18,376
+M,Moderaterne,2024-11-07,5.3,young,Epinion,1592,2025-11-18,376
+M,Moderaterne,2024-11-07,5.3,doubts,Epinion,1592,2025-11-18,376
+O,Dansk Folkeparti,2024-11-07,5.2,all,Epinion,1592,2025-11-18,376
+O,Dansk Folkeparti,2024-11-07,4.6,men,Epinion,1592,2025-11-18,376
+O,Dansk Folkeparti,2024-11-07,5.7,women,Epinion,1592,2025-11-18,376
+O,Dansk Folkeparti,2024-11-07,4.2,young,Epinion,1592,2025-11-18,376
+O,Dansk Folkeparti,2024-11-07,5.3,doubts,Epinion,1592,2025-11-18,376
+V,"Venstre, Danmarks Liberale Parti",2024-11-07,9.5,all,Epinion,1592,2025-11-18,376
+V,"Venstre, Danmarks Liberale Parti",2024-11-07,9.8,men,Epinion,1592,2025-11-18,376
+V,"Venstre, Danmarks Liberale Parti",2024-11-07,9.2,women,Epinion,1592,2025-11-18,376
+V,"Venstre, Danmarks Liberale Parti",2024-11-07,7.4,young,Epinion,1592,2025-11-18,376
+V,"Venstre, Danmarks Liberale Parti",2024-11-07,15.3,doubts,Epinion,1592,2025-11-18,376
+Æ,Danmarksdemokraterne - Inger Støjberg,2024-11-07,11.1,all,Epinion,1592,2025-11-18,376
+Æ,Danmarksdemokraterne - Inger Støjberg,2024-11-07,12.4,men,Epinion,1592,2025-11-18,376
+Æ,Danmarksdemokraterne - Inger Støjberg,2024-11-07,9.8,women,Epinion,1592,2025-11-18,376
+Æ,Danmarksdemokraterne - Inger Støjberg,2024-11-07,4.4,young,Epinion,1592,2025-11-18,376
+Æ,Danmarksdemokraterne - Inger Støjberg,2024-11-07,10.4,doubts,Epinion,1592,2025-11-18,376
+Ø,Enhedslisten - De Rød-Grønne,2024-11-07,7.1,all,Epinion,1592,2025-11-18,376
+Ø,Enhedslisten - De Rød-Grønne,2024-11-07,5.7,men,Epinion,1592,2025-11-18,376
+Ø,Enhedslisten - De Rød-Grønne,2024-11-07,8.5,women,Epinion,1592,2025-11-18,376
+Ø,Enhedslisten - De Rød-Grønne,2024-11-07,12.2,young,Epinion,1592,2025-11-18,376
+Ø,Enhedslisten - De Rød-Grønne,2024-11-07,2.2,doubts,Epinion,1592,2025-11-18,376
+Å,Alternativet,2024-11-07,2.2,all,Epinion,1592,2025-11-18,376
+Å,Alternativet,2024-11-07,1,men,Epinion,1592,2025-11-18,376
+Å,Alternativet,2024-11-07,3.4,women,Epinion,1592,2025-11-18,376
+Å,Alternativet,2024-11-07,4.2,young,Epinion,1592,2025-11-18,376
+Å,Alternativet,2024-11-07,2.4,doubts,Epinion,1592,2025-11-18,376
+A,Socialdemokratiet,2024-10-09,19.6,all,Verian,1500,2025-11-18,405
+B,Radikale Venstre,2024-10-09,4.1,all,Verian,1500,2025-11-18,405
+C,Det Konservative Folkeparti,2024-10-09,7,all,Verian,1500,2025-11-18,405
+D,Nye Borgerlige,2024-10-09,0.6,all,Verian,1500,2025-11-18,405
+F,SF - Socialistisk Folkeparti,2024-10-09,16.8,all,Verian,1500,2025-11-18,405
+H,Borgernes Parti - Lars Boje Mathiesen,2024-10-09,NA,all,Verian,1500,2025-11-18,405
+I, Liberal Alliance,2024-10-09,12.2,all,Verian,1500,2025-11-18,405
+K,Kristendemokraterne,2024-10-09,0.1,all,Verian,1500,2025-11-18,405
+M,Moderaterne,2024-10-09,4,all,Verian,1500,2025-11-18,405
+O,Dansk Folkeparti,2024-10-09,5.9,all,Verian,1500,2025-11-18,405
+Q,"Frie Grønne, Danmarks Nye Venstrefløjsparti",2024-10-09,0.4,all,Verian,1500,2025-11-18,405
+V,"Venstre, Danmarks Liberale Parti",2024-10-09,10,all,Verian,1500,2025-11-18,405
+Æ,Danmarksdemokraterne - Inger Støjberg,2024-10-09,9.7,all,Verian,1500,2025-11-18,405
+Ø,Enhedslisten - De Rød-Grønne,2024-10-09,8,all,Verian,1500,2025-11-18,405
+Å,Alternativet,2024-10-09,1.3,all,Verian,1500,2025-11-18,405
+A,Socialdemokratiet,2024-09-30,19.9,all,Epinion,1614,2025-11-18,414
+A,Socialdemokratiet,2024-09-30,16.9,men,Epinion,1614,2025-11-18,414
+A,Socialdemokratiet,2024-09-30,22.8,women,Epinion,1614,2025-11-18,414
+A,Socialdemokratiet,2024-09-30,10.9,young,Epinion,1614,2025-11-18,414
+A,Socialdemokratiet,2024-09-30,19.5,doubts,Epinion,1614,2025-11-18,414
+Å,Alternativet,2024-09-30,2.2,all,Epinion,1614,2025-11-18,414
+Å,Alternativet,2024-09-30,1,men,Epinion,1614,2025-11-18,414
+Å,Alternativet,2024-09-30,3.3,women,Epinion,1614,2025-11-18,414
+Å,Alternativet,2024-09-30,4.9,young,Epinion,1614,2025-11-18,414
+Å,Alternativet,2024-09-30,2.7,doubts,Epinion,1614,2025-11-18,414
+Æ,Danmarksdemokraterne - Inger Støjberg,2024-09-30,9.9,all,Epinion,1614,2025-11-18,414
+Æ,Danmarksdemokraterne - Inger Støjberg,2024-09-30,9.6,men,Epinion,1614,2025-11-18,414
+Æ,Danmarksdemokraterne - Inger Støjberg,2024-09-30,10.3,women,Epinion,1614,2025-11-18,414
+Æ,Danmarksdemokraterne - Inger Støjberg,2024-09-30,4.1,young,Epinion,1614,2025-11-18,414
+Æ,Danmarksdemokraterne - Inger Støjberg,2024-09-30,9.3,doubts,Epinion,1614,2025-11-18,414
+B,Radikale Venstre,2024-09-30,4.2,all,Epinion,1614,2025-11-18,414
+B,Radikale Venstre,2024-09-30,4.4,men,Epinion,1614,2025-11-18,414
+B,Radikale Venstre,2024-09-30,4,women,Epinion,1614,2025-11-18,414
+B,Radikale Venstre,2024-09-30,8.2,young,Epinion,1614,2025-11-18,414
+B,Radikale Venstre,2024-09-30,4.4,doubts,Epinion,1614,2025-11-18,414
+C,Det Konservative Folkeparti,2024-09-30,6.5,all,Epinion,1614,2025-11-18,414
+C,Det Konservative Folkeparti,2024-09-30,7.5,men,Epinion,1614,2025-11-18,414
+C,Det Konservative Folkeparti,2024-09-30,5.6,women,Epinion,1614,2025-11-18,414
+C,Det Konservative Folkeparti,2024-09-30,5.5,young,Epinion,1614,2025-11-18,414
+C,Det Konservative Folkeparti,2024-09-30,8.2,doubts,Epinion,1614,2025-11-18,414
+F,Socialistisk Folkeparti,2024-09-30,14.8,all,Epinion,1614,2025-11-18,414
+F,Socialistisk Folkeparti,2024-09-30,11.1,men,Epinion,1614,2025-11-18,414
+F,Socialistisk Folkeparti,2024-09-30,18.3,women,Epinion,1614,2025-11-18,414
+F,Socialistisk Folkeparti,2024-09-30,12.9,young,Epinion,1614,2025-11-18,414
+F,Socialistisk Folkeparti,2024-09-30,11.6,doubts,Epinion,1614,2025-11-18,414
+I,Liberal Alliance,2024-09-30,13,all,Epinion,1614,2025-11-18,414
+I,Liberal Alliance,2024-09-30,18.2,men,Epinion,1614,2025-11-18,414
+I,Liberal Alliance,2024-09-30,7.9,women,Epinion,1614,2025-11-18,414
+I,Liberal Alliance,2024-09-30,20.6,young,Epinion,1614,2025-11-18,414
+I,Liberal Alliance,2024-09-30,14.7,doubts,Epinion,1614,2025-11-18,414
+M,Moderaterne,2024-09-30,4,all,Epinion,1614,2025-11-18,414
+M,Moderaterne,2024-09-30,4.8,men,Epinion,1614,2025-11-18,414
+M,Moderaterne,2024-09-30,3.3,women,Epinion,1614,2025-11-18,414
+M,Moderaterne,2024-09-30,7,young,Epinion,1614,2025-11-18,414
+M,Moderaterne,2024-09-30,7.8,doubts,Epinion,1614,2025-11-18,414
+O,Dansk Folkeparti,2024-09-30,5.7,all,Epinion,1614,2025-11-18,414
+O,Dansk Folkeparti,2024-09-30,5.4,men,Epinion,1614,2025-11-18,414
+O,Dansk Folkeparti,2024-09-30,6,women,Epinion,1614,2025-11-18,414
+O,Dansk Folkeparti,2024-09-30,4.2,young,Epinion,1614,2025-11-18,414
+O,Dansk Folkeparti,2024-09-30,5.4,doubts,Epinion,1614,2025-11-18,414
+Ø,Enhedslisten - De Rød-Grønne,2024-09-30,7.7,all,Epinion,1614,2025-11-18,414
+Ø,Enhedslisten - De Rød-Grønne,2024-09-30,6.6,men,Epinion,1614,2025-11-18,414
+Ø,Enhedslisten - De Rød-Grønne,2024-09-30,8.7,women,Epinion,1614,2025-11-18,414
+Ø,Enhedslisten - De Rød-Grønne,2024-09-30,12.8,young,Epinion,1614,2025-11-18,414
+Ø,Enhedslisten - De Rød-Grønne,2024-09-30,2.8,doubts,Epinion,1614,2025-11-18,414
+V,"Venstre, Danmarks Liberale Parti",2024-09-30,10.4,all,Epinion,1614,2025-11-18,414
+V,"Venstre, Danmarks Liberale Parti",2024-09-30,11.8,men,Epinion,1614,2025-11-18,414
+V,"Venstre, Danmarks Liberale Parti",2024-09-30,9.1,women,Epinion,1614,2025-11-18,414
+V,"Venstre, Danmarks Liberale Parti",2024-09-30,7.6,young,Epinion,1614,2025-11-18,414
+V,"Venstre, Danmarks Liberale Parti",2024-09-30,12.4,doubts,Epinion,1614,2025-11-18,414
+A,Socialdemokratiet,2024-09-11,18.9,all,Verian,1500,2025-11-18,433
+B,Radikale Venstre,2024-09-11,5.3,all,Verian,1500,2025-11-18,433
+C,Det Konservative Folkeparti,2024-09-11,6.1,all,Verian,1500,2025-11-18,433
+D,Nye Borgerlige,2024-09-11,0.5,all,Verian,1500,2025-11-18,433
+F,SF - Socialistisk Folkeparti,2024-09-11,15.9,all,Verian,1500,2025-11-18,433
+H,Borgernes Parti - Lars Boje Mathiesen,2024-09-11,NA,all,Verian,1500,2025-11-18,433
+I, Liberal Alliance,2024-09-11,13.2,all,Verian,1500,2025-11-18,433
+K,Kristendemokraterne,2024-09-11,0.5,all,Verian,1500,2025-11-18,433
+M,Moderaterne,2024-09-11,4.2,all,Verian,1500,2025-11-18,433
+O,Dansk Folkeparti,2024-09-11,6.4,all,Verian,1500,2025-11-18,433
+Q,"Frie Grønne, Danmarks Nye Venstrefløjsparti",2024-09-11,0.5,all,Verian,1500,2025-11-18,433
+V,"Venstre, Danmarks Liberale Parti",2024-09-11,9.7,all,Verian,1500,2025-11-18,433
+Æ,Danmarksdemokraterne - Inger Støjberg,2024-09-11,8.6,all,Verian,1500,2025-11-18,433
+Ø,Enhedslisten - De Rød-Grønne,2024-09-11,7.9,all,Verian,1500,2025-11-18,433
+Å,Alternativet,2024-09-11,1.6,all,Verian,1500,2025-11-18,433
+A,Socialdemokratiet,2024-08-16,19.2,all,Epinion,1459,2025-11-18,459
+A,Socialdemokratiet,2024-08-16,17.8,men,Epinion,1459,2025-11-18,459
+A,Socialdemokratiet,2024-08-16,20.6,women,Epinion,1459,2025-11-18,459
+A,Socialdemokratiet,2024-08-16,10,young,Epinion,1459,2025-11-18,459
+A,Socialdemokratiet,2024-08-16,18.1,doubts,Epinion,1459,2025-11-18,459
+B,Radikale Venstre,2024-08-16,4.1,all,Epinion,1459,2025-11-18,459
+B,Radikale Venstre,2024-08-16,3.6,men,Epinion,1459,2025-11-18,459
+B,Radikale Venstre,2024-08-16,4.4,women,Epinion,1459,2025-11-18,459
+B,Radikale Venstre,2024-08-16,8.2,young,Epinion,1459,2025-11-18,459
+B,Radikale Venstre,2024-08-16,3.7,doubts,Epinion,1459,2025-11-18,459
+C,Det Konservative Folkeparti,2024-08-16,6.6,all,Epinion,1459,2025-11-18,459
+C,Det Konservative Folkeparti,2024-08-16,7.9,men,Epinion,1459,2025-11-18,459
+C,Det Konservative Folkeparti,2024-08-16,5.4,women,Epinion,1459,2025-11-18,459
+C,Det Konservative Folkeparti,2024-08-16,5.5,young,Epinion,1459,2025-11-18,459
+C,Det Konservative Folkeparti,2024-08-16,8.4,doubts,Epinion,1459,2025-11-18,459
+F,Socialistisk Folkeparti,2024-08-16,16,all,Epinion,1459,2025-11-18,459
+F,Socialistisk Folkeparti,2024-08-16,12.3,men,Epinion,1459,2025-11-18,459
+F,Socialistisk Folkeparti,2024-08-16,19.5,women,Epinion,1459,2025-11-18,459
+F,Socialistisk Folkeparti,2024-08-16,12.4,young,Epinion,1459,2025-11-18,459
+F,Socialistisk Folkeparti,2024-08-16,13.1,doubts,Epinion,1459,2025-11-18,459
+I,Liberal Alliance,2024-08-16,12.8,all,Epinion,1459,2025-11-18,459
+I,Liberal Alliance,2024-08-16,17.8,men,Epinion,1459,2025-11-18,459
+I,Liberal Alliance,2024-08-16,8,women,Epinion,1459,2025-11-18,459
+I,Liberal Alliance,2024-08-16,22.4,young,Epinion,1459,2025-11-18,459
+I,Liberal Alliance,2024-08-16,13.6,doubts,Epinion,1459,2025-11-18,459
+M,Moderaterne,2024-08-16,6.3,all,Epinion,1459,2025-11-18,459
+M,Moderaterne,2024-08-16,6.9,men,Epinion,1459,2025-11-18,459
+M,Moderaterne,2024-08-16,5.7,women,Epinion,1459,2025-11-18,459
+M,Moderaterne,2024-08-16,6.8,young,Epinion,1459,2025-11-18,459
+M,Moderaterne,2024-08-16,8.1,doubts,Epinion,1459,2025-11-18,459
+O,Dansk Folkeparti,2024-08-16,4.9,all,Epinion,1459,2025-11-18,459
+O,Dansk Folkeparti,2024-08-16,4.8,men,Epinion,1459,2025-11-18,459
+O,Dansk Folkeparti,2024-08-16,5.1,women,Epinion,1459,2025-11-18,459
+O,Dansk Folkeparti,2024-08-16,4.2,young,Epinion,1459,2025-11-18,459
+O,Dansk Folkeparti,2024-08-16,5.8,doubts,Epinion,1459,2025-11-18,459
+V,"Venstre, Danmarks Liberale Parti",2024-08-16,8.9,all,Epinion,1459,2025-11-18,459
+V,"Venstre, Danmarks Liberale Parti",2024-08-16,7.5,men,Epinion,1459,2025-11-18,459
+V,"Venstre, Danmarks Liberale Parti",2024-08-16,10.2,women,Epinion,1459,2025-11-18,459
+V,"Venstre, Danmarks Liberale Parti",2024-08-16,6.9,young,Epinion,1459,2025-11-18,459
+V,"Venstre, Danmarks Liberale Parti",2024-08-16,12,doubts,Epinion,1459,2025-11-18,459
+Æ,Danmarksdemokraterne - Inger Støjberg,2024-08-16,11.5,all,Epinion,1459,2025-11-18,459
+Æ,Danmarksdemokraterne - Inger Støjberg,2024-08-16,12,men,Epinion,1459,2025-11-18,459
+Æ,Danmarksdemokraterne - Inger Støjberg,2024-08-16,11.1,women,Epinion,1459,2025-11-18,459
+Æ,Danmarksdemokraterne - Inger Støjberg,2024-08-16,4.1,young,Epinion,1459,2025-11-18,459
+Æ,Danmarksdemokraterne - Inger Støjberg,2024-08-16,10.3,doubts,Epinion,1459,2025-11-18,459
+Ø,Enhedslisten - De Rød-Grønne,2024-08-16,6.9,all,Epinion,1459,2025-11-18,459
+Ø,Enhedslisten - De Rød-Grønne,2024-08-16,6.5,men,Epinion,1459,2025-11-18,459
+Ø,Enhedslisten - De Rød-Grønne,2024-08-16,7.3,women,Epinion,1459,2025-11-18,459
+Ø,Enhedslisten - De Rød-Grønne,2024-08-16,12.3,young,Epinion,1459,2025-11-18,459
+Ø,Enhedslisten - De Rød-Grønne,2024-08-16,3.3,doubts,Epinion,1459,2025-11-18,459
+Å,Alternativet,2024-08-16,1.7,all,Epinion,1459,2025-11-18,459
+Å,Alternativet,2024-08-16,1.3,men,Epinion,1459,2025-11-18,459
+Å,Alternativet,2024-08-16,2.1,women,Epinion,1459,2025-11-18,459
+Å,Alternativet,2024-08-16,5.8,young,Epinion,1459,2025-11-18,459
+Å,Alternativet,2024-08-16,2.5,doubts,Epinion,1459,2025-11-18,459

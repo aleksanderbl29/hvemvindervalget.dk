@@ -11,6 +11,7 @@
 import type * as ingest from "../ingest.js";
 import type * as ingestDirect from "../ingestDirect.js";
 import type * as ingestMutations from "../ingestMutations.js";
+import type * as ingestPolls from "../ingestPolls.js";
 import type * as municipalities from "../municipalities.js";
 import type * as nationalOverview from "../nationalOverview.js";
 import type * as parties from "../parties.js";
@@ -19,6 +20,7 @@ import type * as pollsters from "../pollsters.js";
 import type * as regions from "../regions.js";
 import type * as scenarios from "../scenarios.js";
 import type * as schemaMapping from "../schemaMapping.js";
+import type * as seedPolls from "../seedPolls.js";
 
 import type {
   ApiFromModules,
@@ -30,6 +32,7 @@ declare const fullApi: ApiFromModules<{
   ingest: typeof ingest;
   ingestDirect: typeof ingestDirect;
   ingestMutations: typeof ingestMutations;
+  ingestPolls: typeof ingestPolls;
   municipalities: typeof municipalities;
   nationalOverview: typeof nationalOverview;
   parties: typeof parties;
@@ -38,6 +41,7 @@ declare const fullApi: ApiFromModules<{
   regions: typeof regions;
   scenarios: typeof scenarios;
   schemaMapping: typeof schemaMapping;
+  seedPolls: typeof seedPolls;
 }>;
 
 /**
