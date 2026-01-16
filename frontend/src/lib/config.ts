@@ -39,8 +39,7 @@ const parsed = envSchema.safeParse({
       process.env.USE_STUB_DATA ??
       "true") as "true" | "false",
   NEXT_PUBLIC_CHART_LIBRARY: process.env.NEXT_PUBLIC_CHART_LIBRARY as (typeof chartLibraryOptions)[number] | undefined,
-  NEXT_PUBLIC_WAITING_MODE:
-    (process.env.NEXT_PUBLIC_WAITING_MODE ?? "true") as "true" | "false",
+  NEXT_PUBLIC_WAITING_MODE: process.env.NEXT_PUBLIC_WAITING_MODE,
   NEXT_PUBLIC_ANALYTICS_PROXY_PATH: process.env.NEXT_PUBLIC_ANALYTICS_PROXY_PATH,
 });
 
