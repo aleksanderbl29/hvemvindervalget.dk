@@ -1,12 +1,37 @@
+"use client";
+
+import { useQuery } from "convex/react";
+import { api } from "@convex/_generated/api";
 import { PollsSpotlight } from "@/components/sections/PollsSpotlight";
-import { api } from "@/lib/api/client";
 
-export const metadata = {
-  title: "Meningsmålinger | Hvem vinder valget?",
-};
+export default function PollsPage() {
+  const polls = useQuery(api.polls.get);
 
-export default async function PollsPage() {
-  const polls = await api.getPollHighlights();
+  if (polls === undefined) {
+    return (
+      <div className="flex items-center justify-center p-8">
+        <div className="text-slate-500">Indlæser data...</div>
+      </div>
+    );
+  }
+
+  if (!polls || polls.length === 0) {
+    return (
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold text-slate-900">
+          Meningsmålinger
+        </h2>
+        <p className="text-sm text-slate-500">
+          Historik og seneste bevægelser. Her tilføjer vi snart interaktive
+          tidsserier med Plotly.
+        </p>
+        <div className="flex items-center justify-center p-8">
+          <div className="text-slate-500">Ingen data tilgængelig</div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="space-y-6">
       <h2 className="text-2xl font-semibold text-slate-900">

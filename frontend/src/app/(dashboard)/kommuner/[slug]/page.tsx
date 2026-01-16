@@ -1,24 +1,30 @@
-import { notFound } from "next/navigation";
-import { api } from "@/lib/api/client";
+"use client";
+
+import { useQuery } from "convex/react";
+import { api } from "@convex/_generated/api";
+import { useParams } from "next/navigation";
 import { ChartShell } from "@/components/ui/ChartShell";
 import { StatCard } from "@/components/ui/StatCard";
 
-type MunicipalityPageParams = {
-  slug: string;
-};
+export default function MunicipalityPage() {
+  const params = useParams();
+  const slug = params.slug as string;
+  const municipality = useQuery(api.municipalities.getBySlug, { slug });
 
-type MunicipalityPageProps = {
-  params: MunicipalityPageParams | Promise<MunicipalityPageParams>;
-};
-
-export default async function MunicipalityPage({ params }: MunicipalityPageProps) {
-  const resolvedParams = await Promise.resolve(params);
-  const { slug } = resolvedParams;
-  const municipalities = await api.getMunicipalitySnapshots();
-  const municipality = municipalities.find((item) => item.slug === slug);
+  if (municipality === undefined) {
+    return (
+      <div className="flex items-center justify-center p-8">
+        <div className="text-slate-500">Indlæser data...</div>
+      </div>
+    );
+  }
 
   if (!municipality) {
-    notFound();
+    return (
+      <div className="flex items-center justify-center p-8">
+        <div className="text-slate-500">Kommune ikke fundet</div>
+      </div>
+    );
   }
 
   return (
@@ -51,9 +57,8 @@ export default async function MunicipalityPage({ params }: MunicipalityPageProps
       </div>
       <ChartShell
         title="Udvikling over tid"
-        description="Her integrerer vi Plotly-linjer, når API’et eksponerer tidsserier."
+        description="Her integrerer vi Plotly-linjer, når API'et eksponerer tidsserier."
       />
     </div>
   );
 }
-
