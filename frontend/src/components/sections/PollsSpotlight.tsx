@@ -38,8 +38,8 @@ export function PollsSpotlight({ polls }: PollsSpotlightProps) {
                 </thead>
                 <tbody>
                   {poll.parties
-                    .sort((a, b) => b.value - a.value)
-                    .map((party) => (
+                    .sort((a: { party: string; value: number }, b: { party: string; value: number }) => b.value - a.value)
+                    .map((party: { party: string; value: number }) => (
                       <tr
                         key={party.party}
                         className="border-b border-slate-100 text-slate-700 hover:bg-slate-50/50"

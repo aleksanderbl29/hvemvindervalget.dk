@@ -1,4 +1,4 @@
-import { NationalOverviewData } from "@/lib/api/types";
+import { NationalOverviewData, PartyProjection } from "@/lib/api/types";
 import { StatCard } from "../ui/StatCard";
 import { ChartShell } from "../ui/ChartShell";
 
@@ -33,7 +33,7 @@ export function NationalOverviewSection({ data }: NationalOverviewProps) {
         chart={data.primaryChart}
       />
       <div className="grid grid-cols-2 gap-2 text-left text-slate-700 sm:grid-cols-4">
-        {data.partyProjections.map((projection) => (
+        {data.partyProjections.map((projection: PartyProjection) => (
           <div key={projection.party} className="rounded-xl bg-white/60 p-3 shadow-inner">
             <p className="text-xs text-slate-500">{projection.party}</p>
             <p className="text-xl font-semibold">
@@ -58,7 +58,7 @@ export function NationalOverviewSection({ data }: NationalOverviewProps) {
           Modelnoter & scenarier
         </h3>
         <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-600">
-          {data.scenarioNotes.map((note) => (
+          {data.scenarioNotes.map((note: string) => (
             <li key={note}>{note}</li>
           ))}
         </ul>

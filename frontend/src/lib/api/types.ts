@@ -1,6 +1,4 @@
-import type { Doc } from "@convex/_generated/dataModel";
-import type { QueryResult } from "convex/react";
-import type { api } from "@convex/_generated/api";
+import type { Doc, Id } from "@convex/_generated/dataModel";
 
 // Re-export Convex-generated table document types
 export type Party = Doc<"parties">;
@@ -11,19 +9,6 @@ export type PollResult = Doc<"poll_results">;
 export type MunicipalitySnapshot = Doc<"municipality_snapshots">;
 export type Scenario = Doc<"scenarios">;
 export type NationalOverview = Doc<"national_overview">;
-
-// Query return types - inferred from Convex queries
-export type PollsQueryResult = QueryResult<typeof api.polls.get>;
-export type PollHighlight = NonNullable<PollsQueryResult>[number];
-
-export type MunicipalitiesQueryResult = QueryResult<typeof api.municipalities.get>;
-export type MunicipalityWithRegion = NonNullable<MunicipalitiesQueryResult>[number];
-
-export type ScenariosQueryResult = QueryResult<typeof api.scenarios.get>;
-export type ScenarioInsight = NonNullable<ScenariosQueryResult>[number];
-
-export type NationalOverviewQueryResult = QueryResult<typeof api.nationalOverview.get>;
-export type NationalOverviewData = NonNullable<NationalOverviewQueryResult>;
 
 export type ChartLibraryId = "plotly" | "echarts" | "chartjs" | "vega-lite";
 
@@ -52,4 +37,34 @@ export type ChartSummary = {
     config?: Record<string, unknown>;
   };
 };
+
+// Query return types - manually defined based on query handlers
+export type PollHighlight = {
+  _id: Id<"polls">;
+  _creationTime: number;
+  pollsterId: Id<"pollsters">;
+  conductedAt: string;
+  sampleSize: number;
+  methodology: string;
+  chartSummary?: ChartSummary;
+  pollster: string;
+  pollsterCode: string | null;
+  parties: Array<{ party: string; value: number }>;
+};
+
+export type PollsQueryResult = PollHighlight[];
+
+export type MunicipalityWithRegion = MunicipalitySnapshot & {
+  region: string;
+};
+
+export type MunicipalitiesQueryResult = MunicipalityWithRegion[];
+
+export type ScenarioInsight = Scenario;
+
+export type ScenariosQueryResult = ScenarioInsight[];
+
+export type NationalOverviewData = NationalOverview;
+
+export type NationalOverviewQueryResult = NationalOverview | null;
 

@@ -8,13 +8,13 @@ export function PollsTable({ polls }: PollsTableProps) {
   // Get all unique parties across all polls, sorted by average value
   const allParties = new Set<string>();
   polls.forEach((poll) => {
-    poll.parties.forEach((p) => allParties.add(p.party));
+    poll.parties.forEach((p: { party: string; value: number }) => allParties.add(p.party));
   });
 
   const partyAverages = Array.from(allParties).map((party) => {
     const values = polls
-      .flatMap((poll) => poll.parties.filter((p) => p.party === party))
-      .map((p) => p.value);
+      .flatMap((poll) => poll.parties.filter((p: { party: string; value: number }) => p.party === party))
+      .map((p: { party: string; value: number }) => p.value);
     const avg = values.reduce((a, b) => a + b, 0) / values.length;
     return { party, avg };
   });
@@ -61,7 +61,7 @@ export function PollsTable({ polls }: PollsTableProps) {
                   </div>
                 </td>
                 {sortedParties.map((party) => {
-                  const partyResult = poll.parties.find((p) => p.party === party);
+                  const partyResult = poll.parties.find((p: { party: string; value: number }) => p.party === party);
                   return (
                     <td key={party} className="py-3 px-2 text-center text-slate-700">
                       {partyResult ? (
