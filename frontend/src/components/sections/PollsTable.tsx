@@ -15,11 +15,32 @@ export function PollsTable({ polls }: PollsTableProps) {
     const values = polls
       .flatMap((poll) => poll.parties.filter((p: { party: string; value: number }) => p.party === party))
       .map((p: { party: string; value: number }) => p.value);
-    const avg = values.reduce((a, b) => a + b, 0) / values.length;
+    const avg = values.length > 0 ? values.reduce((a, b) => a + b, 0) / values.length : 0;
     return { party, avg };
   });
 
   const sortedParties = partyAverages.sort((a, b) => b.avg - a.avg).map((p) => p.party);
+
+  if (polls.length === 0) {
+    return (
+      <section className="rounded-3xl border border-slate-200 bg-white/80 p-6 shadow-sm">
+        <header className="mb-4">
+          <h3 className="text-lg font-semibold text-slate-900">Meningsmålinger</h3>
+          <p className="text-sm text-slate-500">
+            Oversigt over alle polls med partier som rækker.
+          </p>
+        </header>
+        <div className="flex items-center justify-center py-12">
+          <div className="text-center">
+            <p className="text-slate-500">Ingen polls tilgængelig endnu</p>
+            <p className="mt-1 text-sm text-slate-400">
+              Data vil blive vist her, når polls er importeret
+            </p>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="rounded-3xl border border-slate-200 bg-white/80 p-6 shadow-sm">

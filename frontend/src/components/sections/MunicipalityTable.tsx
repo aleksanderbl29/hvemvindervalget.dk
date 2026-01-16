@@ -6,6 +6,29 @@ type MunicipalityTableProps = {
 };
 
 export function MunicipalityTable({ municipalities }: MunicipalityTableProps) {
+  if (municipalities.length === 0) {
+    return (
+      <section className="rounded-3xl border border-slate-200 bg-white/80 p-6 shadow-sm">
+        <header className="mb-4">
+          <h3 className="text-lg font-semibold text-slate-900">
+            Kommuner i fokus
+          </h3>
+          <p className="text-sm text-slate-500">
+            Prioriteret efter bevægelse og demografi.
+          </p>
+        </header>
+        <div className="flex items-center justify-center py-12">
+          <div className="text-center">
+            <p className="text-slate-500">Ingen kommuner tilgængelig endnu</p>
+            <p className="mt-1 text-sm text-slate-400">
+              Data vil blive vist her, når kommunale data er importeret
+            </p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="rounded-3xl border border-slate-200 bg-white/80 p-6 shadow-sm">
       <header className="mb-4 flex items-center justify-between">

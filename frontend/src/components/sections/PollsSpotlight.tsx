@@ -5,6 +5,27 @@ type PollsSpotlightProps = {
 };
 
 export function PollsSpotlight({ polls }: PollsSpotlightProps) {
+  if (polls.length === 0) {
+    return (
+      <section className="rounded-3xl border border-slate-200 bg-white/80 p-6 shadow-sm">
+        <header className="mb-4">
+          <h3 className="text-lg font-semibold text-slate-900">Seneste målinger</h3>
+          <p className="text-sm text-slate-500">
+            Fokus på polls publiceret de sidste 14 dage.
+          </p>
+        </header>
+        <div className="flex items-center justify-center py-12">
+          <div className="text-center">
+            <p className="text-slate-500">Ingen polls tilgængelig endnu</p>
+            <p className="mt-1 text-sm text-slate-400">
+              Data vil blive vist her, når polls er importeret
+            </p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="rounded-3xl border border-slate-200 bg-white/80 p-6 shadow-sm">
       <header className="mb-4">

@@ -13,6 +13,7 @@
 import { ConvexHttpClient } from "convex/browser";
 import * as fs from "fs";
 import * as path from "path";
+import { api } from "../convex/_generated/api";
 
 async function main() {
   // Get Convex URL from environment (set by `npx convex dev`)
@@ -38,7 +39,7 @@ async function main() {
   const client = new ConvexHttpClient(convexUrl);
 
   console.log("Calling Convex seedPolls:seedFromCsv action...");
-  const result = await client.action("seedPolls:seedFromCsv", {
+  const result = await client.action(api.seedPolls.seedFromCsv, {
     csvContent,
   });
 

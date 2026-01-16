@@ -15,6 +15,7 @@ import Papa from "papaparse";
 import * as fs from "fs";
 import * as path from "path";
 import { api } from "../convex/_generated/api";
+import type { Id } from "../convex/_generated/dataModel";
 
 interface PollRow {
   party_code: string;
@@ -112,7 +113,7 @@ async function main() {
   // Import polls
   let imported = 0;
   let errors = 0;
-  const pollsterCache = new Map<string, string>(); // pollster name -> pollster ID
+  const pollsterCache = new Map<string, Id<"pollsters">>(); // pollster name -> pollster ID
 
   for (const [key, group] of pollGroups) {
     try {
