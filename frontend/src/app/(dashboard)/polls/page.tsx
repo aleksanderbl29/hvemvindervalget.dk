@@ -2,7 +2,7 @@
 
 import { useQuery } from "convex/react";
 import { api } from "@convex/_generated/api";
-import { PollsSpotlight } from "@/components/sections/PollsSpotlight";
+import { PollsTable } from "@/components/sections/PollsTable";
 
 export default function PollsPage() {
   const polls = useQuery(api.polls.get);
@@ -34,14 +34,16 @@ export default function PollsPage() {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-2xl font-semibold text-slate-900">
-        Meningsmålinger
-      </h2>
-      <p className="text-sm text-slate-500">
-        Historik og seneste bevægelser. Her tilføjer vi snart interaktive
-        tidsserier med Plotly.
-      </p>
-      <PollsSpotlight polls={polls} />
+      <div>
+        <h2 className="text-2xl font-semibold text-slate-900">
+          Meningsmålinger
+        </h2>
+        <p className="text-sm text-slate-500">
+          Oversigt over alle polls med partier som kolonner. Hver række
+          repræsenterer en poll, og hver kolonne viser et partis resultat.
+        </p>
+      </div>
+      <PollsTable polls={polls} />
     </div>
   );
 }

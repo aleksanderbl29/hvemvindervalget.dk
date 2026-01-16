@@ -1,9 +1,9 @@
-import { NationalOverview } from "@/lib/api/types";
+import { NationalOverviewData } from "@/lib/api/types";
 import { StatCard } from "../ui/StatCard";
 import { ChartShell } from "../ui/ChartShell";
 
 type NationalOverviewProps = {
-  data: NationalOverview;
+  data: NationalOverviewData;
 };
 
 export function NationalOverviewSection({ data }: NationalOverviewProps) {

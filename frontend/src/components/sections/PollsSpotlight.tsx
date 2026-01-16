@@ -13,32 +13,45 @@ export function PollsSpotlight({ polls }: PollsSpotlightProps) {
           Fokus på polls publiceret de sidste 14 dage.
         </p>
       </header>
-      <div className="space-y-4">
+      <div className="space-y-6">
         {polls.map((poll) => (
           <article
             key={`${poll.pollster}-${poll.conductedAt}`}
             className="rounded-2xl border border-slate-100 bg-slate-50/60 p-4"
           >
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <div>
-                <p className="text-sm font-semibold text-slate-900">
-                  {poll.pollster}
-                </p>
-                <p className="text-xs uppercase tracking-wide text-slate-500">
-                  {new Date(poll.conductedAt).toLocaleDateString("da-DK")} · n=
-                  {poll.sampleSize} · {poll.methodology}
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-2 text-xs text-slate-600">
-                {poll.parties.slice(0, 6).map((party) => (
-                  <span
-                    key={party.party}
-                    className="rounded-full border border-slate-200 px-2 py-1 font-medium"
-                  >
-                    {party.party} {party.value.toFixed(1)}%
-                  </span>
-                ))}
-              </div>
+            <div className="mb-3">
+              <p className="text-sm font-semibold text-slate-900">
+                {poll.pollster}
+              </p>
+              <p className="text-xs uppercase tracking-wide text-slate-500">
+                {new Date(poll.conductedAt).toLocaleDateString("da-DK")} · n=
+                {poll.sampleSize} · {poll.methodology}
+              </p>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="min-w-full text-left text-sm">
+                <thead>
+                  <tr className="border-b border-slate-200 text-xs uppercase tracking-wide text-slate-500">
+                    <th className="py-2 pr-4">Parti</th>
+                    <th className="py-2 pr-4 text-right">Stemmer (%)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {poll.parties
+                    .sort((a, b) => b.value - a.value)
+                    .map((party) => (
+                      <tr
+                        key={party.party}
+                        className="border-b border-slate-100 text-slate-700 hover:bg-slate-50/50"
+                      >
+                        <td className="py-2 pr-4 font-medium">{party.party}</td>
+                        <td className="py-2 pr-4 text-right">
+                          {party.value.toFixed(1)}%
+                        </td>
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
             </div>
           </article>
         ))}

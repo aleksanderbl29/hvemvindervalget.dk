@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { MunicipalitySnapshot } from "@/lib/api/types";
+import { MunicipalityWithRegion } from "@/lib/api/types";
 
 type MunicipalityTableProps = {
-  municipalities: MunicipalitySnapshot[];
+  municipalities: MunicipalityWithRegion[];
 };
 
 export function MunicipalityTable({ municipalities }: MunicipalityTableProps) {
