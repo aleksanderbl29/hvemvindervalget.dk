@@ -4,6 +4,8 @@ import { Theme } from "@radix-ui/themes";
 import "./globals.css";
 import { Providers } from "./providers";
 import { WaitingPage } from "@/components/WaitingPage";
+import { SiteFooter } from "@/components/layout/SiteFooter";
+import { SiteHeader } from "@/components/layout/SiteHeader";
 import { runtimeConfig } from "@/lib/config";
 import { VercelAnalytics } from "@/lib/analytics";
 import { VercelSpeedInsights } from "@/lib/speed-insights";
@@ -73,7 +75,11 @@ export default function RootLayout({
               panelBackground="solid"
               radius="large"
             >
-              {children}
+              <div className="flex min-h-screen flex-col">
+                <SiteHeader />
+                <div className="flex-1">{children}</div>
+                <SiteFooter />
+              </div>
             </Theme>
           </Providers>
         )}
