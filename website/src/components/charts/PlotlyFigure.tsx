@@ -38,7 +38,7 @@ function PlotlyFigureComponent({ spec, ariaLabel }: PlotlyFigureProps) {
           ...(spec.layout?.margin as Record<string, number>),
         },
         font: {
-          family: "Geist, Inter, sans-serif",
+          family: "Montserrat, sans-serif",
           ...(spec.layout?.font as Record<string, unknown>),
         },
         paper_bgcolor: "rgba(0,0,0,0)",

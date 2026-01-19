@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import { Theme } from "@radix-ui/themes";
 import "./globals.css";
 import { Providers } from "./providers";
@@ -10,42 +10,39 @@ import { runtimeConfig } from "@/lib/config";
 import { VercelAnalytics } from "@/lib/analytics";
 import { VercelSpeedInsights } from "@/lib/speed-insights";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
+  // weight: ["400", "500", "600", "700"],
+  // display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
+const currentElection = {
+  name: "Folketingsvalg 2026",
+  slug: "fv26",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.hvemvindervalget.dk"),
   title: {
-    default: "Hvem vinder valget? | Kommunalvalg 2025",
-    template: "%s | Hvem vinder valget?",
+    default: `Hvem vinder valget? | ${currentElection.name}`,
+    template: `Hvem vinder valget? | ${currentElection.name}`,
   },
   description:
-    "Prognoser og analyser for kommunalvalget 2025. Sitet er under udvikling.",
+    `Prognoser og analyser for ${currentElection.name}.`,
   authors: [{ name: "Aleksander Bang-Larsen" }],
   openGraph: {
-    title: "Hvem vinder valget?",
+    title: `Hvem vinder valget? | ${currentElection.name}`,
     description:
-      "Prognoser og analyser for kommunalvalget 2025. Sitet er under udvikling.",
+      `Prognoser og analyser for ${currentElection.name}.`,
     url: "https://www.hvemvindervalget.dk",
     siteName: "Hvem vinder valget?",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hvem vinder valget?",
+    title: `Hvem vinder valget? | ${currentElection.name}`,
     description:
-      "Prognoser og analyser for kommunalvalget 2025. Sitet er under udvikling.",
+      `Prognoser og analyser for ${currentElection.name}.`,
   },
 };
 
@@ -61,10 +58,8 @@ export default function RootLayout({
   const isWaitingMode = runtimeConfig.waitingMode;
 
   return (
-    <html lang="da">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-50 text-slate-900`}
-      >
+    <html lang="da" className={montserrat.className}>
+      <body className="antialiased bg-slate-50 text-slate-900">
         {isWaitingMode ? (
           <WaitingPage />
         ) : (

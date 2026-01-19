@@ -32,11 +32,11 @@
       "plot_bgcolor": "rgba(0,0,0,0)",
       "xaxis": {
         "title": "Parti",
-        "tickfont": {"family": "Geist, sans-serif", "size": 12}
+        "tickfont": {"family": "Montserrat, sans-serif", "size": 12}
       },
       "yaxis": {
         "title": "Stemmeandel (%)",
-        "tickfont": {"family": "Geist, sans-serif", "size": 12},
+        "tickfont": {"family": "Montserrat, sans-serif", "size": 12},
         "gridcolor": "rgba(148, 163, 184, 0.3)"
       },
       "title": {"text": "Estimeret stemmeandel", "font": {"size": 18}},

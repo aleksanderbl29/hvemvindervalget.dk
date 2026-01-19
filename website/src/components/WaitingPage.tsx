@@ -137,7 +137,6 @@ export function WaitingPage() {
           display: flex;
           flex-direction: column;
           gap: 0.5rem;
-          font-family: var(--font-geist-sans), system-ui;
         }
 
         .waiting-hero-tagline {
@@ -208,7 +207,6 @@ export function WaitingPage() {
           font-size: clamp(6rem, 15vh, 12rem);
           font-weight: 700;
           color: rgba(255, 255, 255, 0.15);
-          font-family: var(--font-geist-sans), system-ui;
         }
 
         .waiting-text {
@@ -222,7 +220,6 @@ export function WaitingPage() {
           letter-spacing: 0.2em;
           text-transform: uppercase;
           margin-bottom: 0.25rem;
-          font-family: var(--font-geist-sans), system-ui;
         }
 
         .waiting-name {
@@ -231,14 +228,12 @@ export function WaitingPage() {
           color: #f8fafc;
           line-height: 1.1;
           margin-bottom: 0.5rem;
-          font-family: var(--font-geist-sans), system-ui;
         }
 
         .waiting-party {
           font-size: 1rem;
           color: rgba(255, 255, 255, 0.55);
           font-weight: 500;
-          font-family: var(--font-geist-sans), system-ui;
         }
 
         .waiting-footer {
@@ -252,7 +247,7 @@ export function WaitingPage() {
           font-size: 0.8rem;
           letter-spacing: 0.06em;
           color: rgba(255, 255, 255, 0.35);
-          font-family: var(--font-geist-mono), monospace;
+          font-family: var(--font-mono);
         }
 
         .waiting-footer-dots {
