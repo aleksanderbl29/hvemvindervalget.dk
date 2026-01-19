@@ -3,10 +3,8 @@ import { Montserrat } from "next/font/google";
 import { Theme } from "@radix-ui/themes";
 import "./globals.css";
 import { Providers } from "./providers";
-import { WaitingPage } from "@/components/WaitingPage";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
-import { runtimeConfig } from "@/lib/config";
 import { VercelAnalytics } from "@/lib/analytics";
 import { VercelSpeedInsights } from "@/lib/speed-insights";
 
@@ -55,29 +53,23 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const isWaitingMode = runtimeConfig.waitingMode;
-
   return (
     <html lang="da" className={montserrat.className}>
       <body className="antialiased bg-slate-50 text-slate-900">
-        {isWaitingMode ? (
-          <WaitingPage />
-        ) : (
-          <Providers>
-            <Theme
-              accentColor="iris"
-              grayColor="slate"
-              panelBackground="solid"
-              radius="large"
-            >
-              <div className="flex min-h-screen flex-col">
-                <SiteHeader />
-                <div className="flex-1">{children}</div>
-                <SiteFooter />
-              </div>
-            </Theme>
-          </Providers>
-        )}
+        <Providers>
+          <Theme
+            accentColor="iris"
+            grayColor="slate"
+            panelBackground="solid"
+            radius="large"
+          >
+            <div className="flex min-h-screen flex-col">
+              <SiteHeader />
+              <div className="flex-1">{children}</div>
+              <SiteFooter />
+            </div>
+          </Theme>
+        </Providers>
         <VercelAnalytics />
         <VercelSpeedInsights />
       </body>
