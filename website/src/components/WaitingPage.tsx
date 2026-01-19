@@ -95,6 +95,7 @@ export function WaitingPage() {
         .waiting-page {
           position: fixed;
           inset: 0;
+          z-index: 50;
           display: flex;
           align-items: center;
           justify-content: center;
