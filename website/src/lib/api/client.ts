@@ -18,6 +18,9 @@ type FetchArgs = RequestInit & { path: string };
 
 async function apiFetch<T>(args: FetchArgs): Promise<T> {
   const url = new URL(args.path, runtimeConfig.apiBaseUrl).toString();
+  if (process.env.NODE_ENV === "development") {
+    console.info("[api] fetch", { url, method: args.method ?? "GET" });
+  }
   const started = Date.now();
   const response = await fetch(url, {
     ...args,
@@ -49,6 +52,9 @@ async function apiFetch<T>(args: FetchArgs): Promise<T> {
 
 const fetchNationalOverview = cache(async () => {
   if (runtimeConfig.useStubData) {
+    if (process.env.NODE_ENV === "development") {
+      console.info("[api] using stub data: national overview");
+    }
     return mockNationalOverview();
   }
   return apiFetch<NationalOverview>({ path: "/v1/national-overview" });
@@ -56,6 +62,9 @@ const fetchNationalOverview = cache(async () => {
 
 const fetchMunicipalitySnapshots = cache(async () => {
   if (runtimeConfig.useStubData) {
+    if (process.env.NODE_ENV === "development") {
+      console.info("[api] using stub data: municipality snapshots");
+    }
     return mockMunicipalitySnapshots();
   }
   return apiFetch<MunicipalitySnapshot[]>({
@@ -65,6 +74,9 @@ const fetchMunicipalitySnapshots = cache(async () => {
 
 const fetchPollHighlights = cache(async () => {
   if (runtimeConfig.useStubData) {
+    if (process.env.NODE_ENV === "development") {
+      console.info("[api] using stub data: poll highlights");
+    }
     return mockPollHighlights();
   }
   return apiFetch<PollHighlight[]>({ path: "/v1/polls/highlights" });
@@ -72,6 +84,9 @@ const fetchPollHighlights = cache(async () => {
 
 const fetchScenarioInsights = cache(async () => {
   if (runtimeConfig.useStubData) {
+    if (process.env.NODE_ENV === "development") {
+      console.info("[api] using stub data: scenario insights");
+    }
     return mockScenarioInsights();
   }
   return apiFetch<ScenarioInsight[]>({ path: "/v1/scenarios" });

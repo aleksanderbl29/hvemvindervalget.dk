@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { partyLeaders, selectRandomLeader, type PartyLeader } from "@/data/party-leaders";
+import { selectRandomLeader, type PartyLeader } from "@/data/party-leaders";
 
 export function WaitingPage() {
   const [leader, setLeader] = useState<PartyLeader | null>(null);
@@ -11,6 +11,8 @@ export function WaitingPage() {
 
   useEffect(() => {
     const selected = selectRandomLeader();
+    // Random selection must happen on the client to avoid hydration mismatches.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setLeader(selected);
     console.log(
       "[waiting-page] Showing holding screen for",
@@ -21,7 +23,9 @@ export function WaitingPage() {
       `${selected.percentage.toFixed(1)}%`,
     );
     // Trigger entrance animation
-    const timer = setTimeout(() => setIsVisible(true), 50);
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 50);
     return () => clearTimeout(timer);
   }, []);
 

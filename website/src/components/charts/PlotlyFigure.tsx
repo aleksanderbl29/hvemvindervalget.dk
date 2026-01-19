@@ -3,6 +3,7 @@
 import { memo, useEffect } from "react";
 import createPlotlyComponent from "react-plotly.js/factory";
 import Plotly from "plotly.js-basic-dist";
+import type { Data } from "plotly.js";
 import type { ChartSummary } from "@/lib/api/types";
 import { logClientEvent } from "@/lib/telemetry";
 
@@ -25,7 +26,7 @@ function PlotlyFigureComponent({ spec, ariaLabel }: PlotlyFigureProps) {
 
   return (
     <Plot
-      data={spec.data as any}
+      data={spec.data as unknown as Data[]}
       layout={{
         ...spec.layout,
         autosize: true,

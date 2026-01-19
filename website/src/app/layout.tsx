@@ -29,12 +29,12 @@ export const metadata: Metadata = {
     template: "%s | Hvem vinder valget?",
   },
   description:
-    "Dashboard med bayesianske prognoser, scenarier og polls for kommunalvalget 2025.",
+    "Prognoser og analyser for kommunalvalget 2025. Sitet er under udvikling.",
   authors: [{ name: "Aleksander Bang-Larsen" }],
   openGraph: {
     title: "Hvem vinder valget?",
     description:
-      "Opdaterede prognoser, polls og scenarieanalyser for kommunalvalget 2025.",
+      "Prognoser og analyser for kommunalvalget 2025. Sitet er under udvikling.",
     url: "https://www.hvemvindervalget.dk",
     siteName: "Hvem vinder valget?",
     type: "website",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Hvem vinder valget?",
     description:
-      "Opdaterede prognoser, polls og scenarieanalyser for kommunalvalget 2025.",
+      "Prognoser og analyser for kommunalvalget 2025. Sitet er under udvikling.",
   },
 };
 
