@@ -13,13 +13,15 @@ bind_polls <- function(
       kv17 = election_dates$valg_dato[5],
       kv21 = election_dates$valg_dato[6],
       kv25 = election_dates$valg_dato[7],
+      fv26 = today(tz = "Europe/Copenhagen") + weeks(6),
       ttl_kv01 = kv01 - poll_date,
       ttl_kv05 = kv05 - poll_date,
       ttl_kv09 = kv09 - poll_date,
       ttl_kv13 = kv13 - poll_date,
       ttl_kv17 = kv17 - poll_date,
       ttl_kv21 = kv21 - poll_date,
-      ttl_kv25 = kv25 - poll_date
+      ttl_kv25 = kv25 - poll_date,
+      ttl_fv26 = fv26 - poll_date
     ) |>
     mutate(
       across(
@@ -28,7 +30,7 @@ bind_polls <- function(
       )
     )
 
-  ttl_cols <- x |> select(starts_with("ttl_kv")) |> names()
+  ttl_cols <- x |> select(starts_with(c("ttl_kv", "ttl_fv"))) |> names()
 
   long_min <- x |>
     pivot_longer(
@@ -46,18 +48,37 @@ bind_polls <- function(
     )
 
   kv_lookup <- x |>
-    select(starts_with("kv")) |>
+    select(starts_with(c("kv", "fv"))) |>
     slice_head(n = 1) |>
-    pivot_longer(everything(), names_to = "kv_name", values_to = "kv_date")
+    pivot_longer(
+      everything(),
+      names_to = "election_name",
+      values_to = "election_date"
+    )
 
   x |>
     left_join(
       long_min |>
-        left_join(kv_lookup, by = c("election" = "kv_name")) |>
-        select(poll_date, election = kv_date, days_out),
+        left_join(kv_lookup, by = c("election" = "election_name")) |>
+        select(poll_date, election = election_date, days_out),
       by = "poll_date"
     ) |>
     mutate(days_out = as.difftime(days_out, units = "days")) |>
-    select(-starts_with(c("ttl", "kv"))) |>
+    select(-starts_with(c("ttl", "kv", "fv"))) |>
     arrange(desc(poll_date))
+}
+
+wide_polls <- function(polls) {
+  polls |>
+    distinct() |>
+    filter(
+      party_code %in%
+        c("A", "B", "C", "F", "I", "M", "O", "V", "Æ", "Ø", "Å", "H"),
+    ) |>
+    select(-party_name) |>
+    pivot_wider(
+      names_from = c("party_code"),
+      values_from = "value",
+      values_fn = mean
+    )
 }
