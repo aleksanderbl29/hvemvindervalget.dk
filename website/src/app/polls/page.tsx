@@ -8,7 +8,6 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 
 export const runtime = "nodejs";
-export const dynamic = "force-dynamic";
 
 async function loadChartJson(): Promise<ChartSummary | null> {
   const chartPath = path.join("src/data/charts/chart.json");
