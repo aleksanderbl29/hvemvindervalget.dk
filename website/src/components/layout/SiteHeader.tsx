@@ -1,8 +1,22 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { HeaderButton } from "@/components/ui/HeaderButton";
 
 const previousElections = [{ label: "Kommunalvalg 2025", href: "/kv25" }];
 
+const defaultActiveClassName =
+  "bg-slate-900 text-white hover:bg-slate-800";
+const defaultInactiveClassName =
+  "border border-slate-200 bg-white text-slate-800 hover:border-slate-400";
+
 export function SiteHeader() {
+  const pathname = usePathname();
+  const isPreviousElectionActive = previousElections.some(
+    (election) => pathname?.startsWith(election.href)
+  );
+
   return (
     <header className="border-b border-slate-200 bg-white/70 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4">
@@ -53,15 +67,17 @@ export function SiteHeader() {
         </Link>
 
         <div className="flex items-center gap-2 sm:gap-3">
-          <Link
-            href="/fv26"
-            className="rounded-full bg-slate-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-800"
-          >
-            Folketingsvalg 2026
-          </Link>
+          <HeaderButton href="/fv26" label="Folketingsvalg 2026" />
+          <HeaderButton href="/polls" label="Meningsmålinger" />
 
           <details className="relative">
-            <summary className="list-none cursor-pointer rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-800 transition hover:border-slate-400">
+            <summary
+              className={`list-none cursor-pointer rounded-full px-4 py-2 text-sm font-medium transition ${
+                isPreviousElectionActive
+                  ? defaultActiveClassName
+                  : defaultInactiveClassName
+              }`}
+            >
               Tidl. valg
             </summary>
             <div className="absolute right-0 z-20 mt-2 w-56 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-lg">
@@ -79,16 +95,9 @@ export function SiteHeader() {
             </div>
           </details>
 
-          <Link
-            href="/om"
-            className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-800 transition hover:border-slate-400"
-          >
-            Om
-          </Link>
-
+          <HeaderButton href="/om" label="Om" />
         </div>
       </div>
     </header>
   );
 }
-
