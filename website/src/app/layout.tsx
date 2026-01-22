@@ -7,15 +7,11 @@ import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { VercelAnalytics } from "@/lib/analytics";
 import { VercelSpeedInsights } from "@/lib/speed-insights";
+import { currentElection } from "@/lib/config";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
 });
-
-const currentElection = {
-  name: "Folketingsvalg 2026",
-  slug: "fv26",
-};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.hvemvindervalget.dk"),
@@ -24,12 +20,12 @@ export const metadata: Metadata = {
     template: `Hvem vinder valget? | ${currentElection.name}`,
   },
   description:
-    `Prognoser og analyser for ${currentElection.name}.`,
+    `Valgprognoser for ${currentElection.name.toLowerCase()}. Kombinerer meningsmålinger, sociodemografi og historiske valg.`,
   authors: [{ name: "Aleksander Bang-Larsen" }],
   openGraph: {
     title: `Hvem vinder valget? | ${currentElection.name}`,
     description:
-      `Prognoser og analyser for ${currentElection.name}.`,
+      `Valgprognoser for ${currentElection.name.toLowerCase()}. Kombinerer meningsmålinger, sociodemografi og historiske valg.`,
     url: "https://www.hvemvindervalget.dk",
     siteName: "Hvem vinder valget?",
     type: "website",
@@ -38,7 +34,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `Hvem vinder valget? | ${currentElection.name}`,
     description:
-      `Prognoser og analyser for ${currentElection.name}.`,
+      `Valgprognoser for ${currentElection.name.toLowerCase()}. Kombinerer meningsmålinger, sociodemografi og historiske valg.`,
   },
 };
 

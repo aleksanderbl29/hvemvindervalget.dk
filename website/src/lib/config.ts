@@ -66,3 +66,9 @@ export const runtimeConfig = {
   analyticsProxyPath: env.NEXT_PUBLIC_ANALYTICS_PROXY_PATH,
 } as const;
 
+// Current election configuration - update this when the current election changes
+export const currentElection = {
+  name: "Folketingsvalg 2026",
+  slug: "fv26",
+} as const;
+
