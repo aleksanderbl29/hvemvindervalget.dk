@@ -7,6 +7,10 @@ if (interactive()) {
   source("~/.Rprofile")
 }
 
+if (file.exists("env.R")) {
+  source("env.R")
+}
+
 library(targets)
 library(tarchetypes)
 # library(plumber2)

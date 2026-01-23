@@ -51,7 +51,7 @@ function PlotlyFigureComponent({ spec, ariaLabel }: PlotlyFigureProps) {
       }}
       useResizeHandler
       style={{ width: "100%", height: "100%" }}
-      className="h-[320px] w-full"
+      className="h-[360px] w-full md:h-[540px] lg:h-[640px]"
       aria-label={ariaLabel}
     />
   );

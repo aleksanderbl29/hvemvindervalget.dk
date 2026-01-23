@@ -15,3 +15,4 @@ prior
 
 # Environment variables
 .env
+env.R

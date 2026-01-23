@@ -17,7 +17,10 @@ tar_option_set(
     "sf",
     "brms",
     "tidybayes",
-    "ggdist"
+    "ggdist",
+    "plotly",
+    "DBI",
+    "RPostgres"
   ),
   format = "qs",
   seed = 42,
@@ -125,6 +128,8 @@ list(
     bind_polls(election_dates, verian_polls, gallup_polls, epinion_polls)
   ),
 
+  tar_target(pollsters, get_pollsters(polls)),
+
   ## House effects
   tar_target(
     house_effects,
@@ -166,8 +171,10 @@ list(
   tar_target(
     hierarchical_model,
     run_hierarchical_model(polls, election_day, election_results)
-  )
+  ),
   # tar_target(another_model, run_another_model(polls, election_day))
 
   # tar_target(mu_b_prior, get_mu_b_prior(house_effects))
+  ## Website plots
+  tar_target(plot_polls, web_plot_polls(polls, parties))
 )
