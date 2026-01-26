@@ -9,6 +9,7 @@ type ChartShellProps = {
   chart?: ChartSummary;
   showMeta?: boolean;
   variant?: "default" | "bare";
+  className?: string;
 };
 
 export function ChartShell({
@@ -18,15 +19,16 @@ export function ChartShell({
   chart,
   showMeta = true,
   variant = "default",
+  className,
 }: ChartShellProps) {
   const outerClassName =
     variant === "bare"
-      ? "w-full"
-      : "rounded-3xl border border-slate-200 bg-white/80 p-6 shadow-sm";
+      ? `w-full ${className ?? ""}`
+      : `rounded-3xl border border-slate-200 bg-white/80 p-6 shadow-sm ${className ?? ""}`;
 
   const innerClassName =
     variant === "bare"
-      ? "min-h-[320px]"
+      ? "h-full flex flex-col"
       : "min-h-[320px] rounded-2xl border border-dashed border-slate-300 bg-slate-50/60 p-4 text-center text-sm text-slate-500";
 
   return (
@@ -41,7 +43,9 @@ export function ChartShell({
         {chart ? (
           <ChartRenderer chart={chart} />
         ) : (
-          children ?? "Visualisering kommer her (Plotly/ECharts)."
+          <div className={variant === "bare" ? "flex-1" : ""}>
+            {children ?? "Visualisering kommer her."}
+          </div>
         )}
       </div>
       {showMeta && chart ? (

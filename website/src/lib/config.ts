@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-const chartLibraryOptions = ["plotly", "echarts", "chartjs", "vega-lite"] as const;
+const chartLibraryOptions = ["recharts", "echarts", "chartjs", "vega-lite"] as const;
 
 const envSchema = z.object({
   // Client-side (exposed to browser)
@@ -15,7 +15,7 @@ const envSchema = z.object({
     .transform((value) => value === "true"),
   NEXT_PUBLIC_CHART_LIBRARY: z
     .enum(chartLibraryOptions)
-    .default("plotly"),
+    .default("recharts"),
   NEXT_PUBLIC_WAITING_MODE: z
     .enum(["true", "false"])
     .default("false")

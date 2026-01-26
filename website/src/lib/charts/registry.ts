@@ -12,12 +12,12 @@ export type ChartLibraryMeta = {
 };
 
 const registry: Record<ChartLibraryId, ChartLibraryMeta> = {
-  plotly: {
-    id: "plotly",
-    label: "Plotly.js",
+  recharts: {
+    id: "recharts",
+    label: "Recharts",
     description:
-      "Feature-rich, supports declarative specs exported from R/Python notebooks, excellent for statistical charts.",
-    strengths: ["Declarative specs", "Server-export friendly", "Large trace catalog"],
+      "Composable charting library built on React and D3. Excellent for static rendering and server-side generation.",
+    strengths: ["Server-renderable", "React-native", "TypeScript support", "Small bundle"],
     status: "ready",
   },
   echarts: {
@@ -56,7 +56,7 @@ export function resolveChartLibrary(preferred?: ChartLibraryId): ChartLibraryMet
   if (preferred && registry[preferred]) {
     return registry[preferred];
   }
-  return registry[runtimeConfig.chartLibrary] ?? registry.plotly;
+  return registry[runtimeConfig.chartLibrary] ?? registry.recharts;
 }
 
 

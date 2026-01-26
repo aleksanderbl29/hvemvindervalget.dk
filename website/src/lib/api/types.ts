@@ -1,4 +1,4 @@
-export type ChartLibraryId = "plotly" | "echarts" | "chartjs" | "vega-lite";
+export type ChartLibraryId = "plotly" | "echarts" | "chartjs" | "vega-lite" | "recharts";
 
 export type PartyProjection = {
   party: string;
@@ -30,6 +30,17 @@ export type PollsterName =
   | "Verian"
   | (string & { _?: never });
 
+export type RechartsChartData = {
+  type: "line" | "bar" | "area";
+  series: Array<{
+    name: string;
+    data: Array<{ date?: string; x?: string | number; value: number }>;
+    color?: string;
+  }>;
+  xAxisLabel?: string;
+  yAxisLabel?: string;
+};
+
 export type ChartSummary = {
   id: string;
   title: string;
@@ -40,12 +51,14 @@ export type ChartSummary = {
   unit: string;
   tags: string[];
   notes?: string[];
-  plotlySpec: {
+  // Legacy Plotly format (for analysis/deep dive)
+  plotlySpec?: {
     version: string;
     data: unknown[];
     layout?: Record<string, unknown>;
     config?: Record<string, unknown>;
   };
+  chartData?: RechartsChartData;
 };
 
 export type PollHighlight = {

@@ -23,6 +23,7 @@
     "react-dom": "19.2.3",
     "react-katex": "^3.1.0",
     "react-plotly.js": "^2.6.0",
+    "recharts": "^3.7.0",
     "zod": "^4.3.5"
   },
   "devDependencies": {

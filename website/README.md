@@ -32,7 +32,7 @@ pnpm dev                    # http://localhost:3000
 | -------- | ----------- | ------- |
 | `NEXT_PUBLIC_API_BASE_URL` | Root API endpoint | `https://api.hvemvindervalget.dk` |
 | `NEXT_PUBLIC_USE_STUB_DATA` | Toggle mock payloads locally | `true` |
-| `NEXT_PUBLIC_CHART_LIBRARY` | Preferred charting engine (`plotly`, `echarts`, `chartjs`, `vega-lite`) | `plotly` |
+| `NEXT_PUBLIC_CHART_LIBRARY` | Preferred charting engine (`recharts`, `echarts`, `chartjs`, `vega-lite`) | `recharts` |
 
 Set these in `.env.local`. Only `NEXT_PUBLIC_*` variables are exposed to the browser.
 
@@ -40,11 +40,12 @@ Set these in `.env.local`. Only `NEXT_PUBLIC_*` variables are exposed to the bro
 
 - `src/app` – App Router routes, grouped under `(dashboard)` for the main experience plus detail routes for municipalities, polls, and scenarios.
 - `src/lib` – Environment validation, API utilities, mock data, and telemetry helpers.
-- `src/components` – Layout primitives, widgets, and chart shells ready for Plotly/ECharts integration.
+- `src/components` – Layout primitives, widgets, and chart shells ready for Recharts integration.
 
 ## Charting strategy
 
-- Plotly.js is wired up via `react-plotly.js` with a stub-friendly `ChartRenderer` abstraction and a declarative `ChartSummary` payload that can be fed from R/Plotly exports.
+- Recharts is the primary charting library, providing server-renderable charts for static generation.
+- Charts are defined using a `ChartSummary` payload with `chartData` in Recharts format.
 - Apache ECharts, Chart.js, and Vega-Lite are marked as **planned** engines; switch between them by setting `NEXT_PUBLIC_CHART_LIBRARY` once their adapters land.
 - `src/lib/charts/registry.ts` documents trade-offs plus readiness state so product/design can pick the right engine without spelunking the codebase.
 
