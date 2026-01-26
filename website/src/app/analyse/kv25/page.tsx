@@ -1,7 +1,7 @@
 import { ChartShell } from "@/components/ui/ChartShell";
 import type { ChartSummary } from "@/lib/api/types";
 import { neon } from "@neondatabase/serverless";
-import { PlotlyFigure } from "@/components/charts/legacy/PlotlyFigure";
+import { PlotlyFigureClient } from "@/components/charts/legacy/PlotlyFigureClient";
 
 export const runtime = "nodejs";
 
@@ -110,7 +110,7 @@ export default async function AnalyseKv25Page() {
             variant="bare"
           >
             <div className="w-full h-[600px]">
-              <PlotlyFigure
+              <PlotlyFigureClient
                 spec={plotlyChart.plotlySpec}
                 ariaLabel={plotlyChart.title}
               />

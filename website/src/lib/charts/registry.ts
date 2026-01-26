@@ -12,6 +12,14 @@ export type ChartLibraryMeta = {
 };
 
 const registry: Record<ChartLibraryId, ChartLibraryMeta> = {
+  plotly: {
+    id: "plotly",
+    label: "Plotly.js",
+    description:
+      "Legacy charting library kept for deep dive analysis. Interactive charts with rich features.",
+    strengths: ["Interactive", "Rich features", "3D support", "Scientific charts"],
+    status: "beta",
+  },
   recharts: {
     id: "recharts",
     label: "Recharts",

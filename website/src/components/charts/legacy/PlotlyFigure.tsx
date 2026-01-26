@@ -13,7 +13,7 @@ import { logClientEvent } from "@/lib/telemetry";
 
 const Plot = createPlotlyComponent(Plotly);
 
-type PlotlyFigureProps = {
+export type PlotlyFigureProps = {
   spec: {
     version: string;
     data: unknown[];
