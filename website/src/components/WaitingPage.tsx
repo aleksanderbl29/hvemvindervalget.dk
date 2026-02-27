@@ -43,10 +43,6 @@ export function WaitingPage() {
       <main className={`waiting-content ${isVisible ? "waiting-content--visible" : ""}`}>
         <header className="waiting-hero">
           <h1 className="waiting-hero-title">Hvem vinder valget?</h1>
-          {/* <p className="waiting-hero-subtitle">
-            Vi finjusterer prognosemodellen lige nu. Kom tilbage snart for at se de
-            første resultater og følg, hvem der står stærkest på valgaftenen.
-          </p> */}
         </header>
 
         <div className="waiting-image-container">
@@ -81,6 +77,7 @@ export function WaitingPage() {
 
         <footer className="waiting-footer">
           <p className="waiting-footer-text">
+            Der er valg 24. marts.
             Prognosemodellen er under udvikling og bliver snart offentliggjort.
             Følg med på{" "}
             <a
