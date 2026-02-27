@@ -81,13 +81,36 @@ export function WaitingPage() {
 
         <footer className="waiting-footer">
           <p className="waiting-footer-text">
-            Prognosemodellen er under udvikling og vil blive offentliggjort snart...
+            Prognosemodellen er under udvikling og bliver snart offentliggjort.
+            Følg med på{" "}
+            <a
+              className="waiting-footer-link"
+              href="https://www.linkedin.com/in/aleksanderbl"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+            ,{" "}
+            <a
+              className="waiting-footer-link"
+              href="https://x.com/bang_aleksander"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              X
+            </a>{" "}
+            eller{" "}
+            <a
+              className="waiting-footer-link"
+              href="https://bsky.app/profile/aleksanderbl.dk"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              BlueSky
+            </a>{" "}
+            for at få besked når siden åbner.
           </p>
-          <div className="waiting-footer-dots">
-            <span className="waiting-dot" style={{ animationDelay: "0ms" }} />
-            <span className="waiting-dot" style={{ animationDelay: "200ms" }} />
-            <span className="waiting-dot" style={{ animationDelay: "400ms" }} />
-          </div>
         </footer>
       </main>
 
@@ -249,28 +272,19 @@ export function WaitingPage() {
           letter-spacing: 0.06em;
           color: rgba(255, 255, 255, 0.35);
           font-family: var(--font-mono);
+          max-width: 480px;
+          line-height: 1.6;
         }
 
-        .waiting-footer-dots {
-          display: flex;
-          gap: 6px;
+        .waiting-footer-link {
+          color: rgba(255, 255, 255, 0.65);
+          text-decoration: underline;
+          text-underline-offset: 2px;
+          transition: color 0.2s ease;
         }
 
-        .waiting-dot {
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-          background: rgba(148, 163, 184, 0.55);
-          animation: fade 1.8s ease-in-out infinite;
-        }
-
-        @keyframes fade {
-          0%, 100% {
-            opacity: 0.2;
-          }
-          50% {
-            opacity: 0.9;
-          }
+        .waiting-footer-link:hover {
+          color: rgba(255, 255, 255, 0.9);
         }
 
         @media (max-width: 640px) {
