@@ -123,7 +123,7 @@ export function WaitingPage() {
           align-items: center;
           justify-content: center;
           background: #020202;
-          overflow: hidden;
+          overflow-y: auto;
           padding: 2rem 1rem;
         }
 
@@ -296,8 +296,14 @@ export function WaitingPage() {
         }
 
         @media (max-width: 640px) {
+          .waiting-page {
+            align-items: flex-start;
+            padding: 1.25rem 0.75rem;
+          }
+
           .waiting-content {
-            padding: 1rem;
+            padding: 0.75rem;
+            gap: 0.75rem;
           }
 
           .waiting-hero {
@@ -305,7 +311,7 @@ export function WaitingPage() {
           }
 
           .waiting-hero-title {
-            font-size: clamp(2rem, 10vw, 2.8rem);
+            font-size: clamp(1.8rem, 9vw, 2.5rem);
           }
 
           .waiting-hero-subtitle {
@@ -313,9 +319,9 @@ export function WaitingPage() {
           }
 
           .waiting-image-container {
-            width: min(45vh, 85vw);
-            height: min(45vh, 85vw);
-            margin-bottom: 0.5rem;
+            width: min(38vh, 72vw);
+            height: min(38vh, 72vw);
+            margin-bottom: 0.25rem;
           }
 
           .waiting-maybe {
@@ -323,7 +329,7 @@ export function WaitingPage() {
           }
 
           .waiting-name {
-            font-size: clamp(1.8rem, 8vw, 2.4rem);
+            font-size: clamp(1.6rem, 7vw, 2.2rem);
           }
 
           .waiting-party {
@@ -332,7 +338,7 @@ export function WaitingPage() {
 
           .waiting-footer-text {
             font-size: 0.875rem;
-            padding: 1rem 1.25rem;
+            padding: 0.875rem 1rem;
           }
         }
 
