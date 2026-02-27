@@ -81,13 +81,36 @@ export function WaitingPage() {
 
         <footer className="waiting-footer">
           <p className="waiting-footer-text">
-            Prognosemodellen er under udvikling og vil blive offentliggjort snart...
+            Prognosemodellen er under udvikling og bliver snart offentliggjort.
+            Følg med på{" "}
+            <a
+              className="waiting-footer-link"
+              href="https://www.linkedin.com/in/aleksanderbl"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+            ,{" "}
+            <a
+              className="waiting-footer-link"
+              href="https://x.com/bang_aleksander"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              X
+            </a>{" "}
+            eller{" "}
+            <a
+              className="waiting-footer-link"
+              href="https://bsky.app/profile/aleksanderbl.dk"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              BlueSky
+            </a>{" "}
+            for at få besked når siden åbner.
           </p>
-          <div className="waiting-footer-dots">
-            <span className="waiting-dot" style={{ animationDelay: "0ms" }} />
-            <span className="waiting-dot" style={{ animationDelay: "200ms" }} />
-            <span className="waiting-dot" style={{ animationDelay: "400ms" }} />
-          </div>
         </footer>
       </main>
 
@@ -100,7 +123,7 @@ export function WaitingPage() {
           align-items: center;
           justify-content: center;
           background: #020202;
-          overflow: hidden;
+          overflow-y: auto;
           padding: 2rem 1rem;
         }
 
@@ -245,37 +268,42 @@ export function WaitingPage() {
         }
 
         .waiting-footer-text {
-          font-size: 0.8rem;
-          letter-spacing: 0.06em;
-          color: rgba(255, 255, 255, 0.35);
+          font-size: 1rem;
+          letter-spacing: 0.03em;
+          color: rgba(255, 245, 180, 0.9);
           font-family: var(--font-mono);
+          max-width: 560px;
+          line-height: 1.8;
+          padding: 1.25rem 2rem;
+          border: 2px solid rgba(255, 230, 80, 0.75);
+          border-radius: 12px;
+          background: rgba(255, 220, 50, 0.07);
+          box-shadow: 0 0 18px rgba(255, 220, 50, 0.15);
+          text-align: center;
         }
 
-        .waiting-footer-dots {
-          display: flex;
-          gap: 6px;
+        .waiting-footer-link {
+          color: #ffe040;
+          text-decoration: underline;
+          text-underline-offset: 3px;
+          font-weight: 600;
+          transition: color 0.2s ease, text-shadow 0.2s ease;
         }
 
-        .waiting-dot {
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-          background: rgba(148, 163, 184, 0.55);
-          animation: fade 1.8s ease-in-out infinite;
-        }
-
-        @keyframes fade {
-          0%, 100% {
-            opacity: 0.2;
-          }
-          50% {
-            opacity: 0.9;
-          }
+        .waiting-footer-link:hover {
+          color: #fff176;
+          text-shadow: 0 0 8px rgba(255, 230, 80, 0.7);
         }
 
         @media (max-width: 640px) {
+          .waiting-page {
+            align-items: flex-start;
+            padding: 1.25rem 0.75rem;
+          }
+
           .waiting-content {
-            padding: 1rem;
+            padding: 0.75rem;
+            gap: 0.75rem;
           }
 
           .waiting-hero {
@@ -283,7 +311,7 @@ export function WaitingPage() {
           }
 
           .waiting-hero-title {
-            font-size: clamp(2rem, 10vw, 2.8rem);
+            font-size: clamp(1.8rem, 9vw, 2.5rem);
           }
 
           .waiting-hero-subtitle {
@@ -291,9 +319,9 @@ export function WaitingPage() {
           }
 
           .waiting-image-container {
-            width: min(45vh, 85vw);
-            height: min(45vh, 85vw);
-            margin-bottom: 0.5rem;
+            width: min(38vh, 72vw);
+            height: min(38vh, 72vw);
+            margin-bottom: 0.25rem;
           }
 
           .waiting-maybe {
@@ -301,7 +329,7 @@ export function WaitingPage() {
           }
 
           .waiting-name {
-            font-size: clamp(1.8rem, 8vw, 2.4rem);
+            font-size: clamp(1.6rem, 7vw, 2.2rem);
           }
 
           .waiting-party {
@@ -309,7 +337,8 @@ export function WaitingPage() {
           }
 
           .waiting-footer-text {
-            font-size: 0.7rem;
+            font-size: 0.875rem;
+            padding: 0.875rem 1rem;
           }
         }
 
