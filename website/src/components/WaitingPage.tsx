@@ -268,23 +268,31 @@ export function WaitingPage() {
         }
 
         .waiting-footer-text {
-          font-size: 0.8rem;
-          letter-spacing: 0.06em;
-          color: rgba(255, 255, 255, 0.35);
+          font-size: 1rem;
+          letter-spacing: 0.03em;
+          color: rgba(255, 245, 180, 0.9);
           font-family: var(--font-mono);
-          max-width: 480px;
-          line-height: 1.6;
+          max-width: 560px;
+          line-height: 1.8;
+          padding: 1.25rem 2rem;
+          border: 2px solid rgba(255, 230, 80, 0.75);
+          border-radius: 12px;
+          background: rgba(255, 220, 50, 0.07);
+          box-shadow: 0 0 18px rgba(255, 220, 50, 0.15);
+          text-align: center;
         }
 
         .waiting-footer-link {
-          color: rgba(255, 255, 255, 0.65);
+          color: #ffe040;
           text-decoration: underline;
-          text-underline-offset: 2px;
-          transition: color 0.2s ease;
+          text-underline-offset: 3px;
+          font-weight: 600;
+          transition: color 0.2s ease, text-shadow 0.2s ease;
         }
 
         .waiting-footer-link:hover {
-          color: rgba(255, 255, 255, 0.9);
+          color: #fff176;
+          text-shadow: 0 0 8px rgba(255, 230, 80, 0.7);
         }
 
         @media (max-width: 640px) {
@@ -323,7 +331,8 @@ export function WaitingPage() {
           }
 
           .waiting-footer-text {
-            font-size: 0.7rem;
+            font-size: 0.875rem;
+            padding: 1rem 1.25rem;
           }
         }
 
