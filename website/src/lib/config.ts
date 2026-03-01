@@ -72,3 +72,6 @@ export const currentElection = {
   slug: "fv26",
 } as const;
 
+// The date of the last general election (Folketingsvalg)
+export const LAST_ELECTION_DATE = "2022-11-01" as const;
+
