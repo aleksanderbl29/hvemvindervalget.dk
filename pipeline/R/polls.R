@@ -56,7 +56,7 @@ bind_polls <- function(
       values_to = "election_date"
     )
 
-  x |>
+  polls <- x |>
     left_join(
       long_min |>
         left_join(kv_lookup, by = c("election" = "election_name")) |>
@@ -66,6 +66,10 @@ bind_polls <- function(
     mutate(days_out = as.difftime(days_out, units = "days")) |>
     select(-starts_with(c("ttl", "kv", "fv"))) |>
     arrange(desc(poll_date))
+
+  upload_polls(polls)
+
+  polls
 }
 
 wide_polls <- function(polls) {
@@ -81,4 +85,35 @@ wide_polls <- function(polls) {
       values_from = "value",
       values_fn = mean
     )
+}
+
+upload_polls <- function(polls) {
+  con <- connect_to_db()
+
+  dbWriteTable(
+    con,
+    "polls",
+    polls |>
+      mutate(days_out = str(days_out)),
+    overwrite = TRUE
+  )
+
+  dbDisconnect(con)
+}
+
+get_latest_poll <- function(polls) {
+  con <- connect_to_db()
+
+  latest_poll <- polls |>
+    filter(poll_date == max(poll_date), segment == "all") |>
+    mutate(days_out = str(days_out))
+
+  dbWriteTable(
+    con,
+    "latest_poll",
+    latest_poll,
+    overwrite = TRUE
+  )
+
+  dbDisconnect(con)
 }

@@ -119,7 +119,8 @@ list(
   tar_target(
     epinion_polls,
     get_epinion_polls(epinion_poll_list, parties),
-    pattern = map(epinion_poll_list)
+    pattern = map(epinion_poll_list),
+    error = "continue"
   ),
 
   ## Merged
@@ -129,6 +130,7 @@ list(
   ),
 
   tar_target(pollsters, get_pollsters(polls)),
+  tar_target(latest_poll, get_latest_poll(polls)),
 
   ## House effects
   tar_target(

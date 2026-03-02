@@ -48,3 +48,8 @@ calc_house_effects <- function(
       by = join_by(kommune_id, date, party_name, party_code, pollster)
     )
 }
+
+# tar_read(house_effects) |>
+#   group_by(kommune) |>
+#   ggplot(aes(valgsted_delta, pollster, color = party_code)) +
+#   geom_jitter()
