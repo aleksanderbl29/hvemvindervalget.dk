@@ -7,7 +7,13 @@ import { neon } from "@neondatabase/serverless";
 
 export const runtime = "nodejs";
 
-async function loadPollsData(): Promise<RechartsChartData | null> {
+type PollsData = {
+  lineData: RechartsChartData;
+  /** date string → sorted list of unique pollster names that fielded a poll on that date */
+  pollstersByDate: Record<string, string[]>;
+};
+
+async function loadPollsData(): Promise<PollsData | null> {
   const databaseUrl = process.env.DATABASE_URL;
 
   if (!databaseUrl) {
@@ -35,6 +41,7 @@ async function loadPollsData(): Promise<RechartsChartData | null> {
 
     const parties = new Set<string>();
     const dateMap = new Map<string, Map<string, number>>();
+    const pollstersByDate = new Map<string, Set<string>>();
 
     for (const row of rows) {
       const r = row as {
@@ -43,6 +50,7 @@ async function loadPollsData(): Promise<RechartsChartData | null> {
         poll_date: string | Date | null;
         value: number | null;
         segment: string | null;
+        pollster: string | null;
       };
 
       if (!r.poll_date || !r.party_code || r.value === null || r.segment !== "all") continue;
@@ -59,6 +67,11 @@ async function loadPollsData(): Promise<RechartsChartData | null> {
       if (!dateMap.has(dateStr)) dateMap.set(dateStr, new Map());
       dateMap.get(dateStr)!.set(r.party_code, r.value);
       parties.add(r.party_code);
+
+      if (r.pollster) {
+        if (!pollstersByDate.has(dateStr)) pollstersByDate.set(dateStr, new Set());
+        pollstersByDate.get(dateStr)!.add(r.pollster);
+      }
     }
 
     const series = Array.from(parties)
@@ -75,10 +88,18 @@ async function loadPollsData(): Promise<RechartsChartData | null> {
       }));
 
     return {
-      type: "line",
-      series,
-      xAxisLabel: "Dato",
-      yAxisLabel: "Stemmeandel (%)",
+      lineData: {
+        type: "line",
+        series,
+        xAxisLabel: "Dato",
+        yAxisLabel: "Stemmeandel (%)",
+      },
+      pollstersByDate: Object.fromEntries(
+        Array.from(pollstersByDate.entries()).map(([date, names]) => [
+          date,
+          Array.from(names).sort(),
+        ]),
+      ),
     };
   } catch (error) {
     console.error("[polls] failed to load polls data", { error });
@@ -87,18 +108,21 @@ async function loadPollsData(): Promise<RechartsChartData | null> {
 }
 
 export default async function PollsPage() {
-  const lineData = await loadPollsData();
+  const data = await loadPollsData();
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-10">
       <div className="mt-8">
-        {lineData ? (
+        {data ? (
           <ChartShell
             title="Meningsmålinger siden sidste folketingsvalg"
             description="Hvem ville du stemme på, hvis der var valg i morgen?"
             variant="bare"
           >
-            <PollsLineChart chartData={lineData} />
+            <PollsLineChart
+              chartData={data.lineData}
+              pollstersByDate={data.pollstersByDate}
+            />
           </ChartShell>
         ) : (
           <p className="text-sm text-slate-500">Ingen måledata tilgængelig.</p>

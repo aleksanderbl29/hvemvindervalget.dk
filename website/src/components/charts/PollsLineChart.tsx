@@ -10,8 +10,10 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from "recharts";
+import Image from "next/image";
 import type { RechartsChartData } from "@/lib/api/types";
 import { PARTY_BY_CODE, partyColor } from "@/data/parties";
+import { getPollster } from "@/data/pollsters";
 
 type ChartRow = {
   date: string;
@@ -91,10 +93,12 @@ function SyncTooltip({
 
 type PollsLineChartProps = {
   chartData: RechartsChartData;
+  /** date string → pollster names for that date, pre-built on the server */
+  pollstersByDate?: Record<string, string[]>;
   height?: string;
 };
 
-export function PollsLineChart({ chartData, height = "38vh" }: PollsLineChartProps) {
+export function PollsLineChart({ chartData, pollstersByDate = {}, height = "38vh" }: PollsLineChartProps) {
   const [ready, setReady] = useState(false);
   useEffect(() => { setReady(true); }, []);
 
@@ -149,6 +153,11 @@ export function PollsLineChart({ chartData, height = "38vh" }: PollsLineChartPro
         .sort((a, b) => (b.value as number) - (a.value as number)),
     [chartData.series, displayValues],
   );
+
+  // Pollsters for the currently displayed date (hovered or latest)
+  const displayDate = hoveredLabel ?? rows[rows.length - 1]?.date ?? null;
+  const activePollsterNames = displayDate ? (pollstersByDate[displayDate] ?? []) : [];
+  const activePollsters = activePollsterNames.map(getPollster);
 
   const xTickFormatter = (val: string) => {
     const d = new Date(val);
@@ -208,19 +217,38 @@ export function PollsLineChart({ chartData, height = "38vh" }: PollsLineChartPro
         )}
       </div>
 
-      {/* Date label */}
-      <div className="flex items-center justify-between px-1 text-xs text-slate-400">
-        <span>
+      {/* Date + pollster row */}
+      <div className="flex items-center justify-between gap-4 px-1">
+        <span className="text-xs text-slate-400">
           {hoveredLabel ? (
             <span className="font-medium text-slate-600">{formatDate(hoveredLabel)}</span>
           ) : (
             <span>
               Seneste måling –{" "}
-              {rows[rows.length - 1]?.date ? formatDate(rows[rows.length - 1].date) : ""}
+              {displayDate ? formatDate(displayDate) : ""}
             </span>
           )}
         </span>
-        <span className="italic">Stemmeandele i %</span>
+
+        {/* Pollster badge(s) */}
+        <div className="flex items-center gap-2">
+          {activePollsters.map((p) => (
+            <div
+              key={p.name}
+              className="flex items-center gap-1.5 rounded-md border border-slate-100 bg-white px-2 py-1 shadow-sm"
+              title={p.name}
+            >
+              <Image
+                src={p.logoUrl}
+                alt={p.shortName}
+                width={16}
+                height={16}
+                className="rounded-sm"
+              />
+              <span className="text-xs font-medium text-slate-600">{p.shortName}</span>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Party badges */}

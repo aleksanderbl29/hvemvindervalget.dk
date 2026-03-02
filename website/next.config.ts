@@ -20,6 +20,13 @@ const nextConfig: NextConfig = {
         hostname: "upload.wikimedia.org",
         pathname: "/wikipedia/commons/**",
       },
+      {
+        // Google Favicon Service — used for pollster logos.
+        // Next.js fetches once, caches on the CDN edge, and serves from there.
+        protocol: "https",
+        hostname: "www.google.com",
+        pathname: "/s2/favicons/**",
+      },
     ],
   },
   async rewrites() {
