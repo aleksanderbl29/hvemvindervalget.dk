@@ -118,28 +118,66 @@ export function PollsLineChart({ chartData, pollstersByDate = {}, height = "38vh
   const [hoveredLabel, setHoveredLabel] = useState<string | null>(null);
   const [displayValues, setDisplayValues] = useState<Record<string, number>>(latestValues);
 
+  // Locked state: clicking a point pins the display to that date
+  const [lockedLabel, setLockedLabel] = useState<string | null>(null);
+  const lockedRef = useRef<{ label: string | null; values: Record<string, number> | null }>({
+    label: null,
+    values: null,
+  });
+
   // Keep badges in sync with latest poll when not hovering
   const latestValuesRef = useRef(latestValues);
   latestValuesRef.current = latestValues;
 
-  const handleSync = useRef<SyncFn>(() => {}).current;
+  // Track the current hovered position via refs so click handler can read it
+  // without relying on Recharts' onClick payload (which can arrive empty).
+  const hoveredLabelRef = useRef<string | null>(null);
+  const hoveredValuesRef = useRef<Record<string, number>>({});
+
   // Reassign via ref so SyncTooltip always calls the latest version
   const handleSyncImpl = useRef<SyncFn>((label, values) => {
     if (label && values) {
+      hoveredLabelRef.current = label;
+      hoveredValuesRef.current = values;
       setHoveredLabel(label);
       setDisplayValues(values);
     } else {
+      hoveredLabelRef.current = null;
       setHoveredLabel(null);
-      setDisplayValues(latestValuesRef.current);
+      // Fall back to locked date, or latest if nothing is locked
+      if (lockedRef.current.label && lockedRef.current.values) {
+        setDisplayValues(lockedRef.current.values);
+      } else {
+        setDisplayValues(latestValuesRef.current);
+      }
     }
   });
   // Give SyncTooltip a stable reference
   const stableOnSync = useRef<SyncFn>((l, v) => handleSyncImpl.current(l, v)).current;
 
-  // If latestValues changes (chart data reload), reset when not hovering
+  // If latestValues changes (chart data reload), reset when not hovering and not locked
   useEffect(() => {
-    if (!hoveredLabel) setDisplayValues(latestValues);
+    if (!hoveredLabel && !lockedRef.current.label) setDisplayValues(latestValues);
   }, [latestValues, hoveredLabel]);
+
+  // Recharts' onClick payload can arrive empty (tooltip deactivates on mousedown),
+  // so we read the hovered position from refs instead — always up-to-date.
+  const handleChartClick = () => {
+    const label = hoveredLabelRef.current;
+    if (!label) return; // cursor not over a data column
+
+    if (label === lockedRef.current.label) {
+      // Toggle off
+      setLockedLabel(null);
+      lockedRef.current = { label: null, values: null };
+      setDisplayValues(latestValuesRef.current);
+    } else {
+      const values = hoveredValuesRef.current;
+      setLockedLabel(label);
+      lockedRef.current = { label, values };
+      setDisplayValues(values);
+    }
+  };
 
   const sortedParties = useMemo(
     () =>
@@ -154,8 +192,8 @@ export function PollsLineChart({ chartData, pollstersByDate = {}, height = "38vh
     [chartData.series, displayValues],
   );
 
-  // Pollsters for the currently displayed date (hovered or latest)
-  const displayDate = hoveredLabel ?? rows[rows.length - 1]?.date ?? null;
+  // Pollsters for the currently displayed date (hovered → locked → latest)
+  const displayDate = hoveredLabel ?? lockedLabel ?? rows[rows.length - 1]?.date ?? null;
   const activePollsterNames = displayDate ? (pollstersByDate[displayDate] ?? []) : [];
   const activePollsters = activePollsterNames.map(getPollster);
 
@@ -179,7 +217,12 @@ export function PollsLineChart({ chartData, pollstersByDate = {}, height = "38vh
           <div className="h-full w-full animate-pulse rounded-lg bg-slate-100" />
         ) : (
           <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={rows} margin={{ top: 8, right: 16, left: 0, bottom: 0 }}>
+            <LineChart
+              data={rows}
+              margin={{ top: 8, right: 16, left: 0, bottom: 0 }}
+              onClick={handleChartClick}
+              style={{ cursor: "pointer" }}
+            >
               <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" strokeWidth={0.5} />
               <XAxis
                 dataKey="date"
@@ -222,6 +265,35 @@ export function PollsLineChart({ chartData, pollstersByDate = {}, height = "38vh
         <span className="text-xs text-slate-400">
           {hoveredLabel ? (
             <span className="font-medium text-slate-600">{formatDate(hoveredLabel)}</span>
+          ) : lockedLabel ? (
+            <span className="inline-flex items-center gap-1.5">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                className="h-3 w-3 text-slate-500"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M8 1a3.5 3.5 0 0 0-3.5 3.5V6H4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-.5V4.5A3.5 3.5 0 0 0 8 1Zm2 5V4.5a2 2 0 1 0-4 0V6h4Z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              <span className="font-medium text-slate-600">{formatDate(lockedLabel)}</span>
+              <button
+                onClick={() => {
+                  setLockedLabel(null);
+                  lockedRef.current = { label: null, values: null };
+                  setDisplayValues(latestValuesRef.current);
+                }}
+                className="ml-0.5 rounded p-0.5 text-slate-400 hover:bg-slate-100 hover:text-slate-600"
+                title="Fjern lås"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="h-3 w-3">
+                  <path d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z" />
+                </svg>
+              </button>
+            </span>
           ) : (
             <span>
               Seneste måling –{" "}
