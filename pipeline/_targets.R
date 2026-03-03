@@ -44,7 +44,7 @@ tar_source()
 list(
   tar_target(this_week, week(today("CET"))),
   tar_target(run_date, today()),
-  tar_target(election_day, dmy("18-11-2025")),
+  tar_target(election_day, dmy("24-03-2026")),
 
   # Set options for runtime and estimation
   tar_target(n_chains, 4),
