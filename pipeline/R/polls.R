@@ -116,4 +116,6 @@ get_latest_poll <- function(polls) {
   )
 
   dbDisconnect(con)
+
+  latest_poll
 }
