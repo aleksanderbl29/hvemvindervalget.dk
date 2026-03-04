@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useLayoutEffect, useMemo, useRef } from "react";
+import { useState, useLayoutEffect, useMemo, useRef, useCallback, useSyncExternalStore } from "react";
 import {
   LineChart,
   Line,
@@ -70,7 +70,9 @@ function SyncTooltip({
 }) {
   const syncKey = `${active}:${label}:${payload?.length ?? 0}`;
   const onSyncRef = useRef(onSync);
-  onSyncRef.current = onSync;
+  useLayoutEffect(() => {
+    onSyncRef.current = onSync;
+  });
 
   useLayoutEffect(() => {
     if (active && payload?.length && label !== undefined) {
@@ -99,8 +101,9 @@ type PollsLineChartProps = {
 };
 
 export function PollsLineChart({ chartData, pollstersByDate = {}, height = "38vh" }: PollsLineChartProps) {
-  const [ready, setReady] = useState(false);
-  useEffect(() => { setReady(true); }, []);
+  // useSyncExternalStore is the React-canonical way to detect client vs. server
+  // without an effect: server snapshot → false (skeleton), client snapshot → true (chart).
+  const ready = useSyncExternalStore(() => () => {}, () => true, () => false);
 
   const rows = useMemo(() => buildChartRows(chartData), [chartData]);
 
@@ -116,18 +119,18 @@ export function PollsLineChart({ chartData, pollstersByDate = {}, height = "38vh
   }, [rows, chartData.series]);
 
   const [hoveredLabel, setHoveredLabel] = useState<string | null>(null);
-  const [displayValues, setDisplayValues] = useState<Record<string, number>>(latestValues);
+  const [hoveredValues, setHoveredValues] = useState<Record<string, number>>({});
 
   // Locked state: clicking a point pins the display to that date
   const [lockedLabel, setLockedLabel] = useState<string | null>(null);
-  const lockedRef = useRef<{ label: string | null; values: Record<string, number> | null }>({
-    label: null,
-    values: null,
-  });
+  const [lockedValues, setLockedValues] = useState<Record<string, number> | null>(null);
 
-  // Keep badges in sync with latest poll when not hovering
-  const latestValuesRef = useRef(latestValues);
-  latestValuesRef.current = latestValues;
+  // Derived — no separate state or sync effect needed; always reflects the right source
+  const displayValues = useMemo(() => {
+    if (hoveredLabel !== null) return hoveredValues;
+    if (lockedLabel !== null && lockedValues !== null) return lockedValues;
+    return latestValues;
+  }, [hoveredLabel, hoveredValues, lockedLabel, lockedValues, latestValues]);
 
   // Track the current hovered position via refs so click handler can read it
   // without relying on Recharts' onClick payload (which can arrive empty).
@@ -140,25 +143,16 @@ export function PollsLineChart({ chartData, pollstersByDate = {}, height = "38vh
       hoveredLabelRef.current = label;
       hoveredValuesRef.current = values;
       setHoveredLabel(label);
-      setDisplayValues(values);
+      setHoveredValues(values);
     } else {
       hoveredLabelRef.current = null;
+      hoveredValuesRef.current = {};
       setHoveredLabel(null);
-      // Fall back to locked date, or latest if nothing is locked
-      if (lockedRef.current.label && lockedRef.current.values) {
-        setDisplayValues(lockedRef.current.values);
-      } else {
-        setDisplayValues(latestValuesRef.current);
-      }
+      // displayValues is derived — no explicit fallback needed
     }
   });
-  // Give SyncTooltip a stable reference
-  const stableOnSync = useRef<SyncFn>((l, v) => handleSyncImpl.current(l, v)).current;
-
-  // If latestValues changes (chart data reload), reset when not hovering and not locked
-  useEffect(() => {
-    if (!hoveredLabel && !lockedRef.current.label) setDisplayValues(latestValues);
-  }, [latestValues, hoveredLabel]);
+  // Give SyncTooltip a stable reference — handleSyncImpl is a ref so [] is safe
+  const stableOnSync = useCallback<SyncFn>((l, v) => handleSyncImpl.current(l, v), []);
 
   // Recharts' onClick payload can arrive empty (tooltip deactivates on mousedown),
   // so we read the hovered position from refs instead — always up-to-date.
@@ -166,16 +160,14 @@ export function PollsLineChart({ chartData, pollstersByDate = {}, height = "38vh
     const label = hoveredLabelRef.current;
     if (!label) return; // cursor not over a data column
 
-    if (label === lockedRef.current.label) {
+    if (label === lockedLabel) {
       // Toggle off
       setLockedLabel(null);
-      lockedRef.current = { label: null, values: null };
-      setDisplayValues(latestValuesRef.current);
+      setLockedValues(null);
     } else {
       const values = hoveredValuesRef.current;
       setLockedLabel(label);
-      lockedRef.current = { label, values };
-      setDisplayValues(values);
+      setLockedValues(values);
     }
   };
 
@@ -283,8 +275,7 @@ export function PollsLineChart({ chartData, pollstersByDate = {}, height = "38vh
               <button
                 onClick={() => {
                   setLockedLabel(null);
-                  lockedRef.current = { label: null, values: null };
-                  setDisplayValues(latestValuesRef.current);
+                  setLockedValues(null);
                 }}
                 className="ml-0.5 rounded p-0.5 text-slate-400 hover:bg-slate-100 hover:text-slate-600"
                 title="Fjern lås"
