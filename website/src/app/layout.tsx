@@ -5,8 +5,7 @@ import "./globals.css";
 import { Providers } from "./providers";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
-import { VercelAnalytics } from "@/lib/analytics";
-import { VercelSpeedInsights } from "@/lib/speed-insights";
+import { UmamiAnalytics } from "@/lib/analytics";
 import { currentElection } from "@/lib/config";
 
 const montserrat = Montserrat({
@@ -64,8 +63,7 @@ export default function RootLayout({
             </div>
           </Theme>
         </Providers>
-        <VercelAnalytics />
-        <VercelSpeedInsights />
+        <UmamiAnalytics />
       </body>
     </html>
   );

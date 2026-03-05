@@ -95,7 +95,33 @@ export function SiteHeader() {
             </div>
           </details>
 
-          <HeaderButton href="/om" label="Om" />
+          <details className="relative">
+            <summary
+              className={`list-none cursor-pointer rounded-full px-4 py-2 text-sm font-medium transition ${
+                pathname?.startsWith("/om")
+                  ? defaultActiveClassName
+                  : defaultInactiveClassName
+              }`}
+            >
+              Om
+            </summary>
+            <div className="absolute right-0 z-20 mt-2 w-44 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-lg">
+              <div className="py-2">
+                <Link
+                  href="/om"
+                  className="block px-4 py-2 text-sm text-slate-700 transition hover:bg-slate-50"
+                >
+                  Om siden
+                </Link>
+                <Link
+                  href="/om/privatliv"
+                  className="block px-4 py-2 text-sm text-slate-700 transition hover:bg-slate-50"
+                >
+                  Privatliv
+                </Link>
+              </div>
+            </div>
+          </details>
         </div>
       </div>
     </header>

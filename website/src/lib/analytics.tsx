@@ -1,26 +1,13 @@
 import Script from "next/script";
-import { runtimeConfig } from "./config";
 
-export function VercelAnalytics() {
-  const isDev = process.env.NODE_ENV === "development";
-  const proxyPath = runtimeConfig.analyticsProxyPath;
-
-  const src = isDev
-    ? "https://va.vercel-scripts.com/v1/script.debug.js"
-    : `/${proxyPath}/analytics/script.js`;
-
+export function UmamiAnalytics() {
   return (
-    <>
-      <Script id="analytics" strategy="afterInteractive">
-        {`window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };`}
-      </Script>
-      <Script
-        async
-        data-endpoint={`/${proxyPath}/analytics`}
-        src={src}
-        strategy="lazyOnload"
-      />
-    </>
+    <Script
+      defer
+      src="https://umami.aleksanderbl.dk/script.js"
+      data-website-id="f5cea57f-f09f-4570-a7d0-aacc41a3358a"
+      strategy="afterInteractive"
+    />
   );
 }
 
