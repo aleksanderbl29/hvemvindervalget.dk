@@ -6,7 +6,8 @@ read_election_dates <- function(path) {
     rename(valg_dato = Valgdag, valg_id = ValgId) |>
     mutate(valg_dato = ymd(valg_dato)) |>
     add_row(valg_dato = ymd("2025-11-18"), valg_id = 999) |>
-    arrange(ymd(valg_dato))
+    arrange(ymd(valg_dato)) |>
+    mutate(valg = paste0("FV", year(valg_dato)))
 }
 
 read_election_results <- function(
@@ -40,10 +41,10 @@ read_election_results <- function(
           "landsdel_nr"
         )
       ),
-      starts_with("KV")
+      starts_with("FV")
     ) |>
     pivot_longer(
-      cols = starts_with("KV"),
+      cols = starts_with("FV"),
       names_to = "valg",
       values_to = "stemmer"
     ) |>
@@ -58,24 +59,19 @@ read_election_results <- function(
       by = c("valgsted_id", "valg")
     ) |>
     filter(!party_code %in% c("Stemmeberettigede", "Gyldige stemmer")) |>
+    left_join(election_dates) |>
     mutate(
       valg = as.factor(valg),
-      date = case_when(
-        valg == "KV2001" ~ election_dates$valg_dato[1],
-        valg == "KV2005" ~ election_dates$valg_dato[2],
-        valg == "KV2009" ~ election_dates$valg_dato[3],
-        valg == "KV2013" ~ election_dates$valg_dato[4],
-        valg == "KV2017" ~ election_dates$valg_dato[5],
-        valg == "KV2021" ~ election_dates$valg_dato[6]
-      ),
       percent = ((stemmer / total_votes) * 100),
       valgsted = gruppe,
-      kommune_id = as.numeric(substr(valgsted_id, 1, 3))
+      kommune_id = as.numeric(substr(valgsted_id, 1, 3)),
+      # party_name = substr(party_code, 3, nchar(party_code)),
+      party_code = substr(party_code, 1, 1)
     ) |>
     left_join(parties, by = join_by(party_code)) |>
     left_join(mcp_info, by = join_by(kommune_id)) |>
     drop_na(percent, party_name) |>
-    mutate(party_exist = date > party_begin) |>
+    mutate(party_exist = valg_dato > party_begin) |>
     filter(party_exist == TRUE) |>
     select(
       kommune,
@@ -84,7 +80,7 @@ read_election_results <- function(
       landsdel_nr,
       valgsted,
       valg,
-      date,
+      date = valg_dato,
       total_votes,
       votes = stemmer,
       percent,

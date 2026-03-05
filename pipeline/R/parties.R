@@ -20,7 +20,21 @@ get_parties <- function() {
         party_code == "Å" ~ "27-11-2013",
         party_code == "H" ~ "15-01-2025"
       ),
-      party_begin = dmy(party_begin)
+      party_begin = dmy(party_begin),
+      l_r_scale = case_when(
+        party_code == "A" ~ 4,
+        party_code == "B" ~ 5,
+        party_code == "C" ~ 8,
+        party_code == "F" ~ 3,
+        party_code == "I" ~ 10,
+        party_code == "M" ~ 6,
+        party_code == "O" ~ 11,
+        party_code == "V" ~ 7,
+        party_code == "Æ" ~ 9,
+        party_code == "Ø" ~ 1,
+        party_code == "Å" ~ 2,
+        party_code == "H" ~ 12
+      )
     )
 
   dbWriteTable(

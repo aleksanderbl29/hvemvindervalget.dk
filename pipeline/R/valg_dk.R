@@ -1,5 +1,6 @@
-kv_request_headers <- list(
+request_headers <- list(
   "X-Election-ID" = "1705ff7b-7390-48d8-b701-6bcd430dc835",
+  # "X-Election-ID" = "47b883ef-d0d3-4cb6-9da5-91963f0e9ba0",
   "Cookie" = paste0(
     "NSC_mc_wt_wbm_qspe=",
     "0dde57ead4f0f501e1df555e53be196b"
@@ -8,11 +9,12 @@ kv_request_headers <- list(
   )
 )
 
-get_kv_election_overview <- function(
-  base_url = "https://valg.dk/api/overview/kv-election-overview"
+get_election_overview <- function(
+  # base_url = "https://valg.dk/api/overview/kv-election-overview"
+  base_url = "https://valg.dk/api/overview/ge-election-overview"
 ) {
   request(base_url) |>
-    req_headers(!!!kv_request_headers) |>
+    req_headers(!!!request_headers) |>
     req_perform() |>
     resp_body_string() |>
     jsonlite::fromJSON() |>
@@ -21,12 +23,12 @@ get_kv_election_overview <- function(
     mutate(lastUpdate = as_datetime(lastUpdate))
 }
 
-get_kv_data_csv <- function(
-  municipality_id,
-  election_id = "kv2025"
+get_data_csv <- function(
+  municipality_id
 ) {
-  base_url <- "https://valg.dk/api/export-data/export-kv-data-csv"
-  election_id <- "1705ff7b-7390-48d8-b701-6bcd430dc835"
+  # base_url <- "https://valg.dk/api/export-data/export-kv-data-csv"
+  base_url <- "https://valg.dk/api/export-data/export-ge-data-csv"
+  election_id <- "47b883ef-d0d3-4cb6-9da5-91963f0e9ba0"
 
   url <- paste0(
     base_url,
@@ -57,14 +59,14 @@ get_kv_data_csv <- function(
 # &
 # MunicipalityId=613bbb61-4de7-426d-a1a9-e6ffbaf41140"
 
-get_kv_coalitions <- function(municipality_id) {
+get_coalitions <- function(municipality_id) {
   url <- paste0(
     "https://valg.dk/api/detail/municipality/",
     municipality_id |> pull(id)
   )
 
   response <- request(url) |>
-    req_headers(!!!kv_request_headers) |>
+    req_headers(!!!request_headers) |>
     req_perform() |>
     resp_body_string() |>
     jsonlite::fromJSON()
@@ -78,14 +80,14 @@ get_kv_coalitions <- function(municipality_id) {
   return(list(municipality_name = response$countStatusDto$name, coalitions = x))
 }
 
-get_kv_election_ids <- function() {
+get_election_ids <- function() {
   url <- paste0(
     "https://valg.dk/api/election" #,
     # municipality_id |> pull(id)
   )
 
   request(url) |>
-    req_headers(!!!list("Cookie" = kv_request_headers$Cookie)) |>
+    req_headers(!!!list("Cookie" = request_headers$Cookie)) |>
     req_perform() |>
     resp_body_string() |>
     jsonlite::fromJSON() |>

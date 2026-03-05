@@ -8,3 +8,4 @@
 !.gitignore
 !meta
 meta/*
+!meta/meta

@@ -24,10 +24,10 @@ tar_option_set(
   ),
   format = "qs",
   seed = 42,
-  controller = crew::crew_controller_local(
-    workers = parallel::detectCores(),
-    seconds_idle = 60
-  ),
+  # controller = crew::crew_controller_local(
+  #   workers = parallel::detectCores(),
+  #   seconds_idle = 60
+  # ),
   repository = "aws", # It is actually not on AWS, but just uses S3.
   repository_meta = "aws", # It is actually not on AWS, but just uses S3.
   resources = tar_resources(
@@ -37,7 +37,8 @@ tar_option_set(
       region = Sys.getenv("backend_s3_bucket_region"),
       endpoint = Sys.getenv("backend_s3_bucket_endpoint")
     )
-  )
+  ),
+  error = "continue"
 )
 tar_source()
 
@@ -69,17 +70,17 @@ list(
   tar_target(turnout_pct, get_turnout_pct(this_week)),
 
   # Valg.dk
-  tar_group_by(kv_election_overview, get_kv_election_overview(), id),
-  tar_group_by(kv_election_ids, get_kv_election_ids(), id),
+  tar_group_by(election_overview, get_election_overview(), id),
+  tar_group_by(election_ids, get_election_ids(), id),
   tar_target(
     current_election_results,
-    get_kv_data_csv(kv_election_overview),
-    pattern = map(kv_election_overview)
+    get_data_csv(election_overview),
+    pattern = map(election_overview)
   ),
   tar_target(
-    kv_coalitions,
-    get_kv_coalitions(kv_election_overview),
-    pattern = map(kv_election_overview)
+    coalitions,
+    get_coalitions(election_overview),
+    pattern = map(election_overview)
   ),
 
   # Election results
@@ -119,18 +120,25 @@ list(
   tar_target(
     epinion_polls,
     get_epinion_polls(epinion_poll_list, parties),
-    pattern = map(epinion_poll_list),
-    error = "continue"
+    pattern = map(epinion_poll_list)
   ),
 
   ## Merged
   tar_target(
     polls,
-    bind_polls(election_dates, verian_polls, gallup_polls, epinion_polls)
+    bind_polls(
+      election_dates,
+      verian_polls,
+      gallup_polls,
+      epinion_polls,
+      election_day,
+      parties
+    )
   ),
 
   tar_target(pollsters, get_pollsters(polls)),
   tar_target(latest_poll, get_latest_poll(polls)),
+  tar_target(weighted_poll, weight_poll(polls, parties, half_life = 14)),
 
   ## House effects
   tar_target(
@@ -169,14 +177,12 @@ list(
   tar_target(prior_draws, draw_from_prior_model(prior_model)),
 
   # Run model
-  tar_target(model, run_model(prior_draws, polls, election_day)),
-  tar_target(
-    hierarchical_model,
-    run_hierarchical_model(polls, election_day, election_results)
-  ),
+  tar_target(model, run_model(prior_draws, polls, election_day))
+  # tar_target(
+  #   hierarchical_model,
+  #   run_hierarchical_model(polls, election_day, election_results)
+  # ),
   # tar_target(another_model, run_another_model(polls, election_day))
 
-  # tar_target(mu_b_prior, get_mu_b_prior(house_effects))
-  ## Website plots
-  tar_target(plot_polls, web_plot_polls(polls, parties))
+  # tar_target(mu_b_prior, get_mu_b_prior(house_effects)
 )

@@ -2,70 +2,42 @@ bind_polls <- function(
   election_dates,
   verian_polls,
   gallup_polls,
-  epinion_polls
+  epinion_polls,
+  election_day,
   parties
 ) {
-  x <- bind_rows(verian_polls, gallup_polls, epinion_polls) |>
+  polls <- bind_rows(verian_polls, gallup_polls, epinion_polls) |>
     mutate(
-      kv01 = election_dates$valg_dato[1],
-      kv05 = election_dates$valg_dato[2],
-      kv09 = election_dates$valg_dato[3],
-      kv13 = election_dates$valg_dato[4],
-      kv17 = election_dates$valg_dato[5],
-      kv21 = election_dates$valg_dato[6],
-      kv25 = election_dates$valg_dato[7],
-      fv26 = today(tz = "Europe/Copenhagen") + weeks(6),
-      ttl_kv01 = kv01 - poll_date,
-      ttl_kv05 = kv05 - poll_date,
-      ttl_kv09 = kv09 - poll_date,
-      ttl_kv13 = kv13 - poll_date,
-      ttl_kv17 = kv17 - poll_date,
-      ttl_kv21 = kv21 - poll_date,
-      ttl_kv25 = kv25 - poll_date,
-      ttl_fv26 = fv26 - poll_date
+      party_name_std = case_when(
+        party_name %in% c("Det Radikale Venstre") ~ "Radikale Venstre",
+        party_name %in% c("Nye borgerlige") ~ "Nye Borgerlige",
+        party_name %in%
+          c("Socialistisk Folkeparti") ~ "SF - Socialistisk Folkeparti",
+        party_name %in% c("Enhedslisten") ~ "Enhedslisten - De Rød-Grønne",
+        party_name %in% c("Venstre") ~ "Venstre, Danmarks Liberale Parti",
+        party_name %in%
+          c(
+            "Liberal Alliance / Y - Ny Alliance",
+            " Liberal Alliance"
+          ) ~ "Liberal Alliance",
+        TRUE ~ party_name
+      )
+    ) |>
+    left_join(parties, by = c("party_code", "party_name_std" = "party_name")) |>
+    select(-party_name) |>
+    rename(party_name = party_name_std) |>
+    filter(poll_date >= party_begin) |>
+    mutate(
+      fv26 = election_day,
+      days_out = election_day - poll_date
     ) |>
     mutate(
       across(
         where(~ inherits(.x, "difftime")),
         ~ replace(.x, .x < 0, as.difftime(NA_real_, units = attr(.x, "units")))
       )
-    )
-
-  ttl_cols <- x |> select(starts_with(c("ttl_kv", "ttl_fv"))) |> names()
-
-  long_min <- x |>
-    pivot_longer(
-      cols = all_of(ttl_cols),
-      names_to = "election",
-      values_to = "time_to"
-    ) |>
-    filter(!is.na(time_to)) |>
-    group_by(poll_date) |>
-    slice_min(as.numeric(time_to, units = "days"), with_ties = FALSE) |>
-    ungroup() |>
-    mutate(
-      days_out = as.numeric(time_to, units = "days"),
-      election = sub("^ttl_", "", election)
-    )
-
-  kv_lookup <- x |>
-    select(starts_with(c("kv", "fv"))) |>
-    slice_head(n = 1) |>
-    pivot_longer(
-      everything(),
-      names_to = "election_name",
-      values_to = "election_date"
-    )
-
-  polls <- x |>
-    left_join(
-      long_min |>
-        left_join(kv_lookup, by = c("election" = "election_name")) |>
-        select(poll_date, election = election_date, days_out),
-      by = "poll_date"
     ) |>
     mutate(days_out = as.difftime(days_out, units = "days")) |>
-    select(-starts_with(c("ttl", "kv", "fv"))) |>
     arrange(desc(poll_date)) |>
     filter(party_code %in% parties$party_code)
 
@@ -121,3 +93,59 @@ get_latest_poll <- function(polls) {
 
   latest_poll
 }
+
+weight_poll <- function(polls, parties, half_life) {
+  con <- connect_to_db()
+
+  weighted_poll <- polls |>
+    mutate(
+      age_days = as.numeric(Sys.Date() - poll_date),
+      w_time = 0.5^(age_days / half_life),
+      w_sample = sqrt(n),
+      weight = w_time * w_sample
+    ) |>
+    group_by(party_code, segment) |>
+    summarise(
+      voteshare = weighted_mean(value, weight),
+    ) |>
+    filter(segment == "all") |>
+    left_join(parties)
+
+  dbWriteTable(
+    con,
+    "weighted_poll",
+    weighted_poll,
+    overwrite = TRUE
+  )
+
+  dbDisconnect(con)
+
+  weighted_poll
+}
+
+weighted_mean <- function(x, w) sum(x * w) / sum(w)
+
+# A
+# Å
+# Æ
+# B
+# C
+# F
+# H
+# I
+# M
+# O
+# Ø
+# V
+# D
+# K
+# Q
+# G
+# E
+# P
+# Z
+# U
+# Y
+# R
+# S
+# L

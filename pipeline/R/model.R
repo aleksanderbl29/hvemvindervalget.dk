@@ -114,7 +114,7 @@ run_model <- function(prior_draws, polls, election_day) {
 run_hierarchical_model <- function(polls, election_day, election_results) {
   new_polls <- polls |>
     distinct() |>
-    filter(election == election_day) |>
+    # filter(election == election_day) |>
     mutate(poll_value = as.numeric(value)) |>
     select(party_code, poll_date, poll_value, segment, pollster) |>
     distinct() |>
