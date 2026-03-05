@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { InlineLink } from "@/components/ui/InlineLink";
 
 export const metadata: Metadata = {
   title: "Privatliv | Hvem vinder valget?",
@@ -60,18 +61,13 @@ export default function PrivacyPage() {
           </h2>
           <p>
             Brugsdata behandles via{" "}
-            <a
-              href="https://umami.is"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline underline-offset-2 hover:text-slate-900 transition"
-            >
+            <InlineLink href="https://umami.is" target="_blank" rel="noopener noreferrer">
               Umami
-            </a>
+            </InlineLink>
             , et open source-analyseværktøj.
-            Programmet hostes lokalt i <Link href="https://aleksanderbl.dk/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-slate-900 transition">Aleksanders</Link> lejlighed i Aarhus.
+            Programmet hostes lokalt i <InlineLink href="https://aleksanderbl.dk/" target="_blank" rel="noopener noreferrer">Aleksanders</InlineLink> lejlighed i Aarhus.
             Vi deler aldrig data med tredjeparter.
-            For at se mere om, hvordan Umami er hostet kan du se <Link href="https://github.com/aleksanderbl29/nix-config/commit/65177939906a40ab336ee891ad5c04423835713d" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-slate-900 transition">Aleksanders konfiguration af Umami</Link> her.
+            For at se mere om, hvordan Umami er hostet kan du se <InlineLink href="https://github.com/aleksanderbl29/nix-config/commit/65177939906a40ab336ee891ad5c04423835713d" target="_blank" rel="noopener noreferrer">Aleksanders konfiguration af Umami</InlineLink> her.
           </p>
         </div>
 
@@ -82,7 +78,7 @@ export default function PrivacyPage() {
           <p>
             Da vi ikke indsamler personoplysninger, er der ingen persondata at
             tilgå, rette eller slette. Har du spørgsmål til vores brug af
-            data, Umami eller andet, er du velkommen til at kontakte <Link href="mailto:privatliv@aleksanderbl.dk" className="underline underline-offset-2 hover:text-slate-900 transition">privatliv@aleksanderbl.dk</Link>.
+            data, Umami eller andet, er du velkommen til at kontakte <InlineLink href="mailto:privatliv@aleksanderbl.dk">privatliv@aleksanderbl.dk</InlineLink>.
           </p>
         </div>
       </section>

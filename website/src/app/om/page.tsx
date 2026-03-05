@@ -5,10 +5,6 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-  if (process.env.NODE_ENV === "development") {
-    console.info("[route] /om (placeholder)");
-  }
-
   return (
     <main className="mx-auto max-w-3xl px-6 py-14">
       <h1 className="text-4xl font-semibold text-slate-900">Om</h1>

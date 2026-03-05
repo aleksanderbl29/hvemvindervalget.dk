@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { HeaderButton } from "@/components/ui/HeaderButton";
 
-const previousElections = [{ label: "Kommunalvalg 2025", href: "/kv25" }];
+// const previousElections = [{ label: "Kommunalvalg 2025", href: "/kv25" }];
 
 const defaultActiveClassName =
   "bg-slate-900 text-white hover:bg-slate-800";
@@ -13,9 +13,9 @@ const defaultInactiveClassName =
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const isPreviousElectionActive = previousElections.some(
-    (election) => pathname?.startsWith(election.href)
-  );
+  // const isPreviousElectionActive = previousElections.some(
+  //   (election) => pathname?.startsWith(election.href)
+  // );
 
   return (
     <header className="border-b border-slate-200 bg-white/70 backdrop-blur">
@@ -112,6 +112,12 @@ export function SiteHeader() {
                   className="block px-4 py-2 text-sm text-slate-700 transition hover:bg-slate-50"
                 >
                   Om siden
+                </Link>
+                <Link
+                  href="/om/metoder"
+                  className="block px-4 py-2 text-sm text-slate-700 transition hover:bg-slate-50"
+                >
+                  Metoder
                 </Link>
                 <Link
                   href="/om/privatliv"
