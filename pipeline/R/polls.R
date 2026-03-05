@@ -3,6 +3,7 @@ bind_polls <- function(
   verian_polls,
   gallup_polls,
   epinion_polls
+  parties
 ) {
   x <- bind_rows(verian_polls, gallup_polls, epinion_polls) |>
     mutate(
@@ -65,7 +66,8 @@ bind_polls <- function(
     ) |>
     mutate(days_out = as.difftime(days_out, units = "days")) |>
     select(-starts_with(c("ttl", "kv", "fv"))) |>
-    arrange(desc(poll_date))
+    arrange(desc(poll_date)) |>
+    filter(party_code %in% parties$party_code)
 
   upload_polls(polls)
 
