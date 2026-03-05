@@ -9,6 +9,7 @@ import {
   CartesianGrid,
   ResponsiveContainer,
   Tooltip,
+  ReferenceLine,
 } from "recharts";
 import Image from "next/image";
 import type { RechartsChartData } from "@/lib/api/types";
@@ -38,6 +39,8 @@ function buildChartRows(chartData: RechartsChartData): ChartRow[] {
       return row;
     });
 }
+
+const ELECTION_ANNOUNCED_DATE = "2026-02-26";
 
 function formatDate(dateStr: string): string {
   return new Date(dateStr).toLocaleDateString("da-DK", {
@@ -105,7 +108,18 @@ export function PollsLineChart({ chartData, pollstersByDate = {}, height = "38vh
   // without an effect: server snapshot → false (skeleton), client snapshot → true (chart).
   const ready = useSyncExternalStore(() => () => {}, () => true, () => false);
 
-  const rows = useMemo(() => buildChartRows(chartData), [chartData]);
+  const rows = useMemo(() => {
+    const base = buildChartRows(chartData);
+    // ReferenceLine on a categorical XAxis only renders when the x value exists
+    // in the data array — inject the date as a data-less row if absent.
+    if (!base.find((r) => r.date === ELECTION_ANNOUNCED_DATE)) {
+      const insertAt = base.findIndex((r) => r.date > ELECTION_ANNOUNCED_DATE);
+      const refRow: ChartRow = { date: ELECTION_ANNOUNCED_DATE };
+      if (insertAt === -1) base.push(refRow);
+      else base.splice(insertAt, 0, refRow);
+    }
+    return base;
+  }, [chartData]);
 
   const latestValues = useMemo<Record<string, number>>(() => {
     const lastRow = rows[rows.length - 1];
@@ -235,6 +249,20 @@ export function PollsLineChart({ chartData, pollstersByDate = {}, height = "38vh
                 content={tooltipContent}
                 cursor={{ stroke: "#94a3b8", strokeWidth: 1, strokeDasharray: "4 2" }}
               />
+              <ReferenceLine
+                x={ELECTION_ANNOUNCED_DATE}
+                stroke="#94a3b8"
+                strokeDasharray="4 3"
+                strokeWidth={1}
+                label={{
+                  value: "Valg udskrevet",
+                  position: "insideTopRight",
+                  fontSize: 10,
+                  fill: "#94a3b8",
+                  fontFamily: "Montserrat, sans-serif",
+                  dy: 4,
+                }}
+              />
               {chartData.series.map((s) => (
                 <Line
                   key={s.name}
@@ -245,6 +273,7 @@ export function PollsLineChart({ chartData, pollstersByDate = {}, height = "38vh
                   dot={false}
                   activeDot={{ r: 3, strokeWidth: 0 }}
                   isAnimationActive={false}
+                  connectNulls
                 />
               ))}
             </LineChart>
@@ -342,6 +371,10 @@ export function PollsLineChart({ chartData, pollstersByDate = {}, height = "38vh
           );
         })}
       </div>
+
+      <p className="mt-2 text-[11px] text-slate-400">
+        Kun opstillingsberettigede partier vises
+      </p>
     </div>
   );
 }
