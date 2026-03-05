@@ -70,7 +70,7 @@ export function SiteHeader() {
           <HeaderButton href="/fv26" label="Folketingsvalg 2026" />
           <HeaderButton href="/polls" label="Meningsmålinger" />
 
-          <details className="relative">
+          {/* <details className="relative">
             <summary
               className={`list-none cursor-pointer rounded-full px-4 py-2 text-sm font-medium transition ${
                 isPreviousElectionActive
@@ -93,7 +93,7 @@ export function SiteHeader() {
                 ))}
               </div>
             </div>
-          </details>
+          </details> */}
 
           <details className="relative">
             <summary
