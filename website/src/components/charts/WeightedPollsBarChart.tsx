@@ -9,9 +9,13 @@ export type WeightedPollEntry = {
   l_r_scale: number | null;
 };
 
+type SortBy = "size" | "left_right";
+
 type Props = {
   data: WeightedPollEntry[];
   updatedAt?: string | null;
+  sortBy?: SortBy;
+  pollsters?: string[];
 };
 
 function isLightColor(hex: string): boolean {
@@ -22,20 +26,24 @@ function isLightColor(hex: string): boolean {
   return 0.2126 * r + 0.7152 * g + 0.0722 * b > 160;
 }
 
-export function WeightedPollsBarChart({ data, updatedAt }: Props) {
+export function WeightedPollsBarChart({ data, updatedAt, sortBy = "size", pollsters }: Props) {
   const sorted = useMemo(
     () =>
       [...data]
         .filter((d) => d.value > 0)
         .sort((a, b) => {
-          if (a.l_r_scale !== null && b.l_r_scale !== null) {
-            return a.l_r_scale - b.l_r_scale;
+          if (sortBy === "left_right") {
+            // Sort by left-right political scale
+            if (a.l_r_scale !== null && b.l_r_scale !== null) {
+              return a.l_r_scale - b.l_r_scale;
+            }
+            if (a.l_r_scale !== null) return -1;
+            if (b.l_r_scale !== null) return 1;
+            return a.party_code.localeCompare(b.party_code);
           }
-          if (a.l_r_scale !== null) return -1;
-          if (b.l_r_scale !== null) return 1;
-          return a.party_code.localeCompare(b.party_code);
+          return b.value - a.value;
         }),
-    [data],
+    [data, sortBy],
   );
 
   const maxValue = Math.max(...sorted.map((d) => d.value), 1);
@@ -88,14 +96,22 @@ export function WeightedPollsBarChart({ data, updatedAt }: Props) {
         );
       })}
 
-      {updatedAt && (
+      {(updatedAt || (pollsters && pollsters.length > 0)) && (
         <p className="pt-5 text-[11px] text-slate-400">
-          Opdateret:{" "}
-          {new Date(updatedAt).toLocaleDateString("da-DK", {
-            day: "numeric",
-            month: "long",
-            year: "numeric",
-          })}
+          {updatedAt && (
+            <>
+              Opdateret:{" "}
+              {new Date(updatedAt).toLocaleDateString("da-DK", {
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+              })}
+            </>
+          )}
+          {updatedAt && pollsters && pollsters.length > 0 && " · "}
+          {pollsters && pollsters.length > 0 && (
+            <>Baseret på data fra: {pollsters.join(", ")}</>
+          )}
         </p>
       )}
     </div>

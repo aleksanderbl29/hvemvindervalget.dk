@@ -8,7 +8,7 @@ export const metadata = {
   title: "Folketingsvalget 2026 | Hvem vinder valget?",
 };
 
-async function loadWeightedPolls(): Promise<{ data: WeightedPollEntry[]; updatedAt: string | null } | null> {
+async function loadWeightedPolls(): Promise<{ data: WeightedPollEntry[]; updatedAt: string | null; pollsters: string[] } | null> {
   const databaseUrl = process.env.DATABASE_URL;
 
   if (!databaseUrl) {
@@ -19,12 +19,15 @@ async function loadWeightedPolls(): Promise<{ data: WeightedPollEntry[]; updated
   const sql = neon(databaseUrl);
 
   try {
-    const rows = await sql`
-      SELECT party_code, voteshare AS value, l_r_scale
-      FROM weighted_poll
-      WHERE segment = 'all'
-      ORDER BY l_r_scale ASC NULLS LAST
-    `;
+    const [rows, pollsterRows] = await Promise.all([
+      sql`
+        SELECT party_code, voteshare AS value, l_r_scale
+        FROM weighted_poll
+        WHERE segment = 'all'
+        ORDER BY l_r_scale ASC NULLS LAST
+      `,
+      sql`SELECT name FROM pollsters ORDER BY name ASC`,
+    ]);
 
     if (!rows || rows.length === 0) {
       console.info("[fv26] No data found in weighted_poll table");
@@ -39,7 +42,9 @@ async function loadWeightedPolls(): Promise<{ data: WeightedPollEntry[]; updated
       l_r_scale: r.l_r_scale !== null && r.l_r_scale !== undefined ? Number(r.l_r_scale) : null,
     }));
 
-    return { data, updatedAt: new Date().toISOString() };
+    const pollsters = pollsterRows.map((r) => String(r.name ?? "")).filter(Boolean);
+
+    return { data, updatedAt: new Date().toISOString(), pollsters };
   } catch (error) {
     console.error("[fv26] failed to load weighted polls", { error });
     return null;
@@ -65,7 +70,7 @@ export default async function Folketingsvalget2026Page() {
 
       <div className="mt-10">
         {result ? (
-          <WeightedPollsBarChart data={result.data} updatedAt={result.updatedAt} />
+          <WeightedPollsBarChart data={result.data} updatedAt={result.updatedAt} pollsters={result.pollsters} />
         ) : (
           <p className="text-sm text-slate-500">Ingen data tilgængelig.</p>
         )}
