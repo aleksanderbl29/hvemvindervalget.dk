@@ -3,12 +3,10 @@ export function SiteFooter() {
 
   return (
     <footer className="border-t border-slate-200 bg-white/60 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl flex-col gap-2 px-6 py-6 text-sm text-slate-600 sm:flex-row sm:items-center sm:justify-between">
-        <p className="flex items-center gap-2">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 text-sm text-slate-600 sm:px-6">
+        <p className="flex items-center gap-1.5">
           <span aria-hidden="true">©</span>
-          <span>
-            {year} Hvem vinder valget?
-          </span>
+          <span>{year} Hvem vinder valget?</span>
         </p>
 
         <a
