@@ -24,10 +24,10 @@ tar_option_set(
   ),
   format = "qs",
   seed = 42,
-  # controller = crew::crew_controller_local(
-  #   workers = parallel::detectCores(),
-  #   seconds_idle = 60
-  # ),
+  controller = crew::crew_controller_local(
+    workers = parallel::detectCores(),
+    seconds_idle = 60
+  ),
   repository = "aws", # It is actually not on AWS, but just uses S3.
   repository_meta = "aws", # It is actually not on AWS, but just uses S3.
   resources = tar_resources(

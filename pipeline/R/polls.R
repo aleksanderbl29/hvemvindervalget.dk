@@ -7,25 +7,8 @@ bind_polls <- function(
   parties
 ) {
   polls <- bind_rows(verian_polls, gallup_polls, epinion_polls) |>
-    mutate(
-      party_name_std = case_when(
-        party_name %in% c("Det Radikale Venstre") ~ "Radikale Venstre",
-        party_name %in% c("Nye borgerlige") ~ "Nye Borgerlige",
-        party_name %in%
-          c("Socialistisk Folkeparti") ~ "SF - Socialistisk Folkeparti",
-        party_name %in% c("Enhedslisten") ~ "Enhedslisten - De Rød-Grønne",
-        party_name %in% c("Venstre") ~ "Venstre, Danmarks Liberale Parti",
-        party_name %in%
-          c(
-            "Liberal Alliance / Y - Ny Alliance",
-            " Liberal Alliance"
-          ) ~ "Liberal Alliance",
-        TRUE ~ party_name
-      )
-    ) |>
-    left_join(parties, by = c("party_code", "party_name_std" = "party_name")) |>
     select(-party_name) |>
-    rename(party_name = party_name_std) |>
+    left_join(parties, by = "party_code") |>
     filter(poll_date >= party_begin) |>
     mutate(
       fv26 = election_day,
@@ -39,7 +22,19 @@ bind_polls <- function(
     ) |>
     mutate(days_out = as.difftime(days_out, units = "days")) |>
     arrange(desc(poll_date)) |>
-    filter(party_code %in% parties$party_code)
+    filter(party_code %in% parties$party_code) |>
+    select(
+      party_code,
+      poll_date,
+      value,
+      segment,
+      pollster,
+      n,
+      party_name,
+      party_name_short,
+      l_r_scale,
+      days_out
+    )
 
   upload_polls(polls)
 
