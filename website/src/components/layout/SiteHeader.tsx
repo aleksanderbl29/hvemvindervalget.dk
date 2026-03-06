@@ -1,8 +1,9 @@
-"use client";
+ "use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { HeaderButton } from "@/components/ui/HeaderButton";
+import { useEffect, useRef, useState } from "react";
 
 // const previousElections = [{ label: "Kommunalvalg 2025", href: "/kv25" }];
 
@@ -13,6 +14,33 @@ const defaultInactiveClassName =
 
 export function SiteHeader() {
   const pathname = usePathname();
+  const omDetailsRef = useRef<HTMLDetailsElement | null>(null);
+  const [isOmOpen, setIsOmOpen] = useState(false);
+
+  useEffect(() => {
+    function handleDocumentClick(event: MouseEvent) {
+      if (!omDetailsRef.current) return;
+
+      const target = event.target as Node | null;
+
+      if (omDetailsRef.current.contains(target)) {
+        console.log("[SiteHeader] Click inside Om dropdown, keeping it open.");
+        return;
+      }
+
+      if (isOmOpen) {
+        console.log("[SiteHeader] Closing Om dropdown due to outside click.");
+        setIsOmOpen(false);
+      }
+    }
+
+    document.addEventListener("click", handleDocumentClick);
+
+    return () => {
+      document.removeEventListener("click", handleDocumentClick);
+    };
+  }, [isOmOpen]);
+
   // const isPreviousElectionActive = previousElections.some(
   //   (election) => pathname?.startsWith(election.href)
   // );
@@ -95,13 +123,29 @@ export function SiteHeader() {
             </div>
           </details> */}
 
-          <details className="relative">
+          <details
+            ref={omDetailsRef}
+            className="relative"
+            open={isOmOpen}
+          >
             <summary
               className={`list-none cursor-pointer rounded-full px-4 py-2 text-sm font-medium transition ${
                 pathname?.startsWith("/om")
                   ? defaultActiveClassName
                   : defaultInactiveClassName
               }`}
+              onClick={(event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                setIsOmOpen((prev) => {
+                  const next = !prev;
+                  console.log(
+                    "[SiteHeader] Toggling Om dropdown from summary click. Next open state:",
+                    next,
+                  );
+                  return next;
+                });
+              }}
             >
               Om
             </summary>
@@ -110,18 +154,36 @@ export function SiteHeader() {
                 <Link
                   href="/om"
                   className="block px-4 py-2 text-sm text-slate-700 transition hover:bg-slate-50"
+                  onClick={() => {
+                    console.log(
+                      "[SiteHeader] Navigating to /om from Om dropdown. Closing dropdown.",
+                    );
+                    setIsOmOpen(false);
+                  }}
                 >
                   Om siden
                 </Link>
                 <Link
                   href="/om/metoder"
                   className="block px-4 py-2 text-sm text-slate-700 transition hover:bg-slate-50"
+                  onClick={() => {
+                    console.log(
+                      "[SiteHeader] Navigating to /om/metoder from Om dropdown. Closing dropdown.",
+                    );
+                    setIsOmOpen(false);
+                  }}
                 >
                   Metoder
                 </Link>
                 <Link
                   href="/om/privatliv"
                   className="block px-4 py-2 text-sm text-slate-700 transition hover:bg-slate-50"
+                  onClick={() => {
+                    console.log(
+                      "[SiteHeader] Navigating to /om/privatliv from Om dropdown. Closing dropdown.",
+                    );
+                    setIsOmOpen(false);
+                  }}
                 >
                   Privatliv
                 </Link>
