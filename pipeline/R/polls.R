@@ -104,7 +104,8 @@ weight_poll <- function(polls, parties, half_life) {
       voteshare = weighted_mean(value, weight),
     ) |>
     filter(segment == "all") |>
-    left_join(parties)
+    left_join(parties) |>
+    mutate(updated_at = now())
 
   dbWriteTable(
     con,

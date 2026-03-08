@@ -19,7 +19,7 @@ async function loadWeightedPolls(): Promise<{ data: WeightedPollEntry[]; updated
   const sql = neon(databaseUrl);
 
   try {
-    const [rows, pollsterRows] = await Promise.all([
+    const [rows, pollsterRows, metaRows] = await Promise.all([
       sql`
         SELECT party_code, voteshare AS value, l_r_scale
         FROM weighted_poll
@@ -27,6 +27,7 @@ async function loadWeightedPolls(): Promise<{ data: WeightedPollEntry[]; updated
         ORDER BY l_r_scale ASC NULLS LAST
       `,
       sql`SELECT name FROM pollsters ORDER BY name ASC`,
+      sql`SELECT MAX(updated_at) AS updated_at FROM weighted_poll`,
     ]);
 
     if (!rows || rows.length === 0) {
@@ -44,7 +45,9 @@ async function loadWeightedPolls(): Promise<{ data: WeightedPollEntry[]; updated
 
     const pollsters = pollsterRows.map((r) => String(r.name ?? "")).filter(Boolean);
 
-    return { data, updatedAt: new Date().toISOString(), pollsters };
+    const updatedAt = metaRows[0]?.updated_at ? new Date(String(metaRows[0].updated_at)).toISOString() : null;
+
+    return { data, updatedAt, pollsters };
   } catch (error) {
     console.error("[fv26] failed to load weighted polls", { error });
     return null;
