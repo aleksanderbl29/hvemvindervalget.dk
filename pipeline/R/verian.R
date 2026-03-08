@@ -16,10 +16,18 @@ read_verian_excel <- function(path) {
     ) |>
     mutate(
       value = as.numeric(value),
+      excel_date = as.numeric(poll_date),
       poll_date = dmy(poll_date),
+      # poll_date = janitor::convert_to_date(poll_date),
       pollster = "Verian",
       n = estimated_verian_gallup_respondents,
       segment = "all"
+    ) |>
+    mutate(
+      poll_date = case_when(
+        is.na(poll_date) ~ janitor::excel_numeric_to_date(excel_date),
+        .default = poll_date
+      )
     ) |>
     select(party_code, party_name, poll_date, value, segment, pollster, n)
 }

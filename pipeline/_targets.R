@@ -99,7 +99,7 @@ list(
   ## Verian
   tar_file_read(
     verian_polls,
-    "data/verian/PI250604.xls",
+    "data/verian/PI250604.xlsx",
     read_verian_excel(!!.x)
   ),
   tar_file_read(
