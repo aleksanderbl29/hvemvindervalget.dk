@@ -19,3 +19,73 @@ body {
   background: radial-gradient(circle at top, #eef2ff 0%, #f7f8fb 55%, #ffffff 100%);
   color: var(--foreground);
 }
+
+@view-transition {
+  navigation: auto;
+}
+
+.site-header {
+  view-transition-name: site-header;
+}
+
+::view-transition-old(site-header),
+::view-transition-new(site-header) {
+  animation-duration: 160ms;
+  animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+@keyframes hvv-header-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes hvv-header-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+::view-transition-old(site-header) {
+  animation-name: hvv-header-fade-out;
+}
+
+::view-transition-new(site-header) {
+  animation-name: hvv-header-fade-in;
+}
+
+/* Desktop nav buttons – shared subtle motion */
+.header-nav-button {
+  position: relative;
+  overflow: hidden;
+  transform-origin: center;
+  transition:
+    background-color 150ms ease-out,
+    color 150ms ease-out,
+    border-color 150ms ease-out,
+    transform 150ms ease-out,
+    box-shadow 150ms ease-out;
+}
+
+.header-nav-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+}
+
+/* Active pill that participates in view transitions between pages */
+.header-nav-button--active {
+  view-transition-name: nav-pill;
+}
+
+::view-transition-old(nav-pill),
+::view-transition-new(nav-pill) {
+  animation-duration: 220ms;
+  animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+

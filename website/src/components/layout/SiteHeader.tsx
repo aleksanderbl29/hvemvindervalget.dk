@@ -27,6 +27,18 @@ export function SiteHeader() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    // Lightweight logging to validate that header re-renders track route changes
+    // and to confirm when we're relying on the View Transitions API.
+    // eslint-disable-next-line no-console
+    console.log("[SiteHeader] pathname changed", {
+      pathname,
+      supportsViewTransitions:
+        typeof document !== "undefined" &&
+        "startViewTransition" in document,
+    });
+  }, [pathname]);
+
+  useEffect(() => {
     function handleDocumentClick(event: MouseEvent) {
       if (!omDetailsRef.current) return;
       const target = event.target as Node | null;
@@ -38,7 +50,7 @@ export function SiteHeader() {
   }, [isOmOpen]);
 
   return (
-    <header className="border-b border-slate-200 bg-white/70 backdrop-blur">
+    <header className="site-header border-b border-slate-200 bg-white/70 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
         {/* Logo */}
         <Link
