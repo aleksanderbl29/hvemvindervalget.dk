@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { PrefetchLink } from "@/components/ui/PrefetchLink";
 import { usePathname, useRouter } from "next/navigation";
 import type { MouseEvent } from "react";
 
@@ -53,7 +53,7 @@ export function HeaderButton({
   };
 
   return (
-    <Link
+    <PrefetchLink
       href={href}
       onClick={handleClick}
       className={`header-nav-button rounded-full px-4 py-2 text-sm font-medium ${
@@ -63,6 +63,6 @@ export function HeaderButton({
       }`}
     >
       {label}
-    </Link>
+    </PrefetchLink>
   );
 }

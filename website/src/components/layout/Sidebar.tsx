@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { PrefetchLink } from "@/components/ui/PrefetchLink";
 import { usePathname } from "next/navigation";
 
 const links = [
@@ -26,7 +26,7 @@ export function Sidebar() {
         {links.map((link) => {
           const active = link.match.test(pathname);
           return (
-            <Link
+            <PrefetchLink
               key={link.href}
               href={link.href}
               className={`flex items-center justify-between rounded-lg px-3 py-2 text-sm font-medium transition ${
@@ -39,7 +39,7 @@ export function Sidebar() {
               {active && (
                 <span className="text-xs uppercase tracking-wide">Live</span>
               )}
-            </Link>
+            </PrefetchLink>
           );
         })}
       </nav>

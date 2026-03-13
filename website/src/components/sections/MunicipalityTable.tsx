@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { PrefetchLink } from "@/components/ui/PrefetchLink";
 import { MunicipalitySnapshot } from "@/lib/api/types";
 
 type MunicipalityTableProps = {
@@ -18,12 +18,12 @@ export function MunicipalityTable({ municipalities }: MunicipalityTableProps) {
           </p>
         </div>
         {municipalities[0] && (
-          <Link
+          <PrefetchLink
             href={`/kommuner/${municipalities[0].slug}`}
             className="text-sm font-medium text-slate-600 underline-offset-4 hover:underline"
           >
             Gå til detaljer
-          </Link>
+          </PrefetchLink>
         )}
       </header>
       <div className="overflow-x-auto">
@@ -44,12 +44,12 @@ export function MunicipalityTable({ municipalities }: MunicipalityTableProps) {
                 className="border-t border-slate-100 text-sm hover:bg-slate-50/70"
               >
                 <td className="py-3 pr-4 font-medium">
-                  <Link
+                  <PrefetchLink
                     href={`/kommuner/${municipality.slug}`}
                     className="text-slate-900 hover:underline"
                   >
                     {municipality.name}
-                  </Link>
+                  </PrefetchLink>
                 </td>
                 <td className="py-3 pr-4">{municipality.region}</td>
                 <td className="py-3 pr-4">{municipality.leadingParty}</td>
