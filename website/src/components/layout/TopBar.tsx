@@ -1,6 +1,6 @@
 "use client";
 
-import { PrefetchLink } from "@/components/ui/PrefetchLink";
+import { Link } from "@/components/ui/Link";
 import { useMemo } from "react";
 import { runtimeConfig } from "@/lib/config";
 
@@ -30,13 +30,13 @@ export function TopBar() {
       </div>
       <div className="flex flex-wrap gap-2">
         {quickFilters.map((filter) => (
-          <PrefetchLink
+          <Link
             key={filter.label}
             href={filter.href}
             className="rounded-full border border-slate-200 px-4 py-2 text-sm text-slate-700 transition hover:border-slate-400"
           >
             {filter.label}
-          </PrefetchLink>
+          </Link>
         ))}
       </div>
     </header>

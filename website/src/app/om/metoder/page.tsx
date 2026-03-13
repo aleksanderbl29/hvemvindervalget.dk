@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { PrefetchLink } from "@/components/ui/PrefetchLink";
+import { Link } from "@/components/ui/Link";
 import { InlineLink } from "@/components/ui/InlineLink";
 import { InlineMath, BlockMath } from "react-katex";
 import "katex/dist/katex.min.css";
@@ -14,9 +14,9 @@ export default function MetoderPage() {
     <main className="mx-auto max-w-3xl px-6 py-14">
       <nav className="mb-8 text-sm text-slate-500 flex items-center justify-between">
         <div>
-          <PrefetchLink href="/om" className="hover:text-slate-700 transition">
+          <Link href="/om" className="hover:text-slate-700 transition">
             Om
-          </PrefetchLink>
+          </Link>
           <span className="mx-2">/</span>
           <span className="text-slate-800">Metoder</span>
         </div>

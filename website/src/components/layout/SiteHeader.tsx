@@ -1,6 +1,6 @@
 "use client";
 
-import { PrefetchLink } from "@/components/ui/PrefetchLink";
+import { Link } from "@/components/ui/Link";
 import { usePathname } from "next/navigation";
 import { HeaderButton } from "@/components/ui/HeaderButton";
 import { useEffect, useRef, useState } from "react";
@@ -53,7 +53,7 @@ export function SiteHeader() {
     <header className="site-header border-b border-slate-200 bg-white/70 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
         {/* Logo */}
-        <PrefetchLink
+        <Link
           href="/"
           className="inline-flex items-center gap-3 rounded-lg px-2 py-1 text-base font-semibold text-slate-900 transition hover:bg-slate-100"
           aria-label="Gå til forsiden"
@@ -81,7 +81,7 @@ export function SiteHeader() {
             <rect x="11" y="24.5" width="8" height="1.5" rx="0.5" fill="#ffffff" opacity="0.3" />
           </svg>
           <span>Hvem vinder valget?</span>
-        </PrefetchLink>
+        </Link>
 
         {/* Desktop nav */}
         <div className="hidden items-center gap-2 sm:flex sm:gap-3">
@@ -105,14 +105,14 @@ export function SiteHeader() {
             <div className="absolute right-0 z-20 mt-2 w-44 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-lg">
               <div className="py-2">
                 {omLinks.map((link) => (
-                  <PrefetchLink
+                  <Link
                     key={link.href}
                     href={link.href}
                     className="block px-4 py-2 text-sm text-slate-700 transition hover:bg-slate-50"
                     onClick={() => setIsOmOpen(false)}
                   >
                     {link.label}
-                  </PrefetchLink>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -143,7 +143,7 @@ export function SiteHeader() {
         <div className="border-t border-slate-100 bg-white px-4 pb-4 pt-2 sm:hidden">
           <nav className="flex flex-col gap-1">
             {navLinks.map((link) => (
-              <PrefetchLink
+              <Link
                 key={link.href}
                 href={link.href}
                 className={`rounded-lg px-4 py-2.5 text-sm font-medium transition ${
@@ -152,14 +152,14 @@ export function SiteHeader() {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.label}
-              </PrefetchLink>
+              </Link>
             ))}
 
             <div className="my-1 border-t border-slate-100" />
             <p className="px-4 pb-1 pt-0.5 text-xs font-medium uppercase tracking-wider text-slate-400">Om</p>
 
             {omLinks.map((link) => (
-              <PrefetchLink
+              <Link
                 key={link.href}
                 href={link.href}
                 className={`rounded-lg px-4 py-2.5 text-sm font-medium transition ${
@@ -168,7 +168,7 @@ export function SiteHeader() {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.label}
-              </PrefetchLink>
+              </Link>
             ))}
           </nav>
         </div>
