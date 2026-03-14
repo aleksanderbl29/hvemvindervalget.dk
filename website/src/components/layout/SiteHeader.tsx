@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/components/ui/Link";
 import { usePathname } from "next/navigation";
 import { HeaderButton } from "@/components/ui/HeaderButton";
 import { useEffect, useRef, useState } from "react";

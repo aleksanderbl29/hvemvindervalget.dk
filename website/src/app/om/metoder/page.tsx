@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/components/ui/Link";
 import { InlineLink } from "@/components/ui/InlineLink";
 import { InlineMath, BlockMath } from "react-katex";
 import "katex/dist/katex.min.css";

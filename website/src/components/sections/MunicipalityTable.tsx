@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/components/ui/Link";
 import { MunicipalitySnapshot } from "@/lib/api/types";
 
 type MunicipalityTableProps = {

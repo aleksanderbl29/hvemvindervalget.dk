@@ -1,5 +1,7 @@
-import Link from "next/link";
+"use client";
+
 import type { ComponentProps } from "react";
+import { Link } from "@/components/ui/Link";
 
 type InlineLinkProps = ComponentProps<typeof Link>;
 
