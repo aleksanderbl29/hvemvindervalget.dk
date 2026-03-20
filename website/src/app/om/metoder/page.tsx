@@ -39,20 +39,19 @@ export default function MetoderPage() {
 
           <p>
             Alle meningsmålinger kombineres til ét vægtet gennemsnit, hvor hver måling
-            tildeles en vægt baseret på dens <em>alder</em> og{" "}
-            <em>stikprøvestørrelse</em>:
+            tildeles en vægt baseret på dens <em>alder</em> og <em>stikprøvestørrelse</em>:
           </p>
 
           <BlockMath math="w_i \;=\; w_{\text{tid},i} \times w_{\text{størrelse},i}" />
 
           <p>
-            Hvor tidsvægten halveres for hver 14 dage, der går siden målingen:
+            Hvor tidsvægten har en halveringstid på 14 dage. Det betyder at en 14 dage gammel måling <em>vejer</em> halvt så meget som en ny måling.
           </p>
 
           <BlockMath math="w_{\text{tid},i} \;=\; 2^{-a_i \,/\, 14}" />
 
           <p>
-            Og stikprøvevægten øges med antallet af respondenter:
+            Derudover tilføjer vi en vægt for stikprøvestørrelsen, der øges med antallet af respondenter. Her udregnes vægten med kvadratroden af <em>n</em> for at få en aftagende marginalvægt.
           </p>
 
           <BlockMath math="w_{\text{størrelse},i} \;=\; \sqrt{n_i}" />
