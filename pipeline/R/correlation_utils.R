@@ -24,16 +24,40 @@ construct_correlation_matrix <- function(
   # municipality_covariance,
   regions_covariance
 ) {
+  message(glue(
+    "Constructing C with vote_covariance={nrow(vote_covariance)}x{ncol(vote_covariance)} ",
+    "and regions_covariance={nrow(regions_covariance)}x{ncol(regions_covariance)}."
+  ))
+
   # Replace NA with 0
   vote_covariance[is.na(vote_covariance)] <- 0
   # municipality_covariance[is.na(municipality_covariance)] <- 0
   regions_covariance[is.na(regions_covariance)] <- 0
 
+  vote_covariance <- as.matrix(vote_covariance)
+  regions_covariance <- as.matrix(regions_covariance)
+
+  common_ids <- intersect(colnames(vote_covariance), colnames(regions_covariance))
+
+  if (length(common_ids) == 0) {
+    message("No shared ids between covariance matrices; falling back to vote covariance only.")
+    regions_covariance <- matrix(
+      0,
+      nrow = nrow(vote_covariance),
+      ncol = ncol(vote_covariance),
+      dimnames = dimnames(vote_covariance)
+    )
+  } else {
+    vote_covariance <- vote_covariance[common_ids, common_ids, drop = FALSE]
+    regions_covariance <- regions_covariance[common_ids, common_ids, drop = FALSE]
+  }
+
   # Baseline cor
   baseline_cor <- matrix(
     data = 1,
     nrow = nrow(vote_covariance),
-    ncol = nrow(vote_covariance)
+    ncol = nrow(vote_covariance),
+    dimnames = dimnames(vote_covariance)
   )
 
   # Defining weights estimated in seperate model

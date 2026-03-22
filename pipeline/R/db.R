@@ -8,3 +8,23 @@ connect_to_db <- function() {
     sslmode = "require"
   )
 }
+
+safe_db_write_table <- function(con, name, value, overwrite = TRUE) {
+  tryCatch(
+    {
+      DBI::dbWriteTable(
+        con,
+        name = name,
+        value = value,
+        overwrite = overwrite
+      )
+      TRUE
+    },
+    error = function(e) {
+      message(glue(
+        "DB write failed for table `{name}`: {conditionMessage(e)}"
+      ))
+      FALSE
+    }
+  )
+}
