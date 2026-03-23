@@ -1,3 +1,4 @@
+import { formatMessage } from "@/data/messages";
 import { PARTY_BY_CODE, partyColor } from "@/data/parties";
 
 export type ModelSummaryDatum = {
@@ -126,7 +127,7 @@ export function ModelSummaryBarChart({
       })}
 
       <p className="pt-2 text-[11px] text-slate-400">
-        Den mørke bjælke viser modellens gennemsnit, og den lyse markering viser {rangeLabel.toLowerCase()}.
+        {formatMessage("modelSummary.description", { rangeLabel: rangeLabel.toLowerCase() })}
       </p>
     </div>
   );

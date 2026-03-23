@@ -68,6 +68,65 @@ export default function MetoderPage() {
             .
           </p>
         </div>
+
+        <div className="space-y-4">
+          <h2 className="text-xl font-semibold text-slate-900">
+            Sådan laver modellen en prognose
+          </h2>
+
+          <p>
+            Det vægtede gennemsnit er kun første skridt. Selve prognosemodellen prøver
+            derefter at svare på et lidt større spørgsmål: Hvis der var valg i dag, hvad
+            er så det mest sandsynlige resultat?
+          </p>
+
+          <p>
+            Modellen tager udgangspunkt i de nyeste meningsmålinger, men den kigger også
+            på, om nogle analyseinstitutter ofte ligger lidt højere eller lavere for bestemte
+            partier. På den måde forsøger modellen at skelne mellem en reel bevægelse i
+            vælgerne og forskelle i måden, målingerne bliver lavet på.
+          </p>
+
+          <p>
+            Samtidig bruger modellen tidligere valgresultater som et slags startpunkt. Det
+            gør især en forskel, når der er få friske målinger, eller når usikkerheden er
+            stor. Historikken bestemmer ikke resultatet, men hjælper modellen med at holde
+            sig til det, der virker realistisk.
+          </p>
+
+          <p>
+            I stedet for kun at lave ét enkelt bud beregner modellen mange mulige valgudfald.
+            Nogle udfald giver lidt mere til et parti, andre lidt mindre. Til sidst samles
+            de mange beregninger til det gennemsnit og det usikkerhedsinterval, der vises på
+            siden.
+          </p>
+
+          <p>
+            Når stemmeprognosen er klar, bliver den oversat til mandater. Her tager modellen
+            højde for, at mandater fordeles i storkredse og ikke kun på landsplan. Derfor kan
+            to partier med næsten samme stemmeandel godt ende med forskelligt antal mandater.
+          </p>
+
+          <p className="text-sm text-slate-500 pt-2">
+            Den fulde implementering kan ses i{" "}
+            <InlineLink href="https://github.com/aleksanderbl29/hvemvindervalget.dk/blob/main/pipeline/R/model.R">
+              model.R
+            </InlineLink>
+            ,{" "}
+            <InlineLink href="https://github.com/aleksanderbl29/hvemvindervalget.dk/blob/main/pipeline/R/national_prior.R">
+              national_prior.R
+            </InlineLink>
+            ,{" "}
+            <InlineLink href="https://github.com/aleksanderbl29/hvemvindervalget.dk/blob/main/pipeline/R/storkreds_prior.R">
+              storkreds_prior.R
+            </InlineLink>{" "}
+            og{" "}
+            <InlineLink href="https://github.com/aleksanderbl29/hvemvindervalget.dk/blob/main/pipeline/R/seats.R">
+              seats.R
+            </InlineLink>
+            .
+          </p>
+        </div>
       </section>
     </main>
   );

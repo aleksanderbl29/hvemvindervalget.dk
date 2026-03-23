@@ -1,4 +1,5 @@
 import { VoteShareBarChart } from "@/components/charts/VoteShareBarChart";
+import { formatMessage } from "@/data/messages";
 import { SeatHalfCircleDotPlot } from "@/components/charts/SeatHalfCircleDotPlot";
 import type { ModelSummaryDatum } from "@/components/charts/ModelSummaryBarChart";
 import { InlineLink } from "@/components/ui/InlineLink";
@@ -263,7 +264,7 @@ export async function ModelLandingPage() {
         {!databaseConfigured ? (
           <section className="rounded-3xl border border-slate-200 bg-white/80 p-6 shadow-sm">
             <p className="text-sm text-slate-500">
-              Modellen kan ikke vises endnu, fordi `DATABASE_URL` ikke er sat for websitet.
+              {formatMessage("modelLanding.databaseNotConfigured")}
             </p>
           </section>
         ) : (
