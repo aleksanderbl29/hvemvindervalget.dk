@@ -94,18 +94,6 @@ export function ModelSummaryBarChart({
             </div>
 
             <div className="relative h-7 overflow-hidden rounded-sm bg-slate-100">
-              {entry.lowerBound !== null && entry.upperBound !== null ? (
-                <div
-                  className="absolute inset-y-1 rounded-sm opacity-25"
-                  style={{
-                    left: `${intervalLeft}%`,
-                    width: `${Math.max(intervalWidth, 1)}%`,
-                    backgroundColor: color,
-                  }}
-                  aria-hidden="true"
-                />
-              ) : null}
-
               <div
                 className="absolute inset-y-0 left-0 rounded-sm opacity-80"
                 style={{
@@ -114,6 +102,18 @@ export function ModelSummaryBarChart({
                 }}
                 aria-hidden="true"
               />
+
+              {entry.lowerBound !== null && entry.upperBound !== null ? (
+                <div
+                  className="absolute inset-y-1 rounded-sm opacity-40"
+                  style={{
+                    left: `${intervalLeft}%`,
+                    width: `${Math.max(intervalWidth, 1)}%`,
+                    backgroundColor: color,
+                  }}
+                  aria-hidden="true"
+                />
+              ) : null}
 
               <div
                 className="absolute inset-y-0 w-0.5 bg-slate-900/60"
