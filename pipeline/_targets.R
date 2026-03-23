@@ -11,6 +11,8 @@ tar_option_set(
     "glue",
     "dkstat",
     "geodk",
+    "cmdstanr",
+    "posterior",
     "lubridate",
     "httr2",
     "tibble",
@@ -46,10 +48,13 @@ list(
   tar_target(this_week, week(today("CET"))),
   tar_target(run_date, today()),
   tar_target(election_day, dmy("24-03-2026")),
+  tar_target(model_lookback_days, 365),
 
   # Set options for runtime and estimation
-  tar_target(n_chains, 4),
+  tar_target(n_chains, 6),
   tar_target(n_cores, getOption("mc.cores")),
+  # tar_target(n_warmup, 250),
+  # tar_target(n_iter, 1000),
   tar_target(n_warmup, 1000),
   tar_target(n_iter, 3500),
   tar_target(n_sampling, n_iter * 0.1),
@@ -77,13 +82,17 @@ list(
     get_data_csv(election_overview),
     pattern = map(election_overview)
   ),
-  tar_target(
-    coalitions,
-    get_coalitions(election_overview),
-    pattern = map(election_overview)
-  ),
+  # tar_target(
+  #   coalitions,
+  #   get_coalitions(election_overview),
+  #   pattern = map(election_overview)
+  # ),
 
   # Election results
+  tar_target(
+    dst_population_metadata,
+    get_dst_table_metadata("FOLK1D", geo = TRUE)
+  ),
   tar_file_read(election_dates, "data/dst/Valg.csv", read_election_dates(!!.x)),
   tar_file_read(
     election_results,
@@ -94,6 +103,7 @@ list(
 
   # Parties
   tar_target(parties, get_parties()),
+  tar_target(forecast_parties, get_forecast_parties(parties, election_day)),
 
   # Polls
   ## Verian
@@ -172,17 +182,79 @@ list(
   ),
 
   # Calculate prior
-  tar_target(prior_model, fit_prior_model(mcp_hist_results)),
-  tar_target(prior, predict_priors(prior_model, mcp_hist_results)),
-  tar_target(prior_draws, draw_from_prior_model(prior_model)),
+  tar_target(
+    national_results,
+    get_national_results(election_results, forecast_parties)
+  ),
+  tar_target(
+    national_prior,
+    build_national_prior(national_results, forecast_parties, house_effects)
+  ),
+  tar_target(
+    prior_poll_comparison,
+    compare_prior_to_polling(national_prior, weighted_poll)
+  ),
 
   # Run model
-  tar_target(model, run_model(prior_draws, polls, election_day))
-  # tar_target(
-  #   hierarchical_model,
-  #   run_hierarchical_model(polls, election_day, election_results)
-  # ),
-  # tar_target(another_model, run_another_model(polls, election_day))
-
-  # tar_target(mu_b_prior, get_mu_b_prior(house_effects)
+  tar_target(
+    model_diagnostics,
+    diagnose_model_inputs(
+      polls,
+      forecast_parties,
+      election_day,
+      model_lookback_days
+    )
+  ),
+  tar_target(
+    model_inputs,
+    prepare_model_inputs(
+      polls,
+      forecast_parties,
+      election_day,
+      model_lookback_days
+    )
+  ),
+  tar_target(stan_file, "stan/denmark_election_model.stan", format = "file"),
+  tar_target(stan_data, make_stan_data(model_inputs, national_prior)),
+  tar_target(
+    model,
+    run_model(
+      stan_file,
+      stan_data,
+      n_chains = n_chains,
+      n_cores = n_cores,
+      n_warmup = n_warmup,
+      n_iter = n_iter,
+      n_refresh = n_refresh
+    )
+  ),
+  tar_target(
+    vote_forecast_draws,
+    extract_vote_forecast_draws(model, forecast_parties)
+  ),
+  tar_target(
+    vote_forecast_summary,
+    summarise_vote_forecast_draws(vote_forecast_draws)
+  ),
+  tar_target(
+    estimated_house_effect_draws,
+    extract_house_effect_draws(
+      model,
+      forecast_parties,
+      model_inputs$pollster_lookup
+    )
+  ),
+  tar_target(
+    estimated_house_effect_summary,
+    summarise_house_effect_draws(estimated_house_effect_draws)
+  ),
+  tar_target(
+    seat_draws,
+    simulate_folketing_seats(
+      vote_forecast_draws,
+      election_results,
+      forecast_parties
+    )
+  ),
+  tar_target(seat_summary, summarise_seat_draws(seat_draws))
 )

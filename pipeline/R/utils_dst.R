@@ -13,3 +13,11 @@ bulk_get_dst_table <- function(table) {
     format = "BULK"
   )
 }
+
+get_dst_table_metadata <- function(table, geo = FALSE, lang = "da") {
+  dst_meta(
+    table = table,
+    geo = geo,
+    lang = lang
+  )
+}

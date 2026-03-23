@@ -13,6 +13,8 @@ export interface Party {
   shortName: string;
   /** Brand color (hex) */
   color: string;
+  /** Approximate left-right placement for chamber/order visualizations */
+  leftRightScale?: number;
   /** Official party website */
   url?: string;
 }
@@ -23,6 +25,7 @@ export const PARTIES: Party[] = [
     name: "Socialdemokratiet",
     shortName: "Socialdemokratiet",
     color: "#C0222B",
+    leftRightScale: 4,
     url: "https://www.socialdemokratiet.dk",
   },
   {
@@ -30,6 +33,7 @@ export const PARTIES: Party[] = [
     name: "Venstre",
     shortName: "Venstre",
     color: "#003B8A",
+    leftRightScale: 7,
     url: "https://www.venstre.dk",
   },
   {
@@ -37,6 +41,7 @@ export const PARTIES: Party[] = [
     name: "Moderaterne",
     shortName: "Moderaterne",
     color: "#8B3F8B",
+    leftRightScale: 6,
     url: "https://moderaterne.dk",
   },
   {
@@ -44,6 +49,7 @@ export const PARTIES: Party[] = [
     name: "SF – Socialistisk Folkeparti",
     shortName: "SF",
     color: "#E8005A",
+    leftRightScale: 3,
     url: "https://sf.dk",
   },
   {
@@ -51,6 +57,7 @@ export const PARTIES: Party[] = [
     name: "Danmarksdemokraterne",
     shortName: "Danmarksdemokraterne",
     color: "#235789",
+    leftRightScale: 9,
     url: "https://danmarksdemokraterne.dk",
   },
   {
@@ -58,6 +65,7 @@ export const PARTIES: Party[] = [
     name: "Liberal Alliance",
     shortName: "Liberal Alliance",
     color: "#00A8CC",
+    leftRightScale: 10,
     url: "https://liberalalliance.dk",
   },
   {
@@ -65,6 +73,7 @@ export const PARTIES: Party[] = [
     name: "Det Konservative Folkeparti",
     shortName: "Konservative",
     color: "#1D5E2A",
+    leftRightScale: 8,
     url: "https://konservative.dk",
   },
   {
@@ -72,6 +81,7 @@ export const PARTIES: Party[] = [
     name: "Enhedslisten",
     shortName: "Enhedslisten",
     color: "#E5383B",
+    leftRightScale: 1,
     url: "https://enhedslisten.dk",
   },
   {
@@ -79,6 +89,7 @@ export const PARTIES: Party[] = [
     name: "Radikale Venstre",
     shortName: "Radikale",
     color: "#C0277E",
+    leftRightScale: 5,
     url: "https://www.radikale.dk",
   },
   {
@@ -86,6 +97,7 @@ export const PARTIES: Party[] = [
     name: "Borgernes Parti",
     shortName: "Borgernes Parti",
     color: "#2E4057",
+    leftRightScale: 12,
     url: "https://borgernes-parti.dk",
   },
   {
@@ -93,6 +105,7 @@ export const PARTIES: Party[] = [
     name: "Alternativet",
     shortName: "Alternativet",
     color: "#2BAE66",
+    leftRightScale: 2,
     url: "https://alternativet.dk",
   },
   {
@@ -100,6 +113,7 @@ export const PARTIES: Party[] = [
     name: "Dansk Folkeparti",
     shortName: "Dansk Folkeparti",
     color: "#E8A400",
+    leftRightScale: 11,
     url: "https://www.danskfolkeparti.dk",
   },
   {
