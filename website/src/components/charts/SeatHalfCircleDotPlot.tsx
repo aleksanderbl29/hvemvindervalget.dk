@@ -38,11 +38,6 @@ function hexToRgba(hex: string, alpha: number): string {
   return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 }
 
-function formatSeatValue(value: number | null): string {
-  if (value === null) return "–";
-  return value.toFixed(1);
-}
-
 function allocateSeats(data: ModelSummaryDatum[]): SeatAllocation[] {
   const sorted = [...data]
     .filter((entry) => entry.value > 0)
@@ -229,14 +224,10 @@ export function SeatHalfCircleDotPlot({ data }: SeatHalfCircleDotPlotProps) {
                 <p className="truncate text-sm font-medium text-slate-800">
                   {PARTY_BY_CODE[entry.partyCode]?.shortName ?? entry.partyName}
                 </p>
-                <p className="text-xs text-slate-500">
-                  10.-90. percentil: {formatSeatValue(entry.lowerBound)} - {formatSeatValue(entry.upperBound)}
-                </p>
               </div>
             </div>
             <div className="text-right">
               <p className="text-sm font-semibold text-slate-800">{entry.seats}</p>
-              <p className="text-xs text-slate-500">{entry.meanSeats.toFixed(1)} i snit</p>
             </div>
           </div>
         ))}

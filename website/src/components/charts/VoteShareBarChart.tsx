@@ -91,14 +91,6 @@ export function VoteShareBarChart({ data }: VoteShareBarChartProps) {
             strokeDasharray="3 3"
             opacity="0.45"
           />
-          <text
-            x={margin.left + innerWidth - 4}
-            y={cutoffY - 6}
-            textAnchor="end"
-            className="fill-slate-600 text-[10px] font-medium"
-          >
-            2% spærregrænse
-          </text>
 
           {sortedData.map((entry, index) => {
             const xCenter = margin.left + slotWidth * index + slotWidth / 2;
