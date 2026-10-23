@@ -29,7 +29,6 @@ export function SiteHeader() {
   useEffect(() => {
     // Lightweight logging to validate that header re-renders track route changes
     // and to confirm when we're relying on the View Transitions API.
-    // eslint-disable-next-line no-console
     console.log("[SiteHeader] pathname changed", {
       pathname,
       supportsViewTransitions:
