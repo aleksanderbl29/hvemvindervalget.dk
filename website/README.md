@@ -24,7 +24,7 @@ nix develop -c pnpm --dir website dev        # http://localhost:3000
 | `nix develop -c pnpm --dir website dev`     | Start Next dev server                 |
 | `nix develop -c pnpm --dir website build`   | Production build                      |
 | `nix develop -c pnpm --dir website start`   | Run the compiled server               |
-| `nix develop -c pnpm --dir website lint`    | Run `next lint`                       |
+| `nix develop -c pnpm --dir website lint`    | Run `eslint . --max-warnings=0`       |
 | `nix develop -c pnpm --dir website typecheck` | Run TypeScript in `--noEmit` mode   |
 
 ## Environment variables
