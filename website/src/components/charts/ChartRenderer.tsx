@@ -32,7 +32,7 @@ export function ChartRenderer({ chart, preferredLibrary }: ChartRendererProps) {
   return (
     <div className="flex h-[320px] flex-col items-center justify-center gap-2 text-sm text-slate-500">
       <p>
-        {resolvedLibrary.label} er markeret som "{resolvedLibrary.status}" -
+        {resolvedLibrary.label} er markeret som &quot;{resolvedLibrary.status}&quot; -
         adapteren er ikke klar endnu.
       </p>
       <p>Registreret diagram-id: {chart.id}</p>

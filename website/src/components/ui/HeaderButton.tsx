@@ -33,7 +33,6 @@ export function HeaderButton({
 
     // Basic logging so we can see how often and from where nav clicks happen.
     // This helps validate that the nav-based view transitions are wired correctly.
-    // eslint-disable-next-line no-console
     console.log("[HeaderButton] navigate", {
       from: pathname,
       to: href,
