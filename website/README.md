@@ -6,6 +6,7 @@ Dashboard frontend for `api.hvemvindervalget.dk`, built with the Next.js App Rou
 
 - Node.js 24 from the repository Nix shell
 - PNPM `^10`
+- Nix with `nix-command` and `flakes` enabled. Add `experimental-features = nix-command flakes` to `~/.config/nix/nix.conf`.
 - API access to `https://api.hvemvindervalget.dk`
 
 ## Setup
