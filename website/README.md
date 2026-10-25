@@ -4,27 +4,27 @@ Dashboard frontend for `api.hvemvindervalget.dk`, built with the Next.js App Rou
 
 ## Requirements
 
-- Node `v20.18.0` (`nvm use` reads `.nvmrc`)
+- Node.js 24 from the repository Nix shell
 - PNPM `^10`
 - API access to `https://api.hvemvindervalget.dk`
 
 ## Setup
 
 ```bash
-cp env.example .env.local   # populate API + feature flags
-pnpm install
-pnpm dev                    # http://localhost:3000
+nix develop -c pnpm --dir website install
+cp website/env.example website/.env.local   # populate API + feature flags
+nix develop -c pnpm --dir website dev        # http://localhost:3000
 ```
 
 ## Scripts
 
 | Command        | Description                           |
 | -------------- | ------------------------------------- |
-| `pnpm dev`     | Start Next dev server                 |
-| `pnpm build`   | Production build                      |
-| `pnpm start`   | Run the compiled server               |
-| `pnpm lint`    | Run `next lint`                       |
-| `pnpm typecheck` | Run TypeScript in `--noEmit` mode   |
+| `nix develop -c pnpm --dir website dev`     | Start Next dev server                 |
+| `nix develop -c pnpm --dir website build`   | Production build                      |
+| `nix develop -c pnpm --dir website start`   | Run the compiled server               |
+| `nix develop -c pnpm --dir website lint`    | Run `next lint`                       |
+| `nix develop -c pnpm --dir website typecheck` | Run TypeScript in `--noEmit` mode   |
 
 ## Environment variables
 
